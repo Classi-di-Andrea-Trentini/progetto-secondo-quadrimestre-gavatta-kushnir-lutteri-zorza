@@ -26,9 +26,10 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
-            ],
+            "styles": ["src/styles.css",
+            "bootstrap/dist/css/bootstrap.min.css"
+            
+          ],
             "scripts": []
           },
           "configurations": {
@@ -84,13 +85,18 @@
                 "input": "public"
               }
             ],
-            "styles": [
-              "src/styles.css"
+            "styles": 
+            [
+              "src/styles.css",
+              "bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
