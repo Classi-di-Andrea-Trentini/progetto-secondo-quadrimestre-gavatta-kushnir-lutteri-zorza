@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import {} from '@angular/material/menu';
-import { RouterLink, RouterLinkActive } from '@angular/router';
 
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -12,7 +11,5 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class MenuComponent {
   immagine = '/logo.png';
   menuOpen = false;
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-  }
+
 }

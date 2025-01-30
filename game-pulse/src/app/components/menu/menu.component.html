@@ -1,0 +1,31 @@
+<div class="navbar">
+  <img [src]="immagine" class="logo">
+  <div class="search-bar">
+      <input type="text" placeholder="Cerca...">
+  </div>
+  <a href="#" class="square" (click)="menuOpen = !menuOpen">
+    <div class="burgerwrap">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </a>
+  <div class="menu">
+    <button class="shadow__btn">Home</button>
+    <button class="shadow__btn">Statistiche</button>
+    <button class="shadow__btn">Categorie</button>
+    <button class="shadow__btn">Giochi</button>
+    <button class="shadow__btn">Account</button>
+    <button class="shadow__btn">Login</button>
+  </div>
+</div>
+@if(menuOpen == true){
+  <div class="menu2" [class.open]="menuOpen">
+    <button class="shadow__btn">Home</button>
+    <button class="shadow__btn">Statistiche</button>
+    <button class="shadow__btn">Categorie</button>
+    <button class="shadow__btn">Giochi</button>
+    <button class="shadow__btn">Account</button>
+    <button class="shadow__btn">Login</button>
+  </div>
+}
