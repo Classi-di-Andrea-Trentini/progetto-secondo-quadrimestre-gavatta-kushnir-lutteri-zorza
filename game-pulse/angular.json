@@ -26,10 +26,11 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css",
-            "bootstrap/dist/css/bootstrap.min.css"
-            
-          ],
+            "styles": [
+              "src/custom-theme.scss",
+              "src/styles.css",
+              "bootstrap/dist/css/bootstrap.min.css"
+            ],
             "scripts": []
           },
           "configurations": {

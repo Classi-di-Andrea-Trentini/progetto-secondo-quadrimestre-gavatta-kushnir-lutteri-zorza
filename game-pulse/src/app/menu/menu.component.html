@@ -5,19 +5,19 @@
   </div>
   <button class="burger-menu" (click)="toggleMenu()">&#9776;</button>
   <div class="menu">
-      <div class="menu-item">Fortnite</div>
-      <div class="menu-item">BattlePass</div>
-      <div class="menu-item">Cicciogaer</div>
-      <div class="menu-item">Resident Evil</div>
-      <div class="menu-item">I dont know</div>
+    <button class="menu-item" routerLink="/search" routerLinkActive="active">Fortnite</button>
+    <button class="menu-item" routerLink="/search" routerLinkActive="active">BattlePass</button>
+    <button class="menu-item" routerLink="/search" routerLinkActive="active">Cicciogaer</button>
+    <button class="menu-item" routerLink="/search" routerLinkActive="active">Resident Evil</button>
+    <button class="menu-item"routerLink="/search" routerLinkActive="active">I dont know</button>
   </div>
 </div>
 @if(menuOpen == true){
   <div class="menu2" [class.open]="menuOpen">
-    <div class="menu-item">Fortnite</div>
-    <div class="menu-item">BattlePass</div>
-    <div class="menu-item">Cicciogaer</div>
-    <div class="menu-item">Resident Evil</div>
-    <div class="menu-item">I dont know</div>
+    <button class="menu-item" routerLink="/search" routerLinkActive="active">Fortnite</button>
+    <button class="menu-item" routerLink="/search" routerLinkActive="active">BattlePass</button>
+    <button class="menu-item" routerLink="/search" routerLinkActive="active">Cicciogaer</button>
+    <button class="menu-item" routerLink="/search" routerLinkActive="active">Resident Evil</button>
+    <button class="menu-item"routerLink="/search" routerLinkActive="active">I dont know</button>
   </div>
 }
