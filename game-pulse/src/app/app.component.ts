@@ -2,10 +2,11 @@ import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { OpenaiService } from './services/openai.service';
 import { IAIResponse } from './interfaces/i-airesponse';
+import { MenuComponent } from './menu/menu.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [MenuComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
