@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IAIResponse } from '../interfaces/i-airesponse';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class OpenaiService {
 
 
 
-  ask(prompt: string): Observable<any> {
+  ask(prompt: string): Observable<IAIResponse> {
     const headers: HttpHeaders = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Authorization', `Bearer ${this.apiKey}`)
@@ -28,7 +29,7 @@ export class OpenaiService {
       ]
     }
 
-    return this.httpClient.post(this.openAIURL, body, {
+    return this.httpClient.post<IAIResponse>(this.openAIURL, body, {
       headers: headers
     });
   }

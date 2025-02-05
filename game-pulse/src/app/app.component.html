@@ -1,1 +1,18 @@
-<button (click)="testAI()">Test AI</button>
+<div class="container">
+    <div>        
+        <button class="btn btn-primary" (click)="testAI()">Test AI</button>
+    </div>
+    @if(iaResponse()) {
+        <div>
+            <p>
+                {{iaResponse()?.choices?.[0]?.message?.content}}
+            </p>
+        </div>
+    }
+    @if(viewSpinner()) {
+        <div class="d-flex align-items-center">
+            <strong role="status">Loading...</strong>
+            <div class="spinner-border ms-auto" aria-hidden="true"></div>
+        </div>
+    }
+</div>

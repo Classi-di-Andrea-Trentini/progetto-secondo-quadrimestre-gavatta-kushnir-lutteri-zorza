@@ -1,0 +1,13 @@
+POST https://openrouter.ai/api/v1/chat/completions
+Content-Type: application/json
+Authorization: Bearer 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
+
+{
+    model: 'deepseek/deepseek-r1',
+    messages: [
+        {
+          role: 'user',
+          'content': 'Dimmi cosa sei in grado di fare. Formatta la risposta in text'
+        }
+    ]
+}
