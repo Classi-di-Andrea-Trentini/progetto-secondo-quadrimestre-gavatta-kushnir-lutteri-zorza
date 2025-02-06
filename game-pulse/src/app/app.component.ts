@@ -1,7 +1,7 @@
-import { Component, inject, signal, WritableSignal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { OpenaiService } from './services/openai.service';
+import { Component, inject } from '@angular/core';
+import { signal, WritableSignal } from '@angular/core';
 import { IAIResponse } from './interfaces/i-airesponse';
+import { OpenaiService } from './services/openai.service';
 import { MenuComponent } from './menu/menu.component';
 
 @Component({
@@ -15,6 +15,7 @@ export class AppComponent {
   iaResponse: WritableSignal<IAIResponse | null> = signal(null);
   viewSpinner: WritableSignal<boolean> = signal<boolean>(false);
   openaiService: OpenaiService = inject(OpenaiService);
+  userInput: string = '';
 
   testAI() {
     this.viewSpinner.set(true);
@@ -22,5 +23,19 @@ export class AppComponent {
       this.iaResponse.set(result);
       this.viewSpinner.set(false);
     })
+  }
+
+  onInputChange(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.userInput = inputElement.value;
+  }
+
+  searchText() {
+    const query = this.userInput;
+    this.viewSpinner.set(true);
+    this.openaiService.ask(query).subscribe(result => {
+      this.iaResponse.set(result);
+      this.viewSpinner.set(false);
+    });
   }
 }
