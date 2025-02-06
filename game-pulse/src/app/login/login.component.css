@@ -69,7 +69,7 @@ body {
   margin: 0 auto; 
 }
 
-input {
+#passwordField, #emailField {
   padding: 15px;
   color: white;
   font-size: medium;
@@ -101,7 +101,13 @@ input {
   transform: translateX(-50%);
 }
 
-
+.mostrapassword{
+  display: flex;
+  align-items: center;
+  margin: 30px;
+  gap: 20px;
+  justify-content: center;
+}
 
 
 

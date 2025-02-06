@@ -7,19 +7,20 @@
       <div class="email-text">
         <p>Email</p>
       </div>
-      <input type="text" /><!-- [(ngModel)]="email" -->
+      <input type="text" id="emailField"/><!-- [(ngModel)]="email" -->
     </div>
     <div class="password">
       <div class="password-text">
         <p>Password</p>
       </div>
 
-      <input
-        [type]="showPassword ? 'text' : 'password'"
-      /><!-- [(ngModel)]="password" -->
-      <input type="checkbox" (click)="togglePasswordVisibility()" /> Mostra
-      password
+      <input id="passwordField" [type]="showPassword ? 'text' : 'password'" />
+      <div class="mostrapassword">
+        <input type="checkbox"  (click)="togglePasswordVisibility()" />
+        <p>Mostra password</p>
+      </div>
     </div>
+
     <div class="buttonlogincontainer">
       <button class="button-27" role="button">
         <!-- (click)="login()" -->
