@@ -157,7 +157,7 @@ input {
 }
 
 
-@media (max-width: 602px) {
+/* @media (max-width: 602px) {
   #sfondo {
     height: 100vh;
     width: 100%;
@@ -175,4 +175,4 @@ input {
     left: 50%;
     transform: translate(-50%, -50%);
   }
-}
+} */
