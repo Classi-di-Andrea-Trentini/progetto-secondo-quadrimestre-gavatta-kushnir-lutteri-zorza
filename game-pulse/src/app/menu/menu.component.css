@@ -335,35 +335,64 @@ img{
 }
 
 .sidebar {
+  width: 250px;
   height: 100%;
-  width: 0;
   position: fixed;
-  z-index: 1;
   top: 0;
-  right: 0;
-  background-color: #111;
+  right: -250px;
+  background: linear-gradient(to bottom, #000080, #0000FF); /* Da blu notte a blu */
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
 }
 
 .sidebar.open {
-  width: 250px;
+  right: 0;
 }
 
-.sidebar p {
+.sidebar .container {
   color: white;
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  display: block;
-  transition: 0.3s;
 }
 
-.container-fluid {
-  transition: margin-right 0.5s;
+.sidebar .intro-message {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.container-fluid.sidebar-open {
-  margin-right: 250px;
+.sidebar .intro-message h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.sidebar .intro-message p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.sidebar .input-group {
+  margin-bottom: 20px;
+}
+
+.sidebar .btn-primary {
+  background-color: #4CAF50;
+  border: none;
+}
+
+.sidebar .btn-primary:hover {
+  background-color: #45a049;
+}
+
+.sidebar .response-box {
+  background-color: #fff;
+  color: #000;
+}
+
+.sidebar .d-flex {
+  margin-top: 20px;
+}
+
+.sidebar .spinner-border {
+  width: 3rem;
+  height: 3rem;
+  border-width: 0.3rem;
 }

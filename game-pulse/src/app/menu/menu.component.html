@@ -82,25 +82,33 @@
     </div>
   </div>
   <div class="sidebar" [class.open]="sidebarOpen">
-    <div id="ai" class="container mt-5">
-      <div class="input-group mb-3">
-          <input type="text" class="form-control" [value]="userInput" (input)="onInputChange($event)" placeholder="Inserisci il tuo input">
-          <button class="btn btn-primary" (click)="searchText()">Cerca</button>
+    <div id="ai" class="container mt-5 d-flex flex-column justify-content-between h-100">
+      <div>
+        <div class="intro-message">
+          <h2>Ciao,<br>Come posso aiutarti oggi?</h2>
+          <p>Scrivi un sonetto in stile shakespeariano sugli smartphone<br>Suggerisci 10 costumi di Halloween creativi per bambini<br>Delinea una roadmap per principianti per apprendere la finanza personale</p>
+        </div>
       </div>
-      @if(iaResponse()) {
-          <div>
-              <p>
-                  {{iaResponse()?.choices?.[0]?.message?.content}}
-              </p>
-          </div>
-      }
-      @if(viewSpinner()) {
-          <div class="d-flex align-items-center">
-              <strong role="status">Loading...</strong>
+      <div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" [value]="userInput" (input)="onInputChange($event)" placeholder="Cerca...">
+          <button class="btn btn-primary" (click)="searchText()">Cerca</button>
+        </div>
+        <div class="response-box mt-3 p-3 border rounded">
+          @if(iaResponse()) {
+            <p>
+              {{iaResponse()?.choices?.[0]?.message?.content}}
+            </p>
+          }
+          @if(viewSpinner()) {
+            <div class="d-flex align-items-center">
+              <strong role="status">Caricamento...</strong>
               <div class="spinner-border ms-auto" aria-hidden="true"></div>
-          </div>
-      }
-  </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
   </div>
   @if(menuOpen == true){
     <div class="menu2" [class.open]="menuOpen">
