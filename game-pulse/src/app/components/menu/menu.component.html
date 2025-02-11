@@ -36,11 +36,7 @@
 @if(gameList()){
   <div style="justify-content: center; align-items: center">
       <div class ="list-group">
-          <!-- artistList potrenne esssere null, quindi non avere le proprietà artists e items
-            Quando eseguo il ciclo devo quindi controllare che effetivamente artistList() non sia null
-            quindi abbia artists e poi items 
-            Questo controllo lo faccio scrivendo aritstList()? che restituisce un dato di tipo ISearch se
-            diverso da null altrimenti un valore nullable che annulla l'esecuzione del ciclo for -->
+        
           @for(game of gameList()?.results; track $index){
               <a class="list-group-item list-group-item-action" >
                   <div class="d-flex w-100 justify-content-between">
