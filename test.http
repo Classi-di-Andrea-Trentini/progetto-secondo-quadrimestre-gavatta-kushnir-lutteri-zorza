@@ -1,0 +1,8 @@
+###
+GET https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy
+Authorization: Bearer BQDj-UcUQhfHLeAYh94EoMosuBFOFI6i89dtvOeIDNEaOU-lgDMmsHMNp_u3WgkKflOpWNr4sYSnhmozCOhriEh8HRLYbC41xQ2m8N8hUwhjbKWuzNc
+
+
+
+###
+GET https://api.rawg.io/api/games?key=9abd9c1ccd8c48a88b995b17c20b2d94&search=lea
