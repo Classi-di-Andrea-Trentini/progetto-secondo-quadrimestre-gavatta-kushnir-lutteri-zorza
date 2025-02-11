@@ -7,14 +7,14 @@ import { SearchGames } from './search-games';
 })
 export class GamePulseService {
 
+  private url: string = "https://api.rawg.io/api/games?key=9abd9c1ccd8c48a88b995b17c20b2d94"
+  private key: string = "key=9abd9c1ccd8c48a88b995b17c20b2d94" // e' una key che si richiede una volta solo quindi lo gia messo nel url
   constructor() { }
-  private url = "https://api.rawg.io/api/games?key=9abd9c1ccd8c48a88b995b17c20b2d94"
-  private key = "key=9abd9c1ccd8c48a88b995b17c20b2d94" // e' una key che si richiede una volta solo quindi lo gia messo nel url
-
   private httpClient: HttpClient = inject(HttpClient);
 
   searchGame(name: string): Observable<SearchGames> {
-    return this.httpClient.get<SearchGames>(`${this.url}&search=${name}`);
+    const urlcompleted = `${this.url}&search=${encodeURIComponent(name)}`;
+    return this.httpClient.get<SearchGames>(urlcompleted);
   }
 
 }

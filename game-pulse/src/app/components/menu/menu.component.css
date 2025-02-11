@@ -278,3 +278,27 @@ img{
   transition-delay: 0.3s;
 }
  
+
+.list-group {
+  display: flex;
+  max-height: 300px; /* Altezza massima della lista */
+  overflow-y: auto; /* Abilita lo scorrimento verticale */
+  margin-top: 100px;
+  z-index: 1000; /* Assicura che la lista sia sopra altri elementi */
+  background-color: white; /* Sfondo bianco per la lista */
+  border: 1px solid #ddd; /* Bordo per la lista */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aggiunge un'ombra per la lista */
+  max-width: 50%;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-group-item {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 0; /* Rimuove il margine inferiore */
+}
+
+.list-group-item:hover {
+  background-color: #e9ecef;
+}
