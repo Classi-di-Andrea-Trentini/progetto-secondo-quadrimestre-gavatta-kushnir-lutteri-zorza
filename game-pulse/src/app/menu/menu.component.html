@@ -85,27 +85,38 @@
     <div id="ai" class="container mt-5 d-flex flex-column justify-content-between h-100">
       <div>
         <div class="intro-message">
-          <h2>Ciao,<br>Come posso aiutarti oggi?</h2>
-          <p>Scrivi un sonetto in stile shakespeariano sugli smartphone<br>Suggerisci 10 costumi di Halloween creativi per bambini<br>Delinea una roadmap per principianti per apprendere la finanza personale</p>
+          <h2>Ciao sono GamePulseAI.<br>Come posso aiutarti oggi?</h2>
         </div>
       </div>
-      <div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" [value]="userInput" (input)="onInputChange($event)" placeholder="Cerca...">
-          <button class="btn btn-primary" (click)="searchText()">Cerca</button>
-        </div>
+      <div class="response-container">
         <div class="response-box mt-3 p-3 border rounded">
-          @if(iaResponse()) {
-            <p>
-              {{iaResponse()?.choices?.[0]?.message?.content}}
-            </p>
-          }
-          @if(viewSpinner()) {
-            <div class="d-flex align-items-center">
-              <strong role="status">Caricamento...</strong>
-              <div class="spinner-border ms-auto" aria-hidden="true"></div>
+          @if(aiResponse() == null && isLoading) {
+            <div class="spinner-container">
+              <div class="spinner">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+              <div class="loading-text">Caricamento...</div>
             </div>
           }
+          @if(aiResponse() != null) {
+            <div [innerHTML]="aiResponse()?.choices?.[0]?.message?.content"></div>
+          }
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" [value]="queryText" (input)="handleQueryChange($event)" placeholder="Cerca..." [disabled]="isLoading">
+          <button class="btn btn-primary" (click)="executeSearch()" [disabled]="isLoading">
+            @if(!isLoading) {
+              Cerca
+            }
+            @if(isLoading) {
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            }
+          </button>
         </div>
       </div>
     </div>

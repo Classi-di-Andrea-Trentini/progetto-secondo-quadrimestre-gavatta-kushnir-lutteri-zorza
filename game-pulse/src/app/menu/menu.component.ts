@@ -26,10 +26,10 @@ export class MenuComponent {
   
     testAI() {
       this.viewSpinner.set(true);
-      this.openaiService.ask('Che cosa sei in grado di fare? Formatta la risposta in text.').subscribe(result => {
+      this.openaiService.ask('Che cosa sei in grado di fare? Formatta la risposta in HTML.').subscribe(result => {
         this.iaResponse.set(result);
         this.viewSpinner.set(false);
-      })
+      });
     }
   
     onInputChange(event: Event) {
@@ -45,4 +45,27 @@ export class MenuComponent {
         this.viewSpinner.set(false);
       });
     }
-}
+
+    queryText: string = '';
+   isLoading: boolean = false;
+    aiResponse: WritableSignal<IAIResponse | null> = signal(null);
+
+  handleQueryChange(event: Event) {
+    const inputElement = event.target as HTMLInputElement;
+    this.queryText = inputElement.value;
+  }
+
+  executeSearch() {
+    const query = this.queryText;
+    this.isLoading = true;
+    this.queryText = '';
+    this.aiResponse.set(null); // Resetta la risposta
+
+    this.openaiService.ask(query).subscribe(result => {
+      this.aiResponse.set(result);
+      this.isLoading = false;
+    });
+  }
+    }
+
+
