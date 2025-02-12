@@ -1,11 +1,9 @@
 <div class="navbar">
   <img [src]="immagine" class="logo">
-  <div class="search-bar">
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label"></label>
-        <input type="text" class="form-control" id="gameName" placeholder="name..." [formControl] ="gameName">
+  <div class="search-container">
+      <label for="exampleFormControlInput1" class="form-label"></label>
+      <input type="text" class="form-control" id="gameName" placeholder="name..." [formControl] ="gameName">
     </div>
-</div>
   <a href="#" class="square" (click)="menuOpen = !menuOpen">
     <div class="burgerwrap">
       <span></span>
@@ -33,17 +31,19 @@
   </div>
 }
 
+
+
+<div class="list-group-container">
 @if(gameList()){
-  <div style="justify-content: center; align-items: center">
-      <div class ="list-group">
-        
-          @for(game of gameList()?.results; track $index){
-              <a class="list-group-item list-group-item-action" >
-                  <div class="d-flex w-100 justify-content-between">
-                      <h5 class="mb-1">{{game.name}}</h5>
+  <div class ="list-group">     
+        @for(game of gameList()?.results; track $index){
+            <button [routerLink] = "['/game/',game.name]" class="list-group-item list-group-item-action">
+                  <div class="d-flex justify-content-between">
+                      <img [src]="game.background_image" class="game-img">
+                      <p>{{game.name}} </p>
                   </div>
-              </a>
-          }
-      </div>
+          </button>
+        }
   </div>
 }
+</div>
