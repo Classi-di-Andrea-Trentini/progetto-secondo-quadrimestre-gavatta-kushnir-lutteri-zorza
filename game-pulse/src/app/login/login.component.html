@@ -1,32 +1,23 @@
-<div id="sfondo">
-  <div class="container">
-    <div class="title">
-      <div class="login">Login</div>
+<div id="sfondo" class="d-flex justify-content-center align-items-center vh-100">
+  <div class="container bg-dark bg-opacity-50 p-4 rounded" style="max-width: 400px;">
+    <div class="title text-center mb-4">
+      <div class="login display-4 text-white">Login</div>
     </div>
-    <div class="email">
-      <div class="email-text">
-        <p>Email</p>
-      </div>
-      <input type="text" id="emailField"/><!-- [(ngModel)]="email" -->
+    <div class="form-group mb-3">
+      <label for="emailField" class="form-label text-white">Email</label>
+      <input type="text" id="emailField" class="form-control"/>
     </div>
-    <div class="password">
-      <div class="password-text">
-        <p>Password</p>
-      </div>
-
-      <input id="passwordField" [type]="showPassword ? 'text' : 'password'" />
-      <div class="mostrapassword">
-        <input type="checkbox"  (click)="togglePasswordVisibility()" />
-        <p>Mostra password</p>
+    <div class="form-group mb-3">
+      <label for="passwordField" class="form-label text-white">Password</label>
+      <input id="passwordField" [type]="showPassword ? 'text' : 'password'" class="form-control"/>
+      <div class="form-check mt-2">
+        <input type="checkbox" class="form-check-input" (click)="togglePasswordVisibility()" id="showPasswordCheckbox" />
+        <label class="form-check-label text-white" for="showPasswordCheckbox">Mostra password</label>
       </div>
     </div>
-
-    <div class="buttonlogincontainer">
-      <button class="button-27" role="button">
-        <!-- (click)="login()" -->
-        Cancel
-      </button>
-      <button class="button-27" role="button">Login</button>
+    <div class="d-flex justify-content-between mt-4">
+      <button class="btn btn-secondary" role="button">Cancel</button>
+      <button class="btn btn-primary" role="button">Login</button>
     </div>
   </div>
 </div>
