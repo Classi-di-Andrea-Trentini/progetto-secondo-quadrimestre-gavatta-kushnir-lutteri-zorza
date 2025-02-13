@@ -6,3 +6,7 @@ Authorization: Bearer BQDj-UcUQhfHLeAYh94EoMosuBFOFI6i89dtvOeIDNEaOU-lgDMmsHMNp_
 
 ###
 GET https://api.rawg.io/api/games?key=9abd9c1ccd8c48a88b995b17c20b2d94&search=fortnite
+
+###
+GET https://api.rawg.io/api/games/47137?key=9abd9c1ccd8c48a88b995b17c20b2d94
+
