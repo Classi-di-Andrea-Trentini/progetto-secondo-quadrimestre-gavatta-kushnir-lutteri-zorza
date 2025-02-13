@@ -17,4 +17,6 @@ export class GamePulseService {
     return this.httpClient.get<SearchGames>(urlcompleted);
   }
 
+
+
 }

@@ -1,10 +1,10 @@
 import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { GamePulseService } from '../../game-pulse.service';
+import { GamePulseService } from '../game-pulse.service';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
-import { SearchGames } from '../../search-games';
+import { SearchGames } from '../search-games';
 import { CommonModule } from '@angular/common';
 
 @Component({

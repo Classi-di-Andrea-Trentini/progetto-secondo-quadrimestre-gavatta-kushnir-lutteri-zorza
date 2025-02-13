@@ -39,7 +39,7 @@
   @if(gameList()){
     <div class ="list-group">     
           @for(game of gameList()?.results; track $index){
-                <button [routerLink] = "['/game/',game.name]" class="list-group-item list-group-item-action">
+                <button [routerLink] = "['/game/',game.id]" class="list-group-item list-group-item-action">
                       <div class="d-flex justify-content-between">
                           <img [src]="game.background_image" class="game-img">
                           <p>{{game.name}} </p>
