@@ -1,0 +1,49 @@
+#sfondo {
+  background-image: url("/image.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.container {
+  max-width: 400px;
+  width: 100%;
+}
+
+.login {
+  font-size: 64px;
+  font-weight: bold;
+  text-shadow: 0px 13px 4px rgba(0, 0, 0, 0.34);
+}
+
+.form-control {
+  background: rgba(6.38, 5.82, 5.82, 0.35);
+  border: 1px solid #D9D9D9;
+  color: white;
+}
+
+.form-control:focus {
+  background: rgba(6.38, 5.82, 5.82, 0.35);
+  border-color: #D9D9D9;
+  color: white;
+}
+
+.btn-primary {
+  background-color: #000000;
+  border-color: #1A1A1A;
+}
+
+.btn-primary:hover {
+  background-color: #1A1A1A;
+  border-color: #000000;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
