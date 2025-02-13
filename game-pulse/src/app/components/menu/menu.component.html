@@ -1,9 +1,10 @@
 <div class="navbar">
-  <img [src]="immagine" class="logo">
+  <div class="logo-container">
+    <img [src]="immagine" class="logo">
+  </div>
   <div class="search-container">
-      <label for="exampleFormControlInput1" class="form-label"></label>
       <input type="text" class="form-control" id="gameName" placeholder="name..." [formControl] ="gameName">
-    </div>
+  </div>
   <a href="#" class="square" (click)="menuOpen = !menuOpen">
     <div class="burgerwrap">
       <span></span>
@@ -33,17 +34,20 @@
 
 
 
+
 <div class="list-group-container">
-@if(gameList()){
-  <div class ="list-group">     
-        @for(game of gameList()?.results; track $index){
-            <button [routerLink] = "['/game/',game.name]" class="list-group-item list-group-item-action">
-                  <div class="d-flex justify-content-between">
-                      <img [src]="game.background_image" class="game-img">
-                      <p>{{game.name}} </p>
-                  </div>
-          </button>
-        }
-  </div>
-}
+  @if(gameList()){
+    <div class ="list-group">     
+          @for(game of gameList()?.results; track $index){
+                <button [routerLink] = "['/game/',game.name]" class="list-group-item list-group-item-action">
+                      <div class="d-flex justify-content-between">
+                          <img [src]="game.background_image" class="game-img">
+                          <p>{{game.name}} </p>
+                      </div>
+              </button>
+            }
+      </div>
+    }
 </div>
+
+
