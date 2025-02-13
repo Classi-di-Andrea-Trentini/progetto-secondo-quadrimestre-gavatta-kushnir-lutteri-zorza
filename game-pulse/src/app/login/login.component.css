@@ -28,22 +28,104 @@
   color: white;
 }
 
-.btn-primary {
-  background-color: #000000;
-  border-color: #1A1A1A;
+.form-control:hover {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.btn-primary:hover {
-  background-color: #1A1A1A;
-  border-color: #000000;
+.form-control:focus {
+  border-color: #8b5cf6;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.8);
+  outline: none;
 }
 
-.btn-secondary {
-  background-color: #6c757d;
-  border-color: #6c757d;
+.custom-button {
+  position: relative;
+  padding: 0.75rem 2rem;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: 2px solid #8b5cf6;
+  transition: all 0.3s;
 }
 
-.btn-secondary:hover {
-  background-color: #5a6268;
-  border-color: #545b62;
+.custom-button:hover {
+  border-color: #a78bfa;
+  box-shadow: 0 0 20px 10px rgba(168, 85, 247, 0.6);
+}
+
+.custom-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 10px 5px rgba(168, 85, 247, 0.4);
+}
+
+.custom-button .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #8b5cf6;
+  transition: color 0.3s;
+}
+
+.custom-button:hover .icon {
+  color: white;
+}
+
+.custom-button .hover-effect {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: linear-gradient(to right, rgba(139, 92, 246, 0.2), rgba(99, 102, 241, 0.2));
+}
+
+.custom-button:hover .hover-effect {
+  opacity: 1;
+}
+
+.custom-button-cancel {
+  position: relative;
+  padding: 0.75rem 2rem;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: 2px solid #ef4444;
+  transition: all 0.3s;
+}
+
+.custom-button-cancel:hover {
+  border-color: #f87171;
+  box-shadow: 0 0 20px 10px rgba(239, 68, 68, 0.6);
+}
+
+.custom-button-cancel:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 10px 5px rgba(239, 68, 68, 0.4);
+}
+
+.custom-button-cancel .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #ef4444;
+  transition: color 0.3s;
+}
+
+.custom-button-cancel:hover .icon {
+  color: white;
+}
+
+.custom-button-cancel .hover-effect {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: linear-gradient(to right, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.2));
+}
+
+.custom-button-cancel:hover .hover-effect {
+  opacity: 1;
 }
