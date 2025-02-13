@@ -51,7 +51,6 @@
 
 
 
-  /* bottone custo */
   .custom-button {
     position: relative;
     padding: 0.75rem 2rem;
@@ -59,12 +58,12 @@
     color: white;
     font-weight: 600;
     border-radius: 0.5rem;
-    border: 2px solid rgb(168, 85, 247);
+    border: 2px solid #8b5cf6;
     transition: all 0.3s;
   }
   
   .custom-button:hover {
-    border-color: rgb(168, 85, 247, 0.8);
+    border-color: #a78bfa;
     box-shadow: 0 0 20px 10px rgba(168, 85, 247, 0.6);
   }
   
@@ -73,32 +72,26 @@
     box-shadow: 0 0 10px 5px rgba(168, 85, 247, 0.4);
   }
   
-  .button-content {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .button-icon {
+  .custom-button .icon {
     width: 1.5rem;
     height: 1.5rem;
-    color: rgb(168, 85, 247);
+    color: #8b5cf6;
     transition: color 0.3s;
   }
   
-  .custom-button:hover .button-icon {
+  .custom-button:hover .icon {
     color: white;
   }
   
-  .button-overlay {
+  .custom-button .hover-effect {
     position: absolute;
     inset: 0;
     border-radius: 0.5rem;
     opacity: 0;
-    background: linear-gradient(to right, rgba(168, 85, 247, 0.2), rgba(99, 102, 241, 0.2));
     transition: opacity 0.3s;
+    background: linear-gradient(to right, rgba(139, 92, 246, 0.2), rgba(99, 102, 241, 0.2));
   }
   
-  .custom-button:hover .button-overlay {
+  .custom-button:hover .hover-effect {
     opacity: 1;
   }
