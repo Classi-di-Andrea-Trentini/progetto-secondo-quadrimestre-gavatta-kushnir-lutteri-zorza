@@ -47,3 +47,58 @@
     background-color: #5a6268;
     border-color: #545b62;
   }
+
+
+
+
+  /* bottone custo */
+  .custom-button {
+    position: relative;
+    padding: 0.75rem 2rem;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: 2px solid rgb(168, 85, 247);
+    transition: all 0.3s;
+  }
+  
+  .custom-button:hover {
+    border-color: rgb(168, 85, 247, 0.8);
+    box-shadow: 0 0 20px 10px rgba(168, 85, 247, 0.6);
+  }
+  
+  .custom-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px 5px rgba(168, 85, 247, 0.4);
+  }
+  
+  .button-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .button-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: rgb(168, 85, 247);
+    transition: color 0.3s;
+  }
+  
+  .custom-button:hover .button-icon {
+    color: white;
+  }
+  
+  .button-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 0.5rem;
+    opacity: 0;
+    background: linear-gradient(to right, rgba(168, 85, 247, 0.2), rgba(99, 102, 241, 0.2));
+    transition: opacity 0.3s;
+  }
+  
+  .custom-button:hover .button-overlay {
+    opacity: 1;
+  }
