@@ -95,3 +95,61 @@
   .custom-button:hover .hover-effect {
     opacity: 1;
   }
+
+  /* Aggiungi questa nuova classe per il bottone Cancel */
+.custom-button-cancel {
+  position: relative;
+  padding: 0.75rem 2rem;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: 2px solid #ef4444; /* Colore rosso per il bordo */
+  transition: all 0.3s;
+}
+
+.custom-button-cancel:hover {
+  border-color: #f87171; /* Colore rosso più chiaro al passaggio del mouse */
+  box-shadow: 0 0 20px 10px rgba(239, 68, 68, 0.6); /* Ombra rossa */
+}
+
+.custom-button-cancel:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 10px 5px rgba(239, 68, 68, 0.4); /* Ombra rossa più piccola al click */
+}
+
+.custom-button-cancel .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #ef4444; /* Colore rosso per l'icona */
+  transition: color 0.3s;
+}
+
+.custom-button-cancel:hover .icon {
+  color: white; /* Colore bianco per l'icona al passaggio del mouse */
+}
+
+.custom-button-cancel .hover-effect {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  background: linear-gradient(to right, rgba(239, 68, 68, 0.2), rgba(220, 38, 38, 0.2)); /* Gradiente rosso */
+}
+
+.custom-button-cancel:hover .hover-effect {
+  opacity: 1;
+}
+
+.form-control:hover {
+  border-color: #8b5cf6; /* Colore viola per il bordo al passaggio del mouse */
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.6); /* Ombra viola */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Transizione fluida */
+}
+
+.form-control:focus {
+  border-color: #8b5cf6; /* Colore viola per il bordo quando l'input è focalizzato */
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.8); /* Ombra viola più intensa */
+  outline: none; /* Rimuove l'outline predefinito del browser */
+}
