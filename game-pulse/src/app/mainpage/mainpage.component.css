@@ -1,75 +1,113 @@
 .main-container {
-    background-color: #001f3f; /* Colore di background blu molto scuro */
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .carousel-container {
-    width: 40%; /* Riduci ulteriormente la larghezza del container */
-    margin-bottom: 50px; /* Aumenta il margine inferiore per aggiungere più spazio */
-    text-align: center; /* Centra il testo del titolo */
-    position: relative; /* Aggiungi per posizionare le frecce */
-  }
-  
-  .carousel-container h2 {
-    text-align: center; /* Centra il testo del titolo */
-    color: #ffffff; /* Colore del testo bianco */
-  }
-  
-  .carousel-background {
-    background-color: rgba(0, 0, 0, 0.21); /* Colore di background grigio */
-    padding: 15px; /* Riduci il padding per rendere il bordo più piccolo */
-    border-radius: 15px; /* Arrotonda gli angoli del bordo */
-  }
-  
-  .carousel-inner img {
-    max-width: 100%; /* Imposta la larghezza massima delle immagini */
-    height: auto; /* Mantieni le proporzioni delle immagini */
-  }
-  
-  .carousel-control-prev,
-  .carousel-control-next {
-    width: 5%; /* Riduci la larghezza delle frecce */
-    color: #ffffff; /* Colore delle frecce bianco */
-  }
-  
-  .carousel-control-prev {
-    left: -10%; /* Sposta la freccia sinistra più lontano dall'immagine */
-  }
-  
-  .carousel-control-next {
-    right: -10%; /* Sposta la freccia destra più lontano dall'immagine */
-  }
-  
-  .info-container {
-    display: flex;
-    flex-direction: column; /* Disporre i box uno sotto l'altro */
-    width: 70%; /* Riduci ulteriormente la larghezza dei container */
-    gap: 20px; /* Aumenta lo spazio tra i box */
-  }
-  
-  .info-box {
-    background-image: url('/giochi1.png'); /* Sostituisci con il percorso della tua immagine */
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%; /* Occupare tutta la larghezza disponibile del container */
-    text-align: center;
-    color: #ffffff; /* Colore del testo per contrastare con l'immagine di background */
-    text-decoration: none; /* Rimuovi la sottolineatura dai link */
-    margin: 0 auto; /* Centra i box */
-    min-height: 150px; /* Aumenta l'altezza minima dei box */
-    display: flex; /* Utilizza Flexbox per centrare il contenuto */
-    align-items: center; /* Centra verticalmente il contenuto */
-    justify-content: center; /* Centra orizzontalmente il contenuto */
-  }
-  
-  .info-box h3 {
-    margin: 0;
-  }
-  
+  background-image: url('/bg-principale.png'); /* Sostituisci con il percorso della tua immagine */
+  background-size: cover; /* Copri l'intero container con l'immagine */
+  background-position: center; /* Centra l'immagine nel container */
+  background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
+  padding: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.carousel-container {
+  width: 60%; /* Imposta la larghezza del container */
+  margin-bottom: 50px; /* Aumenta il margine inferiore per aggiungere più spazio */
+  text-align: center; /* Centra il testo del titolo */
+  position: relative; /* Aggiungi per posizionare le frecce */
+}
+
+.carousel-container h2 {
+  text-align: center; /* Centra il testo del titolo */
+  color: #ffffff; /* Colore del testo bianco */
+}
+
+.carousel-background {
+  background-color: rgba(0, 0, 0, 0.21); /* Colore di background grigio */
+  padding: 15px; /* Riduci il padding per rendere il bordo più piccolo */
+  border-radius: 15px; /* Arrotonda gli angoli del bordo */
+}
+
+.carousel-inner img {
+  max-width: 100%; /* Imposta la larghezza massima delle immagini */
+  height: auto; /* Mantieni le proporzioni delle immagini */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%; /* Riduci la larghezza delle frecce */
+  color: #ffffff; /* Colore delle frecce bianco */
+}
+
+.carousel-control-prev {
+  left: -10%; /* Sposta la freccia sinistra più lontano dall'immagine */
+}
+
+.carousel-control-next {
+  right: -10%; /* Sposta la freccia destra più lontano dall'immagine */
+}
+
+.intro-container {
+  width: 35%; /* Imposta la larghezza del container di testo */
+  background-color: rgba(0, 0, 0, 0.21); /* Colore di background grigio simile a .carousel-background */
+  padding: 15px; /* Riduci il padding per rendere il bordo più piccolo */
+  border-radius: 15px; /* Arrotonda gli angoli del bordo */
+  color: #ffffff; /* Colore del testo bianco */
+  text-align: center; /* Centra il testo */
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column; /* Disporre i box uno sotto l'altro */
+  width: 70%; /* Riduci ulteriormente la larghezza dei container */
+  gap: 20px; /* Aumenta lo spazio tra i box */
+}
+
+.info-box {
+  position: relative; /* Necessario per l'overlay */
+  background-image: url('/categorie.png'); /* Sostituisci con il percorso della tua immagine */
+  background-size: cover;
+  background-position: center;
+  padding: 15px; /* Riduci il padding per rendere il bordo più piccolo */
+  background-color: rgba(0, 0, 0, 0.21); /* Colore di background grigio simile a .carousel-background */
+  border-radius: 15px; /* Arrotonda gli angoli del bordo */
+  width: 100%; /* Occupare tutta la larghezza disponibile del container */
+  text-align: center;
+  color: #ffffff; /* Colore del testo per contrastare con l'immagine di background */
+  text-decoration: none; /* Rimuovi la sottolineatura dai link */
+  margin: 0 auto; /* Centra i box */
+  min-height: 150px; /* Aumenta l'altezza minima dei box */
+  display: flex; /* Utilizza Flexbox per centrare il contenuto */
+  align-items: center; /* Centra verticalmente il contenuto */
+  justify-content: center; /* Centra orizzontalmente il contenuto */
+  overflow: hidden; /* Nascondi l'overflow per l'overlay */
+}
+
+.info-box:hover {
+  transform: scale(1.03); /* Ingrandisci leggermente il container */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Aggiungi un'ombra più pronunciata */
+}
+
+.info-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Overlay nero semi-trasparente */
+  z-index: 1; /* Posiziona l'overlay sopra l'immagine */
+  border-radius: 15px; /* Arrotonda gli angoli dell'overlay */
+}
+
+.info-box h3 {
+  position: relative; /* Necessario per posizionare il testo sopra l'overlay */
+  z-index: 2; /* Posiziona il testo sopra l'overlay */
+  margin: 0;
+}
