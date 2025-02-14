@@ -189,7 +189,7 @@ img{
   position: absolute;
   inset: -0.2em;
   z-index: -1;
-  border: 0.25em solid hsla(50, 90%, 37%, 1);
+  border: 0.25em solid rgb(137, 21, 190);
   border-radius: 100px;
   opacity: var(--active, 0);
   transition: opacity var(--transition);
@@ -408,7 +408,7 @@ img{
 }
 
 .sidebar .btn-primary:hover {
-  background-color: #b69607;
+  background-color: rgb(137, 21, 190);
 }
 
 .sidebar .btn-secondary {
