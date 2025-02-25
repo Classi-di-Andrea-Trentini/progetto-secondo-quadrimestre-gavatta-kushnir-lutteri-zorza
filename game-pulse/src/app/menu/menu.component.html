@@ -3,7 +3,7 @@
     <img [src]="immagine" class="logo">
   </div>
   <div class="search-container">
-      <input type="text" class="form-control" id="gameName" placeholder="name..." [formControl] ="gameName">
+      <input type="text" class="form-control" id="gameName" placeholder="name..." [formControl] ="gameName" (click)="onSearchClick()">
   </div>
   <a href="#" class="square" (click)="menuOpen = !menuOpen">
     <div class="burgerwrap">
@@ -36,15 +36,15 @@
 
 
 <div class="list-group-container">
-  @if(gameList()){
+  @if(gameList() && gameListOpen){
     <div class ="list-group">     
           @for(game of gameList()?.results; track $index){
-                <button [routerLink] = "['/game/',game.id]" class="list-group-item list-group-item-action">
-                      <div class="d-flex justify-content-between">
+                <a [routerLink] = "['game/',game.id]" class="list-group-item list-group-item-action">
+                    <div class="d-flex justify-content-between">
                           <img [src]="game.background_image" class="game-img">
                           <p>{{game.name}} </p>
                       </div>
-              </button>
+                </a>
             }
       </div>
     }
