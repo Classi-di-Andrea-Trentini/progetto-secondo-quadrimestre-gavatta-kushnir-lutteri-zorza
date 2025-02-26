@@ -1,5 +1,5 @@
 .main-container {
-  background-image: url('/bg-principale.png'); /* Sostituisci con il percorso della tua immagine */
+  background-image: url('/image.png'); /* Sostituisci con il percorso della tua immagine */
   background-size: cover; /* Copri l'intero container con l'immagine */
   background-position: center; /* Centra l'immagine nel container */
   background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
