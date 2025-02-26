@@ -1,8 +1,14 @@
-
 <div class="game-container">
     <div class="left-section">
         <h1 class="game-title">{{infoGioco()?.name}}</h1>
         <div class="game-description" [innerHTML]="infoGioco()?.description">
+        </div>
+        <div>
+            @for(store of infoGioco()?.stores; track $index){
+                <a [href]="'https://' + store.store.domain" target="_blank">
+                    {{store.store.name}}     |
+                </a>
+            }
         </div>
     </div>
     
@@ -11,3 +17,4 @@
         <div class="rating-stars">★★★★★ {{infoGioco()?.rating}}</div>
     </div>
 </div>
+
