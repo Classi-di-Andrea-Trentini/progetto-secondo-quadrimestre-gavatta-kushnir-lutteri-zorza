@@ -6,10 +6,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), 
+
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    /* Mette a disposizione dell'applicazione un servizio
-    (da uttilizare con Dependency Injection) per inviare richieste HTTP */
-    provideHttpClient()
-  ]
+      provideAnimationsAsync(),
+      provideHttpClient()]
+
 };

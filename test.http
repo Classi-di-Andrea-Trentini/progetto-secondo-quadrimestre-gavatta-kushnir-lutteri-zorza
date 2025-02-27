@@ -1,3 +1,18 @@
+
+POST https://openrouter.ai/api/v1/chat/completions
+Content-Type: application/json
+Authorization: Bearer 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
+
+{
+    model: 'deepseek/deepseek-r1',
+    messages: [
+        {
+          role: 'user',
+          'content': 'Dimmi cosa sei in grado di fare. Formatta la risposta in text'
+        }
+    ]
+}
+
 ###
 GET https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy
 Authorization: Bearer BQDj-UcUQhfHLeAYh94EoMosuBFOFI6i89dtvOeIDNEaOU-lgDMmsHMNp_u3WgkKflOpWNr4sYSnhmozCOhriEh8HRLYbC41xQ2m8N8hUwhjbKWuzNc
@@ -9,3 +24,4 @@ GET https://api.rawg.io/api/games?key=9abd9c1ccd8c48a88b995b17c20b2d94&search=Fo
 
 ###
 GET https://api.rawg.io/api/games/28131?key=9abd9c1ccd8c48a88b995b17c20b2d94
+
