@@ -1,0 +1,142 @@
+/* Stili di base per la navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  align-items: center;
+}
+
+.logo {
+  height: 40px;
+}
+
+
+.logo-container{
+  flex: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.square {
+  display: none;
+}
+
+.menu {
+  display: flex;
+  gap: 10px;
+  flex: 2;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.menu button {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.menu button:hover {
+  background-color: #555;
+}
+
+/* Stili per il burger menu */
+.burgerwrap {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+
+}
+
+.burgerwrap span {
+  height: 3px;
+  width: 25px;
+  background-color: white;
+  margin: 4px 0;
+}
+
+
+.search-container{
+  flex: 2;
+  padding: 5px;
+  justify-content: center;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+/* Media query per schermi piccoli */
+@media (max-width: 900px) {
+  .menu {
+    display: none;
+  }
+
+  .square {
+    display: block;
+  }
+
+  .burgerwrap {
+    display: flex;
+  }
+
+  .menu2 {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .menu2.open {
+    display: flex;
+  }
+
+  .menu2 button {
+    margin: 5px 0;
+  }
+}
+@media (min-width: 900px) {
+  .menu2{
+    display: none;
+  }
+}
+
+
+.list-group{
+  position: fixed;
+  position: zero;
+  position: zero;
+  width: 30%;
+  padding: 0;
+}
+
+.list-group-container {
+  position: fixed;
+  top: 70px;
+  left: 60px;
+  z-index: 1000;
+  background-color: white;
+  max-height: 100px;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.game-img{
+  width: relative;
+  height: 60px;
+  object-fit: cover;
+}
+
+.list-group-item {
+  padding: 10px;
+  border: 1 #000000;
+}
+
