@@ -1,9 +1,10 @@
+
 <div class="container-fluid">
   <div class="navbar">
     <img [src]="immagine" class="logo">
-    <div class="search-bar">
-      <input type="text" placeholder="Hinted search text">
-    </div>
+    <div class="search-container">
+      <input type="text" class="form-control" id="gameName" placeholder="name..." [formControl] ="gameName" (click)="onSearchClick()">
+  </div>
     <button class="burger-menu" (click)="toggleMenu()">&#9776;</button>
     <div class="menu">
       <div class="menu-item">Fortnite</div>
@@ -131,3 +132,18 @@
     </div>
   }
 </div>
+<div class="list-group-container">
+  @if(gameList() && gameListOpen){
+    <div class ="list-group">     
+          @for(game of gameList()?.results; track $index){
+                <a [routerLink] = "['game/',game.id]" class="list-group-item list-group-item-action">
+                    <div class="d-flex justify-content-between">
+                          <img [src]="game.background_image" class="game-img">
+                          <p>{{game.name}} </p>
+                      </div>
+                </a>
+            }
+      </div>
+    }
+</div>
+
