@@ -1,15 +1,10 @@
-// app.module.ts (for an older AngularFire version)
-import { AngularFireModule } from '@angular/fire'; // older version import
-import { AngularFireDatabaseModule } from '@angular/fire/database'; // older version import
-import { firebaseConfig } from './firebase.config';
+import { ApplicationConfig } from '@angular/core';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
-
-@NgModule({
-  // ...other imports
-  imports: [
-     AngularFireModule.initializeApp(firebaseConfig),
-     AngularFireDatabaseModule
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideFirebaseApp(() => initializeApp({  })),
+    provideFirestore(() => getFirestore()),
   ],
-  // ... rest of the module
 })
-export class AppModule { }

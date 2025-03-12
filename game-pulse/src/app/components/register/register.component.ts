@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject, Signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { User } from 'firebase/auth';
+import { UserData } from '../../classes/user-data';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +16,26 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
   showPassword: boolean = false;
+  authService: AuthService = inject(AuthService);
+  newUser: Signal<User | null> = this.authService.newUser;
+
+  async registra() {
+    if(this.newUser()) {
+      const userData = new UserData( {
+        ...this.newUser(),
+        nome: 'Andrea',
+        cognome: 'Trentini',
+        note: 'Nuovo utente registrato'
+      });
+      await this.authService.saveUserData(userData);      
+    }
+  }
+
+  async logout() {
+    await this.authService.logout();
+  }
+
+
 
   onSubmit(form: NgForm): void {
     if (form.valid) {
