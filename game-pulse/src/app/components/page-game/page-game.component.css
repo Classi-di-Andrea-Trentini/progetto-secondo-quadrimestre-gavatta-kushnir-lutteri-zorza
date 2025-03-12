@@ -5,18 +5,24 @@
     font-family: 'Arial', sans-serif;
 }
 
-body {
-    color: #ffffff;
-    padding: 2rem;
-    min-height: 100vh;
+#sfondo {
+    background-image: url("/image.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
+
 .game-container {
-    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
+    height: 100%;
+    padding: 100px;
+    min-height: 95.7vh;
+
 }
 
 .left-section {

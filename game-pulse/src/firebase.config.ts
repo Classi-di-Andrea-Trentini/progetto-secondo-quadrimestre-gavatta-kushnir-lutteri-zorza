@@ -7,4 +7,4 @@ export const appConfig: ApplicationConfig = {
     provideFirebaseApp(() => initializeApp({  })),
     provideFirestore(() => getFirestore()),
   ],
-})
+}

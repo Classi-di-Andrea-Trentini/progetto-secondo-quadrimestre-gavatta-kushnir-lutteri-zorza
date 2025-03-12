@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
 })
 export class MenuComponent implements OnInit {
   immagine = '/logo.png';
-  menuOpen = false;
+  menuOpen : WritableSignal<boolean> = signal<boolean>(true);
   sidebarOpen: boolean = false;
 
   // Game search properties
@@ -38,19 +38,17 @@ export class MenuComponent implements OnInit {
   aiResponse: WritableSignal<IAIResponse | null> = signal(null);
 
   // UI methods
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-  }
+    onGameClick(){
+      this.menuOpen.set(false);
+    }
+    onSearchClick() {
+      this.menuOpen.set(true);
+    }
+
+
 
   toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;
-  }
-
-  onSearchClick() {
-    this.gameListOpen = true;
-    setTimeout(() => {
-      this.gameListOpen = false;
-    }, 4000); // Chiude la lista dopo 4 secondi
   }
 
   // AI methods

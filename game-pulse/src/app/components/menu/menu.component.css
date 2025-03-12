@@ -1,164 +1,171 @@
-/* Stili di base per la navbar */
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  background-color: #333;
-  color: white;
-  align-items: center;
-}
-
-.logo {
-  height: 40px;
-}
-
-
-.logo-container{
-  flex: 0.5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.square {
-  display: none;
+/* Navbar e menu principale */
+nav {
+  background-color: #232f3e; /* Sfondo scuro simile ad Amazon */
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin:0;
 }
 
 .menu {
   display: flex;
-  gap: 10px;
-  flex: 2;
-  justify-content: space-between;
   align-items: center;
-  
+  justify-content: space-around;
+  gap: 2rem;
+  margin: 0 auto;
 }
 
-.menu button {
-  background-color: #444;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  font-size: 14px;
-  cursor: pointer;
+/* Logo */
+.logo-container {
+  flex-shrink: 0;
 }
 
-.menu button:hover {
-  background-color: #555;
+.logo {
+  height: 40px; /* Regola in base alle tue esigenze */
+  width: auto;
 }
 
-/* Stili per il burger menu */
-.burgerwrap {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-
+/* Container ricerca */
+.search-container {
+  position: relative;
+  flex-grow: 1;
+  max-width: 600px; /* Larghezza massima della searchbar */
 }
 
-.burgerwrap span {
-  height: 3px;
-  width: 25px;
-  background-color: white;
-  margin: 4px 0;
+#gameName {
+  width: 100%;
+  padding: 0.8rem 1.2rem;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
 }
 
-
-.search-container{
-  flex: 2;
-  padding: 5px;
-  justify-content: center;
-  padding-left: 50px;
-  padding-right: 50px;
-}
-/* Media query per schermi piccoli */
-@media (max-width: 900px) {
-  .menu {
-    display: none;
-  }
-
-  .square {
-    display: block;
-  }
-
-  .burgerwrap {
-    display: flex;
-  }
-
-  .menu2 {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 50px;
-    right: 10px;
-    background-color: #333;
-    padding: 10px;
-    border-radius: 5px;
-  }
-
-  .menu2.open {
-    display: flex;
-  }
-
-  .menu2 button {
-    margin: 5px 0;
-  }
-}
-@media (min-width: 900px) {
-  .menu2{
-    display: none;
-  }
+#gameName:focus {
+  outline: none;
+  border-color: #ff9900;
+  box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.2);
 }
 
-
-.list-group{
-  position: fixed;
-  position: zero;
-  position: zero;
-  width: 30%;
-  padding: 0;
-}
-
-.list-group-container {
-  position: fixed;
-  top: 70px;
-  left: 60px;
+/* Dropdown risultati */
+.results-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  background-color: white;
-  max-height: 100px;
+  max-height: 400px;
   overflow-y: auto;
-  padding: 0;
+  margin-top: 0.5rem;
 }
 
-.game-img{
-  width: relative;
-  height: 60px;
-  object-fit: cover;
+.list-group {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .list-group-item {
-  padding: 10px;
-  border: 1 #000000;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s;
+  border-bottom: 1px solid #eee;
 }
+
+.list-group-item:hover {
+  background-color: #f8f9fa;
+}
+
+.game-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 1rem;
+}
+
+/* Bottoni menu */
+.menu_buttons {
+  display: flex;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  background-color: #37475a;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #485769;
+  transform: translateY(-1px);
+}
+
+/* Responsive design */
+
+
+    /* Menu laterale */
+    .sidebar {
+      position: fixed;
+      top: 84px;
+      width: 250px;
+      height: 100%;
+      background: #232f3e;
+      transition: 0.3s;
+      z-index: 999;
+    }
+
+    /* Classe attiva per mostrare il menu */
+    .sidebar.active {
+      left: 0; /* Mostra a sinistra */
+      /* right: 0; per menu destro */
+    }
+
+    .sidebar ul .btn {
+      margin-bottom: 20px;
+    }
+@media (max-width: 1200px) {
+  .menu_buttons{
+    display:none;
+  }
+}
+@media (min-width: 1200px) {
+  .sidebar{
+    display:none;
+  }
+}
+
+
 
 .sparkle-button {
   --active: 0;
-  background: none; /* Rimuovi il background di base */
-  font-size: 1rem; /* Diminuisci la dimensione del font */
+  background: none;
+  font-size: 1rem; 
   font-weight: 500;
   border: 0;
   cursor: pointer;
-  padding: 0.5em 0.8em; /* Riduci il padding */
+  padding: 0.5em 0.8em;
   display: flex;
   align-items: center;
   gap: 0.25em;
   white-space: nowrap;
   border-radius: 100px;
   position: relative;
-  box-shadow: none; /* Rimuovi il box-shadow di base */
+  box-shadow: none;
   transition: box-shadow var(--transition), scale var(--transition), background var(--transition);
-  scale: calc(1 + (var(--active) * 0.05)); /* Riduci l'effetto di ingrandimento */
+  scale: calc(1 + (var(--active) * 0.05));
   transition: 0.3s;
-  color: white; /* Cambia il colore del testo del bottone AI in bianco */
+  color: white; 
 }
 
 .sparkle-button:active {
@@ -167,7 +174,7 @@
 }
 
 .sparkle path {
-  color: white; /* Cambia il colore delle stelline in bianco */
+  color: white; 
   transform-box: fill-box;
   transform-origin: center;
   fill: currentColor;
@@ -263,7 +270,7 @@
 .backdrop {
   position: absolute;
   inset: var(--cut);
-  background: none; /* Rimuovi il background di base */
+  background: none; 
   border-radius: 100px;
   transition: background var(--transition);
 }
@@ -313,7 +320,7 @@
 }
 
 .particle {
-  fill: white; /* Cambia il colore delle stelline in bianco */
+  fill: white; 
   width: calc(var(--size, 0.25) * 1rem);
   aspect-ratio: 1;
   position: absolute;
@@ -327,7 +334,7 @@
 }
 
 .particle path {
-  fill: white; /* Cambia il colore delle stelline in bianco */
+  fill: white; 
   stroke: none;
 }
 
@@ -344,9 +351,9 @@
 .text {
   translate: 2% -6%;
   letter-spacing: 0.01ch;
-  background: none; /* Rimuovi il background di base */
+  background: none;
   -webkit-background-clip: text;
-  color: white; /* Cambia il colore del testo AI in bianco */
+  color: white; 
   transition: background var(--transition);
 }
 
@@ -355,99 +362,99 @@
   translate: -25% -5%;
 }
 
-.sidebar {
+.sidebarr {
   width: 250px;
   height: 100%;
   position: fixed;
   top: 0;
   right: -250px;
-  background-color: #041823; /* Da blu notte a blu */
+  background-color: #041823;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
   display: flex;
   flex-direction: column;
-  border-left: 3px solid #FFFFFF; /* Bordo a sinistra */
-  border-bottom: 3px solid #FFFFFF; /* Bordo sotto */
-  border-top-left-radius: 15px; /* Angolo arrotondato in alto a sinistra */
-  border-bottom-left-radius: 15px; /* Angolo arrotondato in basso a sinistra */
+  border-left: 3px solid #FFFFFF; 
+  border-bottom: 3px solid #FFFFFF;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px; 
 }
-.sidebar.open {
+.sidebarr.open {
   right: 0;
 }
 
-.sidebar .container {
+.sidebarr .container {
   color: white;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.sidebar .intro-message {
+.sidebarr .intro-message {
   margin-bottom: 20px;
 }
 
-.sidebar .intro-message h2 {
+.sidebarr .intro-message h2 {
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
 
-.sidebar .intro-message p {
+.sidebarr .intro-message p {
   font-size: 1rem;
   line-height: 1.5;
 }
 
-.sidebar .response-container {
+.sidebarr .response-container {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.sidebar .response-box {
-  background-color: rgba(255, 255, 255, 0.1); /* Very light, almost transparent white */
+.sidebarr .response-box {
+  background-color: rgba(255, 255, 255, 0.1); 
   color: #FFFFFF;
   position: relative;
   width: 100%;
   z-index: 10;
-  border: 3px solid black; /* Set the border color to black */
+  border: 3px solid black;
   flex: 1;
   overflow-y: auto;
 }
 
-.sidebar .input-group {
+.sidebarr .input-group {
   margin-bottom: 20px;
   position: relative;
   z-index: 5;
-  margin-top: 20px; /* Adjust this value as needed to create space for the response box */
+  margin-top: 20px; 
 }
 
-.sidebar .btn-primary {
+.sidebarr .btn-primary {
   background-color: #797b7e;
   border: none;
   color: white;
 }
 
-.sidebar .btn-primary:hover {
+.sidebarr .btn-primary:hover {
   background-color: rgb(137, 21, 190);
 }
 
-.sidebar .btn-secondary {
-  background-color: rgba(128, 128, 128, 0.5); /* Semi-transparent grey */
+.sidebarr .btn-secondary {
+  background-color: rgba(128, 128, 128, 0.5); 
   border: none;
-  width: 100%; /* Make the button longer */
-  margin-top: 10px; /* Add some space above the button */
+  width: 100%; 
+  margin-top: 10px;
 }
 
-.sidebar .btn-secondary:hover {
-  background-color: rgba(128, 128, 128, 0.7); /* Slightly less transparent on hover */
+.sidebarr .btn-secondary:hover {
+  background-color: rgba(128, 128, 128, 0.7); 
 }
 
-.sidebar .d-flex {
+.sidebarr .d-flex {
   margin-top: 20px;
 }
 
-.sidebar .spinner-border {
+.sidebarr .spinner-border {
   width: 1.20rem;
   height: 1.20rem;
 }
@@ -523,4 +530,4 @@
   50% {
     opacity: 0;
   }
-}
+} 
