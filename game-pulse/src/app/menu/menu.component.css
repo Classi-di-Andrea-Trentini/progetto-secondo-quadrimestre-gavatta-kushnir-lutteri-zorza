@@ -8,7 +8,7 @@ nav {
 .menu {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 2rem;
   max-width: 1400px;
   margin: 0 auto;
@@ -113,13 +113,34 @@ nav {
 
 /* Responsive design */
 
+
+    /* Menu laterale */
+    .sidebar {
+      position: fixed;
+      top: 84px;
+      width: 250px;
+      height: 100%;
+      background: #232f3e;
+      transition: 0.3s;
+      z-index: 999;
+    }
+
+    /* Classe attiva per mostrare il menu */
+    .sidebar.active {
+      left: 0; /* Mostra a sinistra */
+      /* right: 0; per menu destro */
+    }
+
+    .sidebar ul .btn {
+      margin-bottom: 20px;
+    }
 @media (max-width: 1200px) {
   .menu_buttons{
     display:none;
   }
 }
 @media (min-width: 1200px) {
-  .menu_buttons2{
+  .sidebar{
     display:none;
   }
 }
