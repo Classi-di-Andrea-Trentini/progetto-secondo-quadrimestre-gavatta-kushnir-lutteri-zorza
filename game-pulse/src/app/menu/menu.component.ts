@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 })
 export class MenuComponent  {
   immagine = '/logo.png';
-  menuOpen = false;
+  menuOpen : WritableSignal<boolean> = signal<boolean>(true);
   gameListOpen = true;
   gameName: FormControl = new FormControl('');
   gameList: WritableSignal<SearchGames | null> = signal<SearchGames | null>(null);
@@ -26,12 +26,11 @@ export class MenuComponent  {
     Mi consente di realizzare delle form che hanno robe piu avanzate rispetto a quelle di html
   */
 
-
+  onGameClick(){
+    this.menuOpen.set(false);
+  }
   onSearchClick() {
-    this.gameListOpen = true;
-    setTimeout(() => {
-      this.gameListOpen = false;
-    }, 4000); // Chiude la lista dopo 4 secondi
+    this.menuOpen.set(true);
   }
 
 
@@ -50,6 +49,7 @@ export class MenuComponent  {
         })
       )
       .subscribe(dati =>{
+        console.log(dati);
         this.gameList.set(dati);
     })
     }

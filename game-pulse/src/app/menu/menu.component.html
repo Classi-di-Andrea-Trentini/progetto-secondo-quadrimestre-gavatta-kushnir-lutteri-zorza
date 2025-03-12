@@ -1,41 +1,50 @@
-<div class="navbar">
-  <div class="logo-container">
-    <img [src]="immagine" class="logo">
-  </div>
-  <div class="search-container">
-      <input type="text" class="form-control" id="gameName" placeholder="name..." [formControl] ="gameName" (click)="onSearchClick()">
-  </div>
-  <a href="#" class="square" (click)="menuOpen = !menuOpen">
-    <div class="burgerwrap">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </a>
+<nav>
   <div class="menu">
-    <button class="shadow__btn">Home</button>
-    <button class="shadow__btn">Statistiche</button>
-    <button class="shadow__btn">Categorie</button>
-    <button class="shadow__btn">Giochi</button>
-    <button class="shadow__btn">Account</button>
-    <button class="shadow__btn">Login</button>
+    <div class="logo-container">
+      <img [src]="immagine" class="logo">
+    </div>
+    <div class="search-container">
+        <input type="text" class="form-control" id="gameName" placeholder="name..." [formControl] ="gameName" >
+        @if(gameList() && menuOpen()){
+        <div class="results-dropdown">
+            <div class ="list-group">     
+              @for(game of gameList()?.results; track $index){
+                <a [routerLink] = "['game/',game.id]" class="list-group-item list-group-item-action" (click)="onGameClick()">
+                  <div> 
+                    <img [src]="game.background_image" class="game-img">
+                    <p>{{game.name}}</p>
+                  </div>
+                </a>
+              }
+            </div>
+          </div>
+        }
+      </div>
+
+    <div class="menu_buttons">
+      <button class="btn">Home</button>
+      <button class="btn">Statistiche</button>
+      <button class="btn">Categorie</button>
+      <button class="btn">Giochi</button>
+      <button class="btn">Account</button>
+      <button class="btn">Login</button>
+    </div>
   </div>
+</nav>
+<div class="menu_buttons2" [class.open]="menuOpen">
+  <button class="shadow__btn">Home</button>
+  <button class="shadow__btn">Statistiche</button>
+  <button class="shadow__btn">Categorie</button>
+  <button class="shadow__btn">Giochi</button>
+  <button class="shadow__btn">Account</button>
+  <button class="shadow__btn">Login</button>
 </div>
-@if(menuOpen == true){
-  <div class="menu2" [class.open]="menuOpen">
-    <button class="shadow__btn">Home</button>
-    <button class="shadow__btn">Statistiche</button>
-    <button class="shadow__btn">Categorie</button>
-    <button class="shadow__btn">Giochi</button>
-    <button class="shadow__btn">Account</button>
-    <button class="shadow__btn">Login</button>
-  </div>
-}
 
 
 
 
-<div class="list-group-container">
+
+<!-- <div class="list-group-container">
   @if(gameList() && gameListOpen){
     <div class ="list-group">     
           @for(game of gameList()?.results; track $index){
@@ -50,4 +59,16 @@
     }
 </div>
 
+ -->
 
+
+
+     <!--     
+    <a href="#" class="square" (click)="menuOpen = !menuOpen">
+      <div class="burgerwrap">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </a>
+    -->
