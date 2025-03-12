@@ -31,7 +31,7 @@ export class AuthService {
         else {          
           const userData = await this.loadUserData(user.uid); 
           this._currentUser.set(new UserData(userData));
-        }        
+        }      
       }
       else {
         this._currentUser.set(null);

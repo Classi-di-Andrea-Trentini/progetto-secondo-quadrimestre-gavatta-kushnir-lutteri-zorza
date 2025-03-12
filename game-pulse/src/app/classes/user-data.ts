@@ -4,7 +4,7 @@ import { IUserData } from "../interfaces/i-user-data";
 export class UserData {
     nome: string;
     cognome: string;
-    note: string;
+    note: string | null ;
     displayName: string | null;
     email: string | null;
     phoneNumber: string | null;

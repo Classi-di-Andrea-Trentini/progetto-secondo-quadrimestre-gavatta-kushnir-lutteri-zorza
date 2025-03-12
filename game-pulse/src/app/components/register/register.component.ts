@@ -20,6 +20,7 @@ export class RegisterComponent {
   newUser: Signal<User | null> = this.authService.newUser;
 
   async registra() {
+    console.log("sto registrando")
     if(this.newUser()) {
       const userData = new UserData( {
         ...this.newUser(),
@@ -43,6 +44,8 @@ export class RegisterComponent {
       console.log('Email:', this.email);
       console.log('Password:', this.password);
     }
+    this.registra()
+
   }
 
   annulla(): void {

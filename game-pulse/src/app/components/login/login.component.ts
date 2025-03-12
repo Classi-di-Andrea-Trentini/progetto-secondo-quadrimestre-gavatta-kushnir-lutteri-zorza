@@ -3,11 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { UserData } from '../../classes/user-data';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true, // Aggiungi questa riga se stai usando Angular standalone components
-  imports: [FormsModule],
+  imports: [FormsModule,RouterLink, RouterLinkActive],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -17,9 +18,6 @@ export class LoginComponent {
   showPassword: boolean = false;
   private authService: AuthService = inject(AuthService);
   currentUser: Signal<UserData | null> = this.authService.currentUser;
-
-
-
 
   async login() {
     try {
@@ -38,7 +36,9 @@ export class LoginComponent {
     if (form.valid) {
       console.log('Username:', this.username);
       console.log('Password:', this.password);
+      this.login()
     }
+    
   }
 
   annulla(): void {
