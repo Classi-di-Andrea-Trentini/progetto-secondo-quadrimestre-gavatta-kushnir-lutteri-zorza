@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal, WritableSignal } from '@angular/core';
-import { GamePulseService } from '../game-pulse.service';
-import { InfoGioco } from '../info-gioco';
+import { GamePulseService } from '../../services/game-pulse.service';
+import { InfoGioco } from '../../classes/info-gioco';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 

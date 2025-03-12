@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { SearchGames } from './search-games';
-import { InfoGioco } from './info-gioco';
+import { SearchGames } from '../classes/search-games';
+import { InfoGioco } from '../classes/info-gioco';
 @Injectable({
   providedIn: 'root'
 })

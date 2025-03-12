@@ -2,12 +2,12 @@ import { Component, inject } from '@angular/core';
 import { signal, WritableSignal } from '@angular/core';
 import { IAIResponse } from './interfaces/i-airesponse';
 import { OpenaiService } from './services/openai.service';
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from './components/menu/menu.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { RouterOutlet } from '@angular/router';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @Component({
