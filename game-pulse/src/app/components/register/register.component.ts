@@ -21,7 +21,7 @@ export class RegisterComponent {
 
   async registra() {
     console.log("sto registrando")
-    if(this.newUser()) {
+  /*   if(this.newUser()) {
       const userData = new UserData( {
         ...this.newUser(),
         nome: 'Andrea',
@@ -29,8 +29,8 @@ export class RegisterComponent {
         note: 'Nuovo utente registrato'
       });
       await this.authService.saveUserData(userData);      
-    }
-  }
+    } */
+  } 
 
   async logout() {
     await this.authService.logout();

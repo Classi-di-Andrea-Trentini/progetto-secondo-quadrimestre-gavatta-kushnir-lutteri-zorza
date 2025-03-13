@@ -22,15 +22,19 @@ export class AuthService {
 
   constructor() { 
     onAuthStateChanged(this.auth, async (user) => {
+      console.log('Utente loggato:', user);
       if (user) {
         const userExists: boolean = await this.userExists(user.uid);
         if (!userExists) {
-          this._newUser.set(user);
-          this.router.navigateByUrl('/registrazione');
+          const userData = new UserData(user.uid, []);
+          await this.saveUserData(userData);
+          this._currentUser.set(userData);
+          //this._newUser.set(user);
+          //this.router.navigateByUrl('/registrazione');
         }
         else {          
           const userData = await this.loadUserData(user.uid); 
-          this._currentUser.set(new UserData(userData));
+          this._currentUser.set(userData);
         }      
       }
       else {

@@ -50,4 +50,8 @@ export class LoginComponent {
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
   }
+
+  loginWithGoogle(): void {
+    this.authService.login();
+  }
 }
