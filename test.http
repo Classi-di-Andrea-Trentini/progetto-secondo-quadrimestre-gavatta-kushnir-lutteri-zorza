@@ -13,10 +13,6 @@ Authorization: Bearer sk-or-v1-4035518a19570445d6135a6a61c675c11502b3d412dc33e2e
     ]
 }
 
-###
-GET https://api.spotify.com/v1/albums/4aawyAB9vmqN3uQ7FjRGTy
-Authorization: Bearer BQDj-UcUQhfHLeAYh94EoMosuBFOFI6i89dtvOeIDNEaOU-lgDMmsHMNp_u3WgkKflOpWNr4sYSnhmozCOhriEh8HRLYbC41xQ2m8N8hUwhjbKWuzNc
-
 
 
 ###

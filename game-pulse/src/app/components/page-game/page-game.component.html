@@ -1,7 +1,7 @@
 <div id="sfondo" class="game-container">
     <div class="left-section">
         <h1 class="game-title">{{infoGioco()?.name}}</h1>
-        <div class="game-description" [innerHTML]="infoGioco()?.description">
+        <div class="game-description" [innerHTML]="infoGioco()?.description">{{infoGioco()?.description}}</div>
         </div>
         <div>
             @for(store of infoGioco()?.stores; track $index){
