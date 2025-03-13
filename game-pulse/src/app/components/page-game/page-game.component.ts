@@ -3,10 +3,11 @@ import { GamePulseService } from '../../services/game-pulse.service';
 import { InfoGioco } from '../../classes/info-gioco';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { PlayerComponent } from './player/player.component';
 
 @Component({
   selector: 'app-page-game',
-  imports: [],
+  imports: [PlayerComponent],
   templateUrl: './page-game.component.html',
   styleUrl: './page-game.component.css'
 })
