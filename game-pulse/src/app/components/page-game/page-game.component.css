@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -65,8 +65,8 @@
 }
 
 
+/* 
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .game-container {
         flex-direction: column;
@@ -84,4 +84,12 @@
     .game-image {
         margin: 0 auto;
     }
+}  */
+
+.custom-bg {
+    background: radial-gradient(
+        circle at center, /* Il gradiente parte dal centro */
+        #6B2BAE,         /* Colore viola intenso al centro (#6B2BAE) */
+        #1A1A1A          /* Colore simile al nero all'esterno (#1A1A1A) */
+    );
 }
