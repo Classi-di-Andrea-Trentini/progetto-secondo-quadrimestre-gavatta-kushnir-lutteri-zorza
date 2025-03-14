@@ -6,7 +6,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
-import { environment } from '../environments/environmkent';
+import { environment } from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
 
