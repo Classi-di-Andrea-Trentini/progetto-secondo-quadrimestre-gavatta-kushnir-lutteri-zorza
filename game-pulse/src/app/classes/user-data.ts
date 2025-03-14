@@ -5,10 +5,17 @@ import { InfoGioco } from "./info-gioco";
 export class UserData {
     uid: string;
     games: InfoGioco[]
+    displayName: null | string;
+    email: null | string;
+    photoURL: null | string;
 
-    constructor(uid: string, games: InfoGioco[]) {       
+    constructor(uid: string, displayName: null | string,email: null | string, photoURL: null | string) {       
         this.uid = uid;
-        this.games = games;
+        this.games = [];
+        this.displayName = displayName;
+        this.email = email;
+        this.photoURL = photoURL;
+
     }
     
 }

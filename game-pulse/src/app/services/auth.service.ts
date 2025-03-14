@@ -26,7 +26,7 @@ export class AuthService {
       if (user) {
         const userExists: boolean = await this.userExists(user.uid);
         if (!userExists) {
-          const userData = new UserData(user.uid, []);
+          const userData = new UserData(user.uid, user.displayName,user.email,user.photoURL);
           await this.saveUserData(userData);
           this._currentUser.set(userData);
           //this._newUser.set(user);
@@ -35,6 +35,7 @@ export class AuthService {
         else {          
           const userData = await this.loadUserData(user.uid); 
           this._currentUser.set(userData);
+          console.log('Dati utente:', this._currentUser());
         }      
       }
       else {
@@ -44,8 +45,16 @@ export class AuthService {
   }
 
   async login(): Promise<void> {
-    const provider: GoogleAuthProvider = new GoogleAuthProvider();
-    await signInWithPopup(this.auth, provider);
+    try {
+      const provider: GoogleAuthProvider = new GoogleAuthProvider();
+      await signInWithPopup(this.auth, provider);
+      
+    }
+    catch (error) {
+      console.log('Errore durante il login con Google');
+      console.error(error);
+    }
+
   }
 
   logout(): Promise<void> {
