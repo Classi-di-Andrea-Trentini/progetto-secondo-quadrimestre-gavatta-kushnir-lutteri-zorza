@@ -4,10 +4,11 @@ import { InfoGioco } from '../../classes/info-gioco';
 import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { PlayerComponent } from './player/player.component';
+import { DescrizioneComponent } from './descrizione/descrizione.component';
 
 @Component({
   selector: 'app-page-game',
-  imports: [PlayerComponent],
+  imports: [PlayerComponent, DescrizioneComponent],
   templateUrl: './page-game.component.html',
   styleUrl: './page-game.component.css'
 })

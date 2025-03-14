@@ -1,12 +1,12 @@
 .player {
-    background: #000;  
+    background: rgba(34, 30, 30, 0.41); 
 }
 
 .player__video {
+    border-radius: 0px;
     max-width: 1200px;  
     margin: 0 auto;    
     position: relative;
-    border-radius: 15px;
     overflow: hidden;    
     box-shadow: 0 8px 30px rgba(0,0,0,0.3);  
 }
@@ -24,13 +24,3 @@
     transition: transform 0.3s ease;
 }
 
-
-@media (max-width: 768px) {
-    .player {
-        padding: 1rem;
-    }
-    
-    .player__video {
-        border-radius: 8px;
-    }
-}
