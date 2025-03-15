@@ -20,6 +20,7 @@ export class MenuComponent implements OnInit {
   immagine = '/logo.png';
   menuOpen : WritableSignal<boolean> = signal<boolean>(true);
   sidebarOpen: boolean = false;
+  sidebarNonAi: boolean = false;
 
   // Game search properties
   gameListOpen = true;
@@ -37,6 +38,7 @@ export class MenuComponent implements OnInit {
   isLoading: boolean = false;
   aiResponse: WritableSignal<IAIResponse | null> = signal(null);
 
+
   // UI methods
     onGameClick(){
       this.menuOpen.set(false);
@@ -46,7 +48,9 @@ export class MenuComponent implements OnInit {
     }
 
 
-
+  chiusuraMenu() {
+    this.sidebarNonAi = !this.sidebarNonAi;
+  }
   toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;
   }

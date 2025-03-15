@@ -4,10 +4,10 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { User } from 'firebase/auth';
 import { UserData } from '../../classes/user-data';
-
+import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-register',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink, RouterLinkActive],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
