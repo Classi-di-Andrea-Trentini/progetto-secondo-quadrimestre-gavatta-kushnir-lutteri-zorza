@@ -1,12 +1,12 @@
-
 #ai {
     padding-top: 150px;
     min-height: 300px;
 
-#sfondo {
-    background-image: url("/image.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    #sfondo {
+        background-image: url("/image.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
 
+    }
 }

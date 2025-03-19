@@ -5,10 +5,11 @@ import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { PlayerComponent } from './player/player.component';
 import { DescrizioneComponent } from './descrizione/descrizione.component';
+import { BuyComponent } from './buy/buy.component';
 
 @Component({
   selector: 'app-page-game',
-  imports: [PlayerComponent, DescrizioneComponent],
+  imports: [PlayerComponent, DescrizioneComponent, BuyComponent],
   templateUrl: './page-game.component.html',
   styleUrl: './page-game.component.css'
 })
