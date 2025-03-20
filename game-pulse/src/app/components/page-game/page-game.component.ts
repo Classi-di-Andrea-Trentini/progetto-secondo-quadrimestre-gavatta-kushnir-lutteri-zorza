@@ -6,10 +6,11 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { PlayerComponent } from './player/player.component';
 import { DescrizioneComponent } from './descrizione/descrizione.component';
 import { BuyComponent } from './buy/buy.component';
+import { HashtagComponent } from './hashtag/hashtag.component';
 
 @Component({
   selector: 'app-page-game',
-  imports: [PlayerComponent, DescrizioneComponent, BuyComponent],
+  imports: [PlayerComponent, DescrizioneComponent, BuyComponent,HashtagComponent],
   templateUrl: './page-game.component.html',
   styleUrl: './page-game.component.css'
 })
