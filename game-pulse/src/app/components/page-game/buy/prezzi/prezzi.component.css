@@ -1,0 +1,90 @@
+:host {
+  display: block;
+  background: rgba(50, 45, 45, 0.75);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 450px; /* Aumentato da 350px a 450px per allungare verso destra */
+  animation: fadeIn 0.3s ease-in;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aggiungi qui gli altri stili necessari per il componente prezzi */
+
+/* Stile del titolo */
+h5 {
+  color: white;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+
+.prezzi-container {
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+.store-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.store-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 8px;
+  margin-bottom: 8px; /* Spazio tra gli elementi */
+  border-radius: 6px; /* Bordi arrotondati per ogni elemento */
+  background-color: rgba(255, 255, 255, 0.05); /* Leggero sfondo per ogni elemento */
+  transition: all 0.2s ease;
+}
+
+.store-item:last-child {
+  margin-bottom: 0;
+}
+
+.store-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(3px);
+}
+
+.store-name {
+  color: white;
+  font-weight: 500;
+  flex: 1;
+}
+
+.price {
+  color: #4CAF50;
+  font-weight: bold;
+  margin: 0 15px;
+}
+
+.btn-primary {
+  background-color: #3a3a3a;
+  border: none;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  transition: background-color 0.2s ease;
+  border-radius: 4px;
+}
+
+.btn-primary:hover {
+  background-color: #555;
+}
