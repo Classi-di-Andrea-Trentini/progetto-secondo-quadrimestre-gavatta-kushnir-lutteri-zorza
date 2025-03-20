@@ -25,7 +25,7 @@
     <div class="container py-4">
         <div class="row g-4">
             <div class="mb-4">
-                <h1 class="display-5 text-white">Nome Gioco</h1>
+                <h1 class="game-title">{{infoGioco()?.name}}</h1>
             </div>
             <!-- Colonna Sinistra -->
             <div class="col-md-7">
@@ -52,7 +52,7 @@
 
             <!-- Colonna Destra -->
             <div class="col-md-5">
-                <app-descrizione></app-descrizione>
+                <app-descrizione [infoGioco]="infoGioco()"></app-descrizione>
               
                 
 
