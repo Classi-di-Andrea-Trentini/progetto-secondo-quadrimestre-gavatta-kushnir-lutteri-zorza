@@ -24,8 +24,8 @@
 
     <div class="container py-4">
         <div class="row g-4">
-            <div class="mb-4">
-                <h1 class="game-title">{{infoGioco()?.name}}</h1>
+            <div class="mt-4">
+                <h1 class="game-title text-white">{{infoGioco()?.name}}</h1>
             </div>
             <!-- Colonna Sinistra -->
             <div class="col-md-7">
@@ -68,7 +68,7 @@
                 </div>
 
                 <!-- hashtag -->
-                <app-hashtag></app-hashtag>
+                <app-hashtag [infoGioco]="infoGioco()"></app-hashtag>
 
                   <!-- Altri giochi -->
                   <div class="mb-4">
