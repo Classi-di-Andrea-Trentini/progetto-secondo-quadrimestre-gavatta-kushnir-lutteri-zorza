@@ -4,6 +4,7 @@ import { PageGameComponent } from './components/page-game/page-game.component';
 import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AccountComponent } from './components/account/account.component';
+import { TestNegozioComponentPoteteancheEliminarloComponent } from './components/test-negozio-component-poteteanche-eliminarlo/test-negozio-component-poteteanche-eliminarlo.component';
 
 
 export const routes: Routes = [
@@ -11,5 +12,6 @@ export const routes: Routes = [
     { path: 'game/:id', component: PageGameComponent},
     { path: 'login', component: LoginComponent},
     { path: 'register', component: RegisterComponent},
-    { path: 'user', component: AccountComponent}
+    { path: 'user', component: AccountComponent},
+    { path: 'test', component: TestNegozioComponentPoteteancheEliminarloComponent }
 ];
