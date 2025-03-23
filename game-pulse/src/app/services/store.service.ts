@@ -5,7 +5,7 @@ import { Firestore, collectionData, doc, getDoc, setDoc } from '@angular/fire/fi
 import { Router } from '@angular/router';
 import { UserData } from '../classes/user-data';
 import { GiocoVenduto } from '../classes/gioco-venduto';
-import { collection, getDocs } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, getDocs } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -40,10 +40,10 @@ export class StoreService {
   
   */
 
-  async getStoreGame(): Promise<GiocoVenduto[] | null>{
+  async getStoreGame(idGioco:string): Promise<GiocoVenduto[] | null>{
     try{
       const giochiVenduti: GiocoVenduto[] = [];
-      const gamerefData  = collection(this.firestore, 'store/gameid/offers');
+      const gamerefData  = collection(this.firestore, `store/${idGioco}/offers`);
       const gamerefDataDoc = (await getDocs(gamerefData));
       gamerefDataDoc.forEach(doc => {
         console.log(doc.id, " => ", doc.data());
@@ -67,18 +67,15 @@ export class StoreService {
     } */
   }
 
-  async loadGame(id: string): Promise<any>{
-    const gamaDocRef = doc(this.firestore, `game/${id}`)
-    const gamaDataDoc = (await getDoc(gamaDocRef)).data();
-    console.log(gamaDataDoc);
-    return gamaDataDoc;
+
+  async addGameStore(id: string, costo: number): Promise<void>{
+    const gameRef = collection(this.firestore, `store/${id}/offers/`);
+    const addgame = await addDoc(gameRef, {id: id, costo: costo});
   }
 
-  async saveGame(game: GiocoVenduto): Promise<void>{
-    const gameRef = doc(this.firestore, `game/${game.uid}`);
-    await setDoc(gameRef, {...game}, {merge:true});
+  async deleteGameStore(idGioco: string, idOfferta:string): Promise<void>{
+    const gameRef = doc(this.firestore, `store/${idGioco}/offers/${idOfferta}`);
+    const deletegame = await deleteDoc(gameRef);
+    return deletegame;
   }
-
-
-
-}
+} 
