@@ -1,15 +1,15 @@
+import { DocumentReference } from "firebase/firestore";
 
 export class GiocoVenduto {
     uid: string;
-    uid_gioco: string;
     prezzo: number;
-    detaVendita: Date;
-
-    constructor(uid: string, uid_gioco: string, prezzo: number, dataVendita: Date) {
+    author: DocumentReference;
+    valuta: string = "€";
+    constructor(uid: string,  prezzo: number, author: DocumentReference) {
         this.uid = uid;
-        this.uid_gioco = uid_gioco;
         this.prezzo = prezzo;
-        this.detaVendita = dataVendita;    
+        this.author = author;
+
     }
     
 }
