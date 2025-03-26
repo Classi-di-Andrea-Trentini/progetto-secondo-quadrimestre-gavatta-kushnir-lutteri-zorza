@@ -59,27 +59,42 @@
     object-fit: cover;
 }
 
-.change-img-btn {
+/* Pulsanti freccia per cambiare immagine */
+.arrow-button {
     position: absolute;
-    bottom: 5px;
-    right: 5px;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: none;
-    padding: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
     color: #fff;
+    border: none;
+    padding: 10px;
     cursor: pointer;
     border-radius: 50%;
+    font-size: 20px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
-.change-img-btn i {
-    font-size: 14px;
+.arrow-button.prev {
+    left: -30px;  /* Freccia sinistra */
 }
 
-#uploadPic {
-    display: none;
+.arrow-button.next {
+    right: -30px;  /* Freccia destra */
+}
+
+.arrow-button i {
+    color: white;
+}
+
+.arrow-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Aggiungi font awesome per le frecce */
+.arrow-button i {
+    font-size: 24px;
 }
 
 .username {

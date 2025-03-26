@@ -23,6 +23,28 @@ export class AccountComponent {
     });
   
   }
+  profileImages: string[] = [
+    'profilouomo.png',  // Prima immagine
+    'profilodonna.png'   // Seconda immagine
+  ];
+  // Indice dell'immagine attuale
+  currentImageIndex: number = 0;
+  // Immagine attualmente visualizzata
+  profileImage: string = this.profileImages[this.currentImageIndex];
+
+  // Funzione per cambiare immagine
+  changeImage(direction: number): void {
+    this.currentImageIndex += direction;
+
+    // Gestiamo il ciclo delle immagini
+    if (this.currentImageIndex < 0) {
+      this.currentImageIndex = this.profileImages.length - 1; // Torna alla prima immagine
+    } else if (this.currentImageIndex >= this.profileImages.length) {
+      this.currentImageIndex = 0; // Torna all'ultima immagine
+    }
+
+    this.profileImage = this.profileImages[this.currentImageIndex];
+  }
   
 
 
