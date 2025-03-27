@@ -7,10 +7,11 @@ import { PlayerComponent } from './player/player.component';
 import { DescrizioneComponent } from './descrizione/descrizione.component';
 import { BuyComponent } from './buy/buy.component';
 import { HashtagComponent } from './hashtag/hashtag.component';
+import { ValutazioniComponent } from './valutazioni/valutazioni.component';
 
 @Component({
   selector: 'app-page-game',
-  imports: [PlayerComponent, DescrizioneComponent, BuyComponent,HashtagComponent],
+  imports: [PlayerComponent, DescrizioneComponent, BuyComponent,HashtagComponent, ValutazioniComponent],
   templateUrl: './page-game.component.html',
   styleUrl: './page-game.component.css'
 })
