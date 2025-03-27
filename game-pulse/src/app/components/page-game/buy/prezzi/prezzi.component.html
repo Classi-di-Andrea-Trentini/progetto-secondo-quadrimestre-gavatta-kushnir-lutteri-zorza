@@ -1,1 +1,10 @@
-<p>prezzi works!</p>
+<!--  --><div class="prezzi-container">
+  <h5 class="text-white mb-3">Confronta prezzi</h5>
+  <div class="store-list">
+    <div class="store-item" *ngFor="let store of stores">
+      <span class="store-name">{{store.name}}</span>
+      <span class="price">{{store.price}}</span>
+      <a [href]="store.storeUrl" target="_blank" class="btn btn-sm btn-primary">Acquista</a>
+    </div>
+  </div>
+</div>
