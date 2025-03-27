@@ -39,16 +39,25 @@
   text-decoration: underline;
 }
 
+/* Gradiente per Instagram */
 .footer-section ul li a.instagram:hover {
-  color: #833AB4;
+  background: linear-gradient(45deg, #833AB4, #FD1D1D, #FDCB82); /* Gradiente di Instagram */
+  -webkit-background-clip: text; /* Applicare il gradiente solo al testo */
+  color: transparent; /* Rendere trasparente il colore di base per far vedere il gradiente */
 }
 
+/* Gradiente per Facebook */
 .footer-section ul li a.facebook:hover {
-  color: #3b5998;
+  background: linear-gradient(45deg, #3b5998, #8b9dc3); /* Gradiente di Facebook */
+  -webkit-background-clip: text; /* Applicare il gradiente solo al testo */
+  color: transparent; /* Rendere trasparente il colore di base per far vedere il gradiente */
 }
 
+/* Gradiente per Twitter */
 .footer-section ul li a.twitter:hover {
-  color: #1DA1F2;
+  background: linear-gradient(45deg, #1DA1F2, #00acee); /* Gradiente di Twitter */
+  -webkit-background-clip: text; /* Applicare il gradiente solo al testo */
+  color: transparent; /* Rendere trasparente il colore di base per far vedere il gradiente */
 }
 
 .footer-bottom {
