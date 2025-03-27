@@ -21,7 +21,7 @@ export class PrezziComponent implements OnInit {
       {
         name: 'Steam',
         price: '€59.99',
-        storeUrl: 'https://store.steampowered.com/app/1091500'
+        storeUrl: 'https://store.steampowered.com/app'
       },
       {
         name: 'Epic Games',
