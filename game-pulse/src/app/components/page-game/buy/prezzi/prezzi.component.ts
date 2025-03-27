@@ -20,17 +20,17 @@ export class PrezziComponent implements OnInit {
     this.stores = [
       {
         name: 'Steam',
-        price: '€59.99',
+        price: '€21.99',
         storeUrl: 'https://store.steampowered.com/app'
       },
       {
         name: 'Epic Games',
-        price: '€54.99',
+        price: '€19.99',
         storeUrl: 'https://www.epicgames.com/store/it/'
       },
       {
         name: 'GOG',
-        price: '€49.99',
+        price: '€22.99',
         storeUrl: 'https://www.gog.com/'
       }
       // Mantieni gli altri store che hai già definito
