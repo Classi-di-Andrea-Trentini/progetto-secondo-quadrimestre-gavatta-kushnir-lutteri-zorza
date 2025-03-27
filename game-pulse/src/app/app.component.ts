@@ -9,11 +9,15 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import {CloudinaryModule} from '@cloudinary/ng/src/lib/cloudinary.module';
+import { AccountComponent } from './components/account/account.component';
+
+
 
 @Component({
   selector: 'app-root',
 
-  imports: [CloudinaryModule,MenuComponent, LoginComponent, RegisterComponent, MatSlideToggleModule,RouterOutlet,HomeComponent],
+  imports: [CloudinaryModule,MenuComponent, LoginComponent, RegisterComponent, MatSlideToggleModule,RouterOutlet,HomeComponent,AccountComponent],
+
 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

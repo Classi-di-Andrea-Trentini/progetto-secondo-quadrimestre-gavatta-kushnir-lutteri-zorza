@@ -3,19 +3,21 @@
         <div class="left-section">
             <div class="profile-container">
                 <div class="profile-image">
-                    <img [src]="currentUser()?.photoURL" alt="Immagine profilo" id="profile-img">
-                    <label for="uploadPic" class="change-img-btn">
-                        <i class="fas fa-pencil-alt"></i>
-                    </label>
-                    <input type="file" id="uploadPic" accept="image/*">
+                    <button class="arrow-button prev" (click)="changeImage(-1)">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <img [src]="profileImage" alt="Immagine profilo" id="profile-img">
+                    <button class="arrow-button next" (click)="changeImage(1)">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
-                <h2 class="username">{{currentUser()?.displayName}}</h2>
+                <h2 class="username">Admin</h2>
             </div>
         </div>
         <div class="right-section">
             <div class="account-description">
                 <h3>Descrizione Account</h3>
-                <p>email : {{currentUser()?.displayName}} </p>
+                <p>Appassionato di tecnologia, videogiochi e viaggi. Sempre alla ricerca di nuove esperienze e pronto a esplorare il mondo con curiosità e passione. Nel tempo libero mi piace leggere, ascoltare musica e migliorare le mie competenze professionali. Se vuoi scambiare opinioni su argomenti tech o scoprire nuovi giochi, sono sempre disponibile per una chiacchierata! </p>
             </div>
             <div class="games-table">
                 <h3>Giochi in Vendita</h3>
@@ -28,9 +30,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                            <td>game.name </td>
-                            <td>game.price </td>
-                            <td> game.releaseDate </td>
+                        <tr>
+                            <td>game.name</td>
+                            <td>game.price</td>
+                            <td>game.releaseDate</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
