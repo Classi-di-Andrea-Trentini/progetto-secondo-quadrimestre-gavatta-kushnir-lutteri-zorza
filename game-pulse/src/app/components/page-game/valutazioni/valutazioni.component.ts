@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { InfoGioco } from '../../../classes/info-gioco';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-valutazioni',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './valutazioni.component.html',
   styleUrl: './valutazioni.component.css'
 })
 export class ValutazioniComponent {
-
+  @Input() infoGioco: InfoGioco | null = null;
 }
