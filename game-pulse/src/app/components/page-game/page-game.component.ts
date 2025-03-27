@@ -19,12 +19,10 @@ import { PrezziComponent } from './buy/prezzi/prezzi.component';
     PlayerComponent,
     DescrizioneComponent,
     BuyComponent,
-    PrezziComponent,HashtagComponent, ValutazioniComponent
+    PrezziComponent,
+    HashtagComponent, 
+    ValutazioniComponent
   ],
-
-
-
-nuova-pagina-giochi
   templateUrl: './page-game.component.html',
   styleUrl: './page-game.component.css'
 })
