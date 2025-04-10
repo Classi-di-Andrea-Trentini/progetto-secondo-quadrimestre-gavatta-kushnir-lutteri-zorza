@@ -10,4 +10,10 @@ import { CommonModule } from '@angular/common';
 })
 export class ValutazioniComponent {
   @Input() infoGioco: InfoGioco | null = null;
+
+  get valutazioni(): string[] {
+    return this.infoGioco?.ratings?.map(rating => rating.title) || [];
+  }
+  
+
 }
