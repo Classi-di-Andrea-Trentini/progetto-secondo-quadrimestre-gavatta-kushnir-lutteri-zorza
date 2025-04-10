@@ -76,7 +76,6 @@ export class MenuComponent  {
       this.isLoading = false;
     });
   }
-    }
 
 
 
