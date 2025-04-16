@@ -24,8 +24,8 @@
 
     <div class="container py-4">
         <div class="row g-4">
-            <div class="mb-4">
-                <h1 class="display-5 text-white">Nome Gioco</h1>
+            <div class="mt-4">
+                <h1 class="game-title text-white">{{infoGioco()?.name}}</h1>
             </div>
             <!-- Colonna Sinistra -->
             <div class="col-md-7">
@@ -52,31 +52,17 @@
 
             <!-- Colonna Destra -->
             <div class="col-md-5">
-                <app-descrizione></app-descrizione>
+                <app-descrizione [infoGioco]="infoGioco()"></app-descrizione>
               
                 
 
                 <!-- Valutazioni -->
                 <div class="mb-4">
-                    <h4>Valutazioni</h4>
-                    <div class="progress mb-2">
-                        <div class="progress-bar" style="width: 85%">85%</div>
-                    </div>
-                    <div class="progress mb-2">
-                        <div class="progress-bar" style="width: 92%">92%</div>
-                    </div>
+                    <app-valutazioni [infoGioco]="infoGioco()"></app-valutazioni>
                 </div>
 
                 <!-- hashtag -->
-                <div class="mb-4">
-                    <h4>hashtag</h4>
-                    <div class="progress mb-2">
-                        <div class="progress-bar" style="width: 85%">85%</div>
-                    </div>
-                    <div class="progress mb-2">
-                        <div class="progress-bar" style="width: 92%">92%</div>
-                    </div>
-                </div>
+                <app-hashtag [infoGioco]="infoGioco()"></app-hashtag>
 
                   <!-- Altri giochi -->
                   <div class="mb-4">

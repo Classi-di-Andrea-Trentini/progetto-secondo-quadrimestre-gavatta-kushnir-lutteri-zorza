@@ -6,7 +6,10 @@ import { CommonModule } from '@angular/common';
 import { PlayerComponent } from './player/player.component';
 import { DescrizioneComponent } from './descrizione/descrizione.component';
 import { BuyComponent } from './buy/buy.component';
+import { HashtagComponent } from './hashtag/hashtag.component';
+import { ValutazioniComponent } from './valutazioni/valutazioni.component';
 import { PrezziComponent } from './buy/prezzi/prezzi.component';
+
 
 @Component({
   selector: 'app-page-game',
@@ -16,8 +19,12 @@ import { PrezziComponent } from './buy/prezzi/prezzi.component';
     PlayerComponent,
     DescrizioneComponent,
     BuyComponent,
-    PrezziComponent
+    PrezziComponent,HashtagComponent, ValutazioniComponent
   ],
+
+
+
+nuova-pagina-giochi
   templateUrl: './page-game.component.html',
   styleUrl: './page-game.component.css'
 })

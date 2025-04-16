@@ -1,0 +1,15 @@
+.custom-badge {
+    background-color: #6c3483;  /* Colore viola personalizzato */
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+  
+  .custom-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
