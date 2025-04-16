@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// Definisci l'interfaccia prima di usarla
+interface Store {
+  name: string;
+  price: string;
+  storeUrl: string;
+}
+
 @Component({
   selector: 'app-prezzi',
   standalone: true,
@@ -9,8 +16,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './prezzi.component.css'
 })
 export class PrezziComponent implements OnInit {
-  stores: Store[] = [
-];
+  stores: Store[] = [];
 
   ngOnInit(): void {
     // Inizializza i dati con gli URL degli store
@@ -30,14 +36,7 @@ export class PrezziComponent implements OnInit {
         price: '€22.99',
         storeUrl: 'https://www.gog.com/'
       }
-      // Mantieni gli altri store che hai già definito
     ];
   }
-}
-
-interface Store {
-  name: string;
-  price: string;
-  storeUrl: string; // Aggiunta questa proprietà
 }
 
