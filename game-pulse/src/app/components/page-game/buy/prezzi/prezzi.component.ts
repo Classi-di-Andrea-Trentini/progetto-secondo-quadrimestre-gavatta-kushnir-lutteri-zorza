@@ -10,10 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class PrezziComponent implements OnInit {
   stores: Store[] = [
-    { name: 'Steam', price: '€29.99', storeUrl: '' },
-    { name: 'Epic Games', price: '€34.99', storeUrl: '' },
-    { name: 'GOG', price: '€27.99', storeUrl: '' }
-  ];
+];
 
   ngOnInit(): void {
     // Inizializza i dati con gli URL degli store
