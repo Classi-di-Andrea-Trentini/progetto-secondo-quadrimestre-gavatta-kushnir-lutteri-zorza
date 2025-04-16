@@ -13,7 +13,7 @@ interface Store {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './prezzi.component.html',
-  styleUrl: './prezzi.component.css'
+  styleUrls: ['./prezzi.component.css'] // Cambia da styleUrl a styleUrls (array)
 })
 export class PrezziComponent implements OnInit {
   stores: Store[] = [];

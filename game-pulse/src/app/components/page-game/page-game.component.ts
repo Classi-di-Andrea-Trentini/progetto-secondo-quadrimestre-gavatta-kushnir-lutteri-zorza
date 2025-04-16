@@ -14,17 +14,7 @@ import { PrezziComponent } from './buy/prezzi/prezzi.component';
 @Component({
   selector: 'app-page-game',
   standalone: true,
-  imports: [
-    CommonModule,
-    PlayerComponent,
-    DescrizioneComponent,
-    BuyComponent,
-    PrezziComponent,HashtagComponent, ValutazioniComponent
-  ],
-
-
-
-nuova-pagina-giochi
+  imports: [HashtagComponent, ValutazioniComponent, DescrizioneComponent, BuyComponent, PlayerComponent],
   templateUrl: './page-game.component.html',
   styleUrl: './page-game.component.css'
 })
