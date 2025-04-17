@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartService } from 'src/app/component/page-game/buy/prezzi/services/cart.service';
+import { CartService } from '../services/cart.service';  // Corretto il percorso
 
 @Component({
   selector: 'app-cart-button',
