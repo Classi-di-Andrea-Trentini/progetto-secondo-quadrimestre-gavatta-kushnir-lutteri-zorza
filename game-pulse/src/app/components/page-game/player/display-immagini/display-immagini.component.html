@@ -12,8 +12,9 @@
     <ng-template #noImages>
         <div class="alert alert-info text-center">
             <p>Nessuna immagine disponibile per questo gioco.</p>
-            <img *ngIf="infoGioco?.background_image" [src]="infoGioco?.background_image" class="img-fluid" 
-                 [alt]="infoGioco?.name + ' background image'">
+            @if (infoGioco?.background_image) {
+                <img [src]="infoGioco?.background_image" class="img-fluid" [alt]="infoGioco?.name + ' background image'">
+            }
         </div>
     </ng-template>
 </div>
