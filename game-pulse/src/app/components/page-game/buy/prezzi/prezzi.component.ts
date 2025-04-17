@@ -38,5 +38,16 @@ export class PrezziComponent implements OnInit {
       }
     ];
   }
+  addToCart(store: any, event: MouseEvent): void {
+    console.log(`Aggiunto al carrello: ${store.name} - ${store.price}`);
+    
+    // Update the data-quantity attribute
+    const button = event.currentTarget as HTMLElement;
+    const currentQuantity = parseInt(button.getAttribute('data-quantity') || '0');
+    button.setAttribute('data-quantity', (currentQuantity + 1).toString());
+    
+    // You can emit an event here if you want to handle this in a parent component
+    // this.addToCartEvent.emit(store);
+  }
 }
 
