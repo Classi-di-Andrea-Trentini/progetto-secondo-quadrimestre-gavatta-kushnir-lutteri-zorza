@@ -1,7 +1,7 @@
-<div id="sfondo" class="game-container">
+<!-- <div id="sfondo" class="game-container">
     <div class="left-section">
         <h1 class="game-title">{{infoGioco()?.name}}</h1>
-        <div class="game-description" [innerHTML]="infoGioco()?.description">
+        <div class="game-description" [innerHTML]="infoGioco()?.description">{{infoGioco()?.description}}</div>
         </div>
         <div>
             @for(store of infoGioco()?.stores; track $index){
@@ -16,5 +16,64 @@
         <img [src]="infoGioco()?.background_image"  alt="Dota 2 Cover" class="game-image">
         <div class="rating-stars">★★★★★ {{infoGioco()?.rating}}</div>
     </div>
-</div>
 
+
+<app-player></app-player>
+ -->
+<div class="custom-bg">
+
+    <div class="container py-4">
+        <div class="row g-4">
+            <div class="mt-4">
+                <h1 class="game-title text-white">{{infoGioco()?.name}}</h1>
+            </div>
+            <!-- Colonna Sinistra -->
+            <div class="col-md-7">
+                <!-- Nome Gioco -->
+
+
+                <!-- Frame (placeholder) -->
+                <!-- <div class="mb-4 border p-3 rounded">
+                     <app-player></app-player>
+                    <div class="placeholder-content" style="height: 200px">
+                       
+                    </div>
+                </div> -->
+                <div class="player-container container-fluid">
+                    <app-player></app-player>
+                </div>
+                
+                <!-- Da qualche parte nella tua pagina, ad esempio dopo il video player -->
+                <div class="mb-4">
+                    <app-buy></app-buy>
+                </div>
+
+            </div>
+
+            <!-- Colonna Destra -->
+            <div class="col-md-5">
+                <app-descrizione [infoGioco]="infoGioco()"></app-descrizione>
+              
+                
+
+                <!-- Valutazioni -->
+                <div class="mb-4">
+                    <app-valutazioni [infoGioco]="infoGioco()"></app-valutazioni>
+                </div>
+
+                <!-- hashtag -->
+                <app-hashtag [infoGioco]="infoGioco()"></app-hashtag>
+
+                  <!-- Altri giochi -->
+                  <div class="mb-4">
+                    <h4>Altri giochi</h4>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action">Gioco Correlato 1</a>
+                        <a href="#" class="list-group-item list-group-item-action">Gioco Correlato 2</a>
+                        <a href="#" class="list-group-item list-group-item-action">Gioco Correlato 3</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,7 +8,6 @@ import { RouterOutlet } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import {CloudinaryModule} from '@cloudinary/ng/src/lib/cloudinary.module';
 import { AccountComponent } from './components/account/account.component';
 import { FooterComponent } from './footer/footer.component';
 
@@ -17,7 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 @Component({
   selector: 'app-root',
 
-  imports: [CloudinaryModule,MenuComponent, LoginComponent, RegisterComponent, MatSlideToggleModule,RouterOutlet,HomeComponent,AccountComponent,FooterComponent],
+  imports: [MenuComponent, LoginComponent, RegisterComponent, MatSlideToggleModule,RouterOutlet,HomeComponent,AccountComponent,FooterComponent],
 
 
   templateUrl: './app.component.html',

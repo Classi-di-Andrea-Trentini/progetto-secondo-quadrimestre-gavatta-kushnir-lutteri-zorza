@@ -1,0 +1,26 @@
+.player {
+    background: rgba(34, 30, 30, 0.41); 
+}
+
+.player__video {
+    border-radius: 0px;
+    max-width: 1200px;  
+    margin: 0 auto;    
+    position: relative;
+    overflow: hidden;    
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);  
+}
+
+.player__video video {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;  
+    object-fit: cover;   
+}
+
+
+.player__video:hover {
+    transform: scale(1.01);
+    transition: transform 0.3s ease;
+}
+

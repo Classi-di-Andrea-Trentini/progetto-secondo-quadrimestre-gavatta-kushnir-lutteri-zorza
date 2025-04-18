@@ -1,0 +1,15 @@
+<div class="container p-3">
+    <h3 class="text-white">Valutazioni</h3>
+    <div class="d-flex flex-wrap gap-3 mt-4">
+        @for (valutazione of valutazioni; track valutazione.id) {
+            <div class="rating-badge" [ngClass]="getRatingColor(valutazione.title)">
+                <div class="rating-title">{{valutazione.title}}</div>
+                <div class="rating-percent">{{valutazione.percent | number:'1.0-0'}}%</div>
+                <div class="rating-count">({{valutazione.count}})</div>
+            </div>
+        }
+        @if (valutazioni.length === 0) {
+            <p class="text-white-50">Nessuna valutazione disponibile</p>
+        }
+    </div>
+</div>
