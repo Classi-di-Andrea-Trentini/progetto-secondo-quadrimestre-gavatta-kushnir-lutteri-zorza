@@ -1,3 +1,9 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: transparent;
+}
+
 #ai {
     padding-top: 150px;
     min-height: 300px;

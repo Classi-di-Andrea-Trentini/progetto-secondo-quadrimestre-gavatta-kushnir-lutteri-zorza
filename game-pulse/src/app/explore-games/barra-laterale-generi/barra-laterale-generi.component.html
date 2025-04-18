@@ -1,8 +1,10 @@
-<div class="sidebar">
-  <h3>Generi</h3>
-  <ul class="genre-list">
-    <li *ngFor="let genere of generi" (click)="onGenereClick(genere)">
-      {{ genere }}
-    </li>
+<div class="generi-container">
+  <h2 class="generi-titolo">Generi</h2>
+  <ul class="generi-lista">
+    @for (genere of generi; track genere) {
+      <li class="genere-item" (click)="onGenereClick(genere)">
+        <a class="genere-link">{{genere}}</a>
+      </li>
+    }
   </ul>
 </div>

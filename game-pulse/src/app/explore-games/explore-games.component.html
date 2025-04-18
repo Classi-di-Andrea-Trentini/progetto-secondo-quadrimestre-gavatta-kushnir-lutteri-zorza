@@ -5,17 +5,14 @@
         <app-barra-laterale-generi></app-barra-laterale-generi>
         
         <div class="games-grid">
-            @for (i of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]; track i) {
-                <div class="game-card">
-                    <div class="game-image"></div>
-                    <div class="game-details">
-                        <h3>Titolo del Gioco {{i}}</h3>
-                        <p class="game-genre">Azione, Avventura</p>
-                        <div class="game-rating">
-                            <span class="stars">★★★★☆</span>
-                            <span class="price">€59.99</span>
-                        </div>
-                    </div>
+            @for (game of games; track game.id) {
+                <div class="game-card-container">
+                    <app-game-card
+                        [title]="game.title"
+                        [genre]="game.genre"
+                        [rating]="game.rating"
+                        [price]="game.price">
+                    </app-game-card>
                 </div>
             }
         </div>
