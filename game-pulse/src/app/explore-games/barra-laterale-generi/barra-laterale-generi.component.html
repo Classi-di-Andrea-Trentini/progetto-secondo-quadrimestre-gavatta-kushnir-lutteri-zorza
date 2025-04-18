@@ -1,0 +1,8 @@
+<div class="sidebar">
+  <h3>Generi</h3>
+  <ul class="genre-list">
+    <li *ngFor="let genere of generi" (click)="onGenereClick(genere)">
+      {{ genere }}
+    </li>
+  </ul>
+</div>

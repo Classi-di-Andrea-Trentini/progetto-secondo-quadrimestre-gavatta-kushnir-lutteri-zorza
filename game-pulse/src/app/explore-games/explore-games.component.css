@@ -10,7 +10,17 @@ h1 {
   font-size: 2rem;
 }
 
+.explore-content {
+  display: flex;
+  gap: 20px;
+}
+
+app-barra-laterale-generi {
+  flex: 0 0 250px; /* larghezza fissa della barra laterale */
+}
+
 .games-grid {
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -18,8 +28,8 @@ h1 {
 }
 
 .game-card {
-  flex: 1 0 calc(25% - 20px); /* 4 giochi per riga */
-  max-width: calc(25% - 20px);
+  flex: 1 0 calc(33.33% - 20px); /* 3 giochi per riga con barra laterale */
+  max-width: calc(33.33% - 20px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   border-radius: 8px;
   overflow: hidden;
@@ -73,12 +83,22 @@ h1 {
 /* Responsive design */
 @media (max-width: 1100px) {
   .game-card {
-    flex: 1 0 calc(33.33% - 20px);
-    max-width: calc(33.33% - 20px);
+    flex: 1 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
   }
 }
 
 @media (max-width: 768px) {
+  .explore-content {
+    flex-direction: column;
+  }
+  
+  app-barra-laterale-generi {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
   .game-card {
     flex: 1 0 calc(50% - 20px);
     max-width: calc(50% - 20px);
