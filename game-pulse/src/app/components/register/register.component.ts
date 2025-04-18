@@ -4,10 +4,10 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { User } from 'firebase/auth';
 import { UserData } from '../../classes/user-data';
-
+import { RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-register',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink, RouterLinkActive],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
@@ -20,7 +20,8 @@ export class RegisterComponent {
   newUser: Signal<User | null> = this.authService.newUser;
 
   async registra() {
-    if(this.newUser()) {
+    console.log("sto registrando")
+  /*   if(this.newUser()) {
       const userData = new UserData( {
         ...this.newUser(),
         nome: 'Andrea',
@@ -28,8 +29,8 @@ export class RegisterComponent {
         note: 'Nuovo utente registrato'
       });
       await this.authService.saveUserData(userData);      
-    }
-  }
+    } */
+  } 
 
   async logout() {
     await this.authService.logout();
@@ -43,6 +44,8 @@ export class RegisterComponent {
       console.log('Email:', this.email);
       console.log('Password:', this.password);
     }
+    this.registra()
+
   }
 
   annulla(): void {

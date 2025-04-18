@@ -8,12 +8,16 @@ import { RouterOutlet } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { AccountComponent } from './components/account/account.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 
 @Component({
   selector: 'app-root',
 
-  imports: [MenuComponent, LoginComponent, RegisterComponent, MatSlideToggleModule,RouterOutlet,HomeComponent],
+  imports: [MenuComponent, LoginComponent, RegisterComponent, MatSlideToggleModule,RouterOutlet,HomeComponent,AccountComponent,FooterComponent],
+
 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
