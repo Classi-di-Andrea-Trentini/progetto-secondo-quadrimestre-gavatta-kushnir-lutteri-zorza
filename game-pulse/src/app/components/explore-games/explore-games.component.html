@@ -1,0 +1,21 @@
+<div class="explore-container">
+    <h1>Esplora i Giochi</h1>
+    
+    <div class="explore-content">
+        <app-barra-laterale-generi></app-barra-laterale-generi>
+        
+        <div class="games-grid">
+            @for (game of games; track game.id) {
+                <div class="game-card-container">
+                    <app-game-card
+                        [title]="game.title"
+                        [genre]="game.genre"
+                        [rating]="game.rating"
+                        [price]="game.price"
+                        [image]="game.image"> <!-- Aggiunta immagine -->
+                    </app-game-card>
+                </div>
+            }
+        </div>
+    </div>
+</div>

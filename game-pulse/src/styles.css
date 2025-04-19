@@ -1,6 +1,25 @@
+/* Stile globale per il tema scuro */
 
-body{
-    margin: 0;
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #121212;
+  background-image: linear-gradient(to bottom, #121212, #202020);
+  background-attachment: fixed; /* Importante: fissa lo sfondo per evitare ripetizioni */
+  color: #e0e0e0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Assicuriamo che tutto l'app abbia lo stesso sfondo */
+app-root {
+  display: block;
+  min-height: 100vh;
 }
 
 

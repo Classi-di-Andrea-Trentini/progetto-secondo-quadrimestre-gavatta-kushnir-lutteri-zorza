@@ -1,0 +1,75 @@
+.game-card {
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+  border-radius: 10px; /* Aumentato da 8px a 10px */
+  overflow: hidden;
+  background: #1e1e1e;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card:hover {
+  transform: translateY(-8px); /* Aumentato da -5px a -8px per un effetto più pronunciato */
+  box-shadow: 0 10px 20px rgba(255,255,255,0.25); /* Ombra più intensa */
+}
+
+.game-image {
+  height: 200px; /* Aumentato da 220px a 260px */
+  position: relative;
+  overflow: hidden;
+  background-color: #333;
+  background-image: linear-gradient(45deg, #333, #444);
+  width: 100%;
+  object-fit: cover;
+}
+
+.game-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Mantiene le proporzioni dell'immagine */
+  transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-image img {
+  transform: scale(1.05); /* Effetto zoom al hover */
+}
+
+.game-details {
+  padding: 22px; /* Mantenuto da codice esistente invece che 16px */
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 180px; /* Aggiunto: altezza fissa per la sezione dettagli */
+}
+
+.game-details h3 {
+  margin: 0 0 12px 0; /* Aumentato da 10px a 12px */
+  font-size: 1.4rem; /* Aumentato da 1.3rem a 1.4rem */
+  color: #f5f5f5;
+}
+
+.game-genre {
+  color: #b0b0b0;
+  font-size: 1.1rem; /* Aumentato da 1rem a 1.1rem */
+  margin-bottom: 15px; /* Aumentato da 12px a 15px */
+}
+
+.game-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 15px; /* Aggiunto padding-top */
+}
+
+.stars {
+  color: #f8c518;
+  font-size: 1.25rem; /* Aumentato da 1.1rem a 1.25rem */
+}
+
+.price {
+  font-weight: bold;
+  color: #e0e0e0;
+  font-size: 1.2rem; /* Aggiunta dimensione esplicita per il prezzo */
+}
