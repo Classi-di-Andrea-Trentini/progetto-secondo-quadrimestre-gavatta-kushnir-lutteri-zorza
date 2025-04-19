@@ -1,5 +1,7 @@
 <div class="game-card">
-    <div class="game-image"></div>
+    <div class="game-image">
+        <img [src]="image || 'path/to/placeholder.png'" [alt]="title">
+    </div>
     <div class="game-details">
         <h3>{{ title }}</h3>
         <p class="game-genre">{{ genre }}</p>

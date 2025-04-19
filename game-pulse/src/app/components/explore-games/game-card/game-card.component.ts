@@ -13,4 +13,5 @@ export class GameCardComponent {
   @Input() genre: string = '';
   @Input() rating: string = '';
   @Input() price: string = '';
+  @Input() image: string = ''; // Nuovo input per l'immagine
 }

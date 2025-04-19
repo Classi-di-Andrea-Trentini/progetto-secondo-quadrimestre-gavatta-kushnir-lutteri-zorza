@@ -11,15 +11,7 @@ import { GamePulseService } from '../../services/game-pulse.service';
   templateUrl: './explore-games.component.html',
   styleUrl: './explore-games.component.css'
 })
-export class ExploreGamesComponent{
-/*   games = Array(15).fill(0).map((_, i) => ({
-    id: i + 1,
-    title: `Titolo del Gioco ${i + 1}`,
-    genre: 'Azione, Avventura',
-    rating: '★★★★☆',
-    price: '€59.99'
-  })); */
-
+export class ExploreGamesComponent {
   games: any[] = [];
   isLoading = true;
   error: string | null = null;
@@ -32,9 +24,11 @@ export class ExploreGamesComponent{
         this.games = response.results;
         this.isLoading = false;
         this.games.forEach((game: any) => {
-          game.rating = '★★★★★'; // Placeholder for rating
-          game.price = '€59.99'; // Placeholder for price
-          game.genre = game.genres.map((genre: any) => genre.name).join(', '); // Join genres into a string
+          game.title = game.name; // Mappatura corretta del titolo
+          game.rating = this.convertRatingToStars(game.rating); // Conversione rating
+          game.price = game.price || '€59.99'; // Placeholder se non presente
+          game.genre = game.genres.map((genre: any) => genre.name).join(', ');
+          game.image = game.background_image; // URL dell'immagine
         });
       },
       error: (err) => {
@@ -42,6 +36,12 @@ export class ExploreGamesComponent{
         this.isLoading = false;
       }
     });
-    
+  }
+
+  private convertRatingToStars(rating: number): string {
+    const rounded = Math.round(rating * 2) / 2; // Arrotonda a 0.5
+    const fullStars = Math.floor(rounded);
+    const halfStar = rounded % 1 !== 0;
+    return '★'.repeat(fullStars) + (halfStar ? '½' : '') + '☆'.repeat(5 - Math.ceil(rounded));
   }
 }
