@@ -10,7 +10,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { AccountComponent } from './components/account/account.component';
 import { FooterComponent } from './footer/footer.component';
-import { ExploreGamesComponent } from './explore-games/explore-games.component';
+import { ExploreGamesComponent } from './components/explore-games/explore-games.component';
 
 
 
