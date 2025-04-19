@@ -5,7 +5,7 @@ body {
 
 .explore-container {
   padding: 20px;
-  max-width: 1200px;
+  max-width: 1600px; /* Aumentato da 1200px a 1400px per avere più spazio */
   margin: 0 auto;
   min-height: calc(100vh - 40px); /* Altezza minima che considera il padding */
   background-color: transparent; /* Rimuoviamo lo sfondo dal container per evitare tagli */
@@ -20,32 +20,47 @@ h1 {
 
 .explore-content {
   display: flex;
-  gap: 20px;
+  gap: 25px; /* Aumentato da 20px a 25px per dare più spazio tra barra laterale e griglia */
   min-height: calc(100vh - 100px); /* Altezza minima per coprire la viewport */
 }
 
 app-barra-laterale-generi {
-  flex: 0 0 250px; /* larghezza fissa della barra laterale */
+  flex: 0 0 220px; /* Ridotto leggermente da 250px a 220px per dare più spazio alla grid */
 }
 
 .games-grid {
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 22px; /* Aumentato da 15px a 22px per dare più spazio tra le card */
   justify-content: flex-start;
 }
 
 .game-card-container {
-  flex: 1 0 calc(33.33% - 20px); /* 3 giochi per riga con barra laterale */
-  max-width: calc(33.33% - 20px);
+  flex: 1 0 calc(25% - 22px); /* Adattato al nuovo gap */
+  max-width: calc(25% - 22px);
+  min-height: 400px; /* Aggiunta altezza minima per card più grandi */
 }
 
 /* Responsive design */
+@media (max-width: 1200px) {
+  .game-card-container {
+    flex: 1 0 calc(33.33% - 22px);
+    max-width: calc(33.33% - 22px);
+  }
+}
+
 @media (max-width: 1100px) {
   .game-card-container {
-    flex: 1 0 calc(50% - 20px);
-    max-width: calc(50% - 20px);
+    flex: 1 0 calc(50% - 22px);
+    max-width: calc(50% - 22px);
+  }
+}
+
+@media (max-width: 900px) {
+  .game-card-container {
+    flex: 1 0 calc(50% - 15px);
+    max-width: calc(50% - 15px);
   }
 }
 
