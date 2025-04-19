@@ -52,3 +52,16 @@ POST https://api.isthereanydeal.com/games/prices/v3?key=19d7f277f840b70d1cdac01b
   "01849782-1017-7389-8de4-c97c587fd7e3"
 ]
 
+###
+POST https://api.isthereanydeal.com/lookup/id/title/v1?key=19d7f277f840b70d1cdac01b5c2620a6976292f5
+
+[
+"Baldurs Gate 3"
+]
+
+###
+POST https://api.isthereanydeal.com/games/prices/v3?key=19d7f277f840b70d1cdac01b5c2620a6976292f5
+
+[
+  "018d9584-24d6-7010-b82b-df1f0b154cc7"
+]

@@ -22,3 +22,4 @@ export class ItadService {
     return this.http.get(`${this.apiUrl}/game/prices/`, { params });
   }
 }
+
