@@ -26,3 +26,29 @@ GET https://api.rawg.io/api/games/28131/screenshots?key=9abd9c1ccd8c48a88b995b17
 
 ###
 GET https://api.rawg.io/api/games?key=9abd9c1ccd8c48a88b995b17c20b2d94&page_size=5&ordering=-rating_top
+
+###
+POST https://api.isthereanydeal.com/v02/game/prices/?key=9abd9c1ccd8c48a88b995b17c20b2d94
+Content-Type: application/json
+
+{
+  "plains": ["thewitcher3", "cyberpunk2077"],
+  "region": "eu",
+  "country": "IT",
+  "shops": ["steam", "gog"]
+}
+
+###
+GET https://api.isthereanydeal.com/v02/search/search/?key=9abd9c1ccd8c48a88b995b17c20b2d94&q=The%20Witcher%203
+
+###
+GET https://api.isthereanydeal.com/v02/game/prices/?key=19d7f277f840b70d1cdac01b5c2620a6976292f5&plains=thewitcher3
+
+###
+POST https://api.isthereanydeal.com/games/prices/v3?key=19d7f277f840b70d1cdac01b5c2620a6976292f5
+
+[
+  "01849783-6a26-7147-ab32-71804ca47e8e",
+  "01849782-1017-7389-8de4-c97c587fd7e3"
+]
+

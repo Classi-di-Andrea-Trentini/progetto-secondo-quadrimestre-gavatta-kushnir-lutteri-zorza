@@ -29,7 +29,8 @@ export class ExploreGamesComponent {
         this.games.forEach((game: any) => {
           game.title = game.name; // Mappatura corretta del titolo
           game.rating = this.convertRatingToStars(game.rating); // Conversione rating
-          game.price = this.itadService.getGamePrices(game.title); // Placeholder se non presente
+          game.price = this.itadService.getGamePrices(game.title); 
+          console.log(game.price);
           game.genre = game.genres.map((genre: any) => genre.name).join(', ');
           game.image = game.background_image; // URL dell'immagine
         });
