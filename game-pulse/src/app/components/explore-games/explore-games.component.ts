@@ -17,28 +17,56 @@ export class ExploreGamesComponent {
   games: any[] = [];
   isLoading = true;
   error: string | null = null;
-
+  selectedGenre: string | null = null;
   
   constructor(private GamePulseService: GamePulseService, private itadService: ItadService) {}
   
   ngOnInit() {
+    this.loadTopRatedGames();
+  }
+
+  loadTopRatedGames() {
+    this.isLoading = true;
     this.GamePulseService.getTopRatedGames().subscribe({
       next: (response: any) => {
-        this.games = response.results;
-        this.isLoading = false;
-        this.games.forEach((game: any) => {
-          game.title = game.name; // Mappatura corretta del titolo
-          game.rating = this.convertRatingToStars(game.rating); // Conversione rating
-          game.price = this.itadService.getGamePrices(game.title); 
-          console.log(game.price);
-          game.genre = game.genres.map((genre: any) => genre.name).join(', ');
-          game.image = game.background_image; // URL dell'immagine
-        });
+        this.processGamesData(response.results);
       },
       error: (err) => {
         this.error = 'Failed to load games';
         this.isLoading = false;
       }
+    });
+  }
+
+  loadGamesByGenre(genreId: string) {
+    this.isLoading = true;
+    this.selectedGenre = genreId;
+    this.GamePulseService.getGamesByGenre(genreId).subscribe({
+      next: (response: any) => {
+        this.processGamesData(response.results);
+      },
+      error: (err) => {
+        this.error = `Failed to load games for genre: ${genreId}`;
+        this.isLoading = false;
+      }
+    });
+  }
+
+  onGenereSelezionato(genreId: string) {
+    console.log(`Richiesta giochi per genere: ${genreId}`);
+    this.loadGamesByGenre(genreId);
+  }
+
+  private processGamesData(gamesData: any[]) {
+    this.games = gamesData;
+    this.isLoading = false;
+    this.games.forEach((game: any) => {
+      game.title = game.name; // Mappatura corretta del titolo
+      game.rating = this.convertRatingToStars(game.rating); // Conversione rating
+      game.price = this.itadService.getGamePrices(game.title); 
+      console.log(game.price);
+      game.genre = game.genres.map((genre: any) => genre.name).join(', ');
+      game.image = game.background_image; // URL dell'immagine
     });
   }
 

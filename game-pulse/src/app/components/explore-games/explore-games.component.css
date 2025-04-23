@@ -42,6 +42,30 @@ app-barra-laterale-generi {
   min-height: 400px; /* Aggiunta altezza minima per card più grandi */
 }
 
+.loading-message, .error-message, .no-games-message {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 1.2rem;
+}
+
+.loading-message {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #b0b0b0;
+}
+
+.error-message {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #ff6666;
+}
+
+.no-games-message {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #b0b0b0;
+}
+
 /* Responsive design */
 @media (max-width: 1200px) {
   .game-card-container {
