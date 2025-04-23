@@ -1,0 +1,107 @@
+<header class="header">
+  <div class="header-container">
+    <div class="logo">
+      <img src="/logo.png" alt="Game Pulse Logo">
+      <h1>Game Pulse</h1>
+    </div>
+    
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="Cerca giochi..." [formControl]="gameName" (click)="onSearchClick()">
+      
+      @if(gameList() && menuOpen()){
+      <div class="results-dropdown">
+        <div class="list-group">     
+          @for(game of gameList()?.results; track $index){
+            <a [routerLink]="['game/',game.id]" class="list-group-item list-group-item-action" (click)="onGameClick()">
+              <div> 
+                <img [src]="game.background_image" class="game-img">
+                <p>{{game.name}}</p>
+              </div>
+            </a>
+          }
+        </div>
+      </div>
+      }
+    </div>
+    
+    <nav class="navigation">
+      <ul>
+        <li><a [routerLink]="['/']">Home</a></li>
+        <li><a href="#">Statistiche</a></li>
+        <li><a href="#">Categorie</a></li>
+        <li><a href="#">Giochi</a></li>
+        <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); $event.preventDefault()">AI</a></li>
+      </ul>
+    </nav>
+    
+    <div class="auth-buttons">
+      <button class="login-btn" [routerLink]="['/login']">Login</button>
+      <button class="register-btn">Register</button>
+    </div>
+
+    <button class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Sidebar -->
+  @if(sidebarNonAi){
+  <nav class="mobile-sidebar">
+    <div class="sidebar-content">
+      <ul>
+        <li><a [routerLink]="['/']" (click)="toggleMobileMenu()">Home</a></li>
+        <li><a href="#" (click)="toggleMobileMenu()">Statistiche</a></li>
+        <li><a href="#" (click)="toggleMobileMenu()">Categorie</a></li>
+        <li><a href="#" (click)="toggleMobileMenu()">Giochi</a></li>
+        <li><a [routerLink]="['/login']" (click)="toggleMobileMenu()">Login</a></li>
+        <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); toggleMobileMenu(); $event.preventDefault()">AI</a></li>
+      </ul>
+    </div>
+  </nav>
+  }
+</header>
+
+<!-- AI Sidebar -->
+<div class="ai-sidebar" [class.open]="sidebarOpen">
+  <div class="container mt-5 d-flex flex-column justify-content-between h-100">
+    <div>
+      <div class="intro-message">
+        <h2>Ciao sono GamePulseAI.<br>Come posso aiutarti oggi?</h2>
+      </div>
+    </div>
+    <div class="response-container">
+      <div class="response-box mt-3 p-3 border rounded">
+        @if(aiResponse() == null && isLoading) {
+        <div class="spinner-container">
+          <div class="spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="loading-text">Caricamento...</div>
+        </div>
+        }
+        @if(aiResponse() != null) {
+        <div [innerHTML]="aiResponse()?.choices?.[0]?.message?.content"></div>
+        }
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [value]="queryText" (input)="handleQueryChange($event)"
+          placeholder="Cerca..." [disabled]="isLoading">
+        <button class="btn btn-primary" (click)="executeSearch()" [disabled]="isLoading">
+          @if(!isLoading) {
+          Cerca
+          }
+          @if(isLoading) {
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          }
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
