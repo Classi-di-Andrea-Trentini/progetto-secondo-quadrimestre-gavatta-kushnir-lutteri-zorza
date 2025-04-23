@@ -105,6 +105,11 @@ h3 {
   border-radius: 8px;
   padding: 15px;
   box-shadow: 0 2px 6px rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 20px; /* Distanza dal bordo superiore quando diventa sticky */
+  z-index: 100; /* Assicura che rimanga sopra gli altri elementi */
+  max-height: 90vh; /* Altezza massima per evitare che sia troppo grande */
+  overflow-y: auto; /* Permette lo scroll interno se il contenuto è troppo lungo */
 }
 
 .generi-titolo {
