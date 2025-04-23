@@ -11,13 +11,14 @@ import { HomeComponent } from './components/home/home.component';
 import { AccountComponent } from './components/account/account.component';
 import { FooterComponent } from './footer/footer.component';
 import { ExploreGamesComponent } from './components/explore-games/explore-games.component';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
 @Component({
   selector: 'app-root',
 
-  imports: [MenuComponent, LoginComponent, RegisterComponent, MatSlideToggleModule,RouterOutlet,HomeComponent,AccountComponent,FooterComponent, ExploreGamesComponent],
+  imports: [MenuComponent, LoginComponent, RegisterComponent, MatSlideToggleModule,RouterOutlet,HomeComponent,AccountComponent,FooterComponent, ExploreGamesComponent, HeaderComponent],
 
 
   templateUrl: './app.component.html',
