@@ -1,0 +1,96 @@
+.header {
+  width: 100%;
+  background-color: #1a1a1a;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ff3e00;
+}
+
+.navigation ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 25px;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+  color: #ff3e00;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-btn, .login-btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-btn {
+  background-color: transparent;
+  color: white;
+}
+
+.login-btn {
+  background-color: #ff3e00;
+  color: white;
+  font-weight: 500;
+}
+
+.search-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.login-btn:hover {
+  background-color: #e63600;
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    padding: 15px 20px;
+  }
+  
+  .navigation ul {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .header-actions {
+    margin-top: 15px;
+  }
+}
