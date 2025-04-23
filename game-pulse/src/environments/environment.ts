@@ -11,3 +11,9 @@ export const environment = {
       measurementId: "G-7M59R3N3GS"
       }
 };
+
+export const environment2 = {
+  production: false,
+  ITAD_API_KEY: '8dc2023e4bc07efa3bd8ee43f74148d0666a9ba0',
+  ITAD_API_URL: 'https://api.isthereanydeal.com/v02'
+};

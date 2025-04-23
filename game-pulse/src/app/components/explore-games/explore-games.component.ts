@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { BarraLateraleGeneriComponent } from './barra-laterale-generi/barra-laterale-generi.component';
 import { GameCardComponent } from './game-card/game-card.component';
 import { GamePulseService } from '../../services/game-pulse.service';
+import { ItadService } from '../../services/itad.service';
+
 
 @Component({
   selector: 'app-explore-games',
@@ -16,8 +18,9 @@ export class ExploreGamesComponent {
   isLoading = true;
   error: string | null = null;
 
-  constructor(private GamePulseService: GamePulseService) {}
-
+  
+  constructor(private GamePulseService: GamePulseService, private itadService: ItadService) {}
+  
   ngOnInit() {
     this.GamePulseService.getTopRatedGames().subscribe({
       next: (response: any) => {
@@ -26,7 +29,8 @@ export class ExploreGamesComponent {
         this.games.forEach((game: any) => {
           game.title = game.name; // Mappatura corretta del titolo
           game.rating = this.convertRatingToStars(game.rating); // Conversione rating
-          game.price = game.price || '€59.99'; // Placeholder se non presente
+          game.price = this.itadService.getGamePrices(game.title); 
+          console.log(game.price);
           game.genre = game.genres.map((genre: any) => genre.name).join(', ');
           game.image = game.background_image; // URL dell'immagine
         });
