@@ -33,8 +33,16 @@ export class GamePulseService {
     return this.httpClient.get(this.url, { params });
   }
 
-
-
-
-
+  etGamesByGenre(genreId: string, pageSize: number = 25) {
+    return this.httpClient.get<any>(`${this.url}/games`, {
+      params: {
+        key: this.key2,
+        genres: genreId,
+        page_size: pageSize.toString()
+      }
+    });
+  }
 }
+
+
+
