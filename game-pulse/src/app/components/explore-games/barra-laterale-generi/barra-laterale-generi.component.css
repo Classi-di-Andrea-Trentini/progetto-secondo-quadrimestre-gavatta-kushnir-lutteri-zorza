@@ -33,6 +33,7 @@ h3 {
 
 .genre-list li:hover {
   background-color: #343a40;
+  color: #8a2be2; /* Aggiunto colore viola al passaggio del mouse */
 }
 
 /* Hamburger menu button - hidden by default */
@@ -146,5 +147,5 @@ h3 {
 }
 
 .genere-link:hover {
-  color: #ffffff;
+  color: #8a2be2; /* Cambiato da #ffffff a viola */
 }
