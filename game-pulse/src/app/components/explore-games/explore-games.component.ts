@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BarraLateraleGeneriComponent } from './barra-laterale-generi/barra-laterale-generi.component';
 import { GameCardComponent } from './game-card/game-card.component';
@@ -16,8 +16,11 @@ import { ItadService } from '../../services/itad.service';
 export class ExploreGamesComponent {
   games: any[] = [];
   isLoading = true;
+  isLoadingMore = false;
   error: string | null = null;
   selectedGenre: string | null = null;
+  currentPage = 1;
+  hasMoreGames = true;
   
   constructor(private GamePulseService: GamePulseService, private itadService: ItadService) {}
   
@@ -25,11 +28,29 @@ export class ExploreGamesComponent {
     this.loadTopRatedGames();
   }
 
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    if (this.isLoading || this.isLoadingMore || !this.hasMoreGames) return;
+    
+    // Verifica se l'utente è vicino al fondo della pagina
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    
+    // Se l'utente ha scrollato fino a ~100px dal fondo, carica altri giochi
+    if (windowHeight + scrollTop >= documentHeight - 100) {
+      this.loadMoreGames();
+    }
+  }
+
   loadTopRatedGames() {
     this.isLoading = true;
-    this.GamePulseService.getTopRatedGames().subscribe({
+    this.currentPage = 1;
+    this.games = [];
+    this.GamePulseService.getTopRatedGames(this.currentPage).subscribe({
       next: (response: any) => {
         this.processGamesData(response.results);
+        this.hasMoreGames = response.next !== null;
       },
       error: (err) => {
         this.error = 'Failed to load games';
@@ -40,14 +61,45 @@ export class ExploreGamesComponent {
 
   loadGamesByGenre(genreId: string) {
     this.isLoading = true;
+    this.currentPage = 1;
+    this.games = [];
     this.selectedGenre = genreId;
-    this.GamePulseService.getGamesByGenre(genreId).subscribe({
+    this.GamePulseService.getGamesByGenre(genreId, this.currentPage).subscribe({
       next: (response: any) => {
         this.processGamesData(response.results);
+        this.hasMoreGames = response.next !== null;
       },
       error: (err) => {
         this.error = `Failed to load games for genre: ${genreId}`;
         this.isLoading = false;
+      }
+    });
+  }
+
+  loadMoreGames() {
+    if (this.isLoadingMore || !this.hasMoreGames) return;
+    
+    this.isLoadingMore = true;
+    this.currentPage++;
+    
+    const loadMethod = this.selectedGenre 
+      ? this.GamePulseService.getGamesByGenre(this.selectedGenre, this.currentPage)
+      : this.GamePulseService.getTopRatedGames(this.currentPage);
+    
+    loadMethod.subscribe({
+      next: (response: any) => {
+        if (response.results.length > 0) {
+          const newGames = this.processGamesDataAndReturn(response.results);
+          this.games = [...this.games, ...newGames];
+          this.hasMoreGames = response.next !== null;
+        } else {
+          this.hasMoreGames = false;
+        }
+        this.isLoadingMore = false;
+      },
+      error: (err) => {
+        this.error = 'Failed to load more games';
+        this.isLoadingMore = false;
       }
     });
   }
@@ -58,16 +110,22 @@ export class ExploreGamesComponent {
   }
 
   private processGamesData(gamesData: any[]) {
-    this.games = gamesData;
+    this.games = this.processGamesDataAndReturn(gamesData);
     this.isLoading = false;
-    this.games.forEach((game: any) => {
-      game.title = game.name; // Mappatura corretta del titolo
-      game.rating = this.convertRatingToStars(game.rating); // Conversione rating
-      game.price = this.itadService.getGamePrices(game.title); 
-      console.log(game.price);
-      game.genre = game.genres.map((genre: any) => genre.name).join(', ');
-      game.image = game.background_image; // URL dell'immagine
+  }
+  
+  private processGamesDataAndReturn(gamesData: any[]): any[] {
+    const processedGames = gamesData.map((game: any) => {
+      return {
+        ...game,
+        title: game.name,
+        rating: this.convertRatingToStars(game.rating),
+        price: this.itadService.getGamePrices(game.name),
+        genre: game.genres.map((genre: any) => genre.name).join(', '),
+        image: game.background_image
+      };
     });
+    return processedGames;
   }
 
   private convertRatingToStars(rating: number): string {
