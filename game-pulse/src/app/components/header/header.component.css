@@ -91,13 +91,31 @@
   align-items: center;
   padding: 0.75rem 1rem;
   text-decoration: none;
-  color: #eee;
-  transition: background-color 0.2s;
+  color: white;
+  transition: background-color 0.2s, color 0.2s;
   border-bottom: 1px solid #333;
+  background-color: #1a1a1a; /* Aggiunto colore di sfondo grigio molto scuro */
 }
 
 .list-group-item:hover {
-  background-color: #333;
+  background-color: #252525; /* Modificato a un grigio leggermente più chiaro per l'hover */
+  color: #8a2be2;
+}
+
+.list-group-item div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.list-group-item p {
+  color: white;
+  margin: 0;
+  transition: color 0.2s;
+}
+
+.list-group-item:hover p {
+  color: #8a2be2; /* Il testo diventa viola al passaggio del mouse */
 }
 
 .game-img {
