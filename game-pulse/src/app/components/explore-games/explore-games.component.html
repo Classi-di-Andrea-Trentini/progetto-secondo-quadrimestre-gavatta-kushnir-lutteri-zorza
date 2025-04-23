@@ -23,6 +23,19 @@
                         </app-game-card>
                     </div>
                 }
+                
+                @if (isLoadingMore) {
+                    <div class="loading-more">
+                        <div class="loading-spinner"></div>
+                        <p>Caricamento altri giochi...</p>
+                    </div>
+                }
+                
+                @if (!hasMoreGames && games.length > 0) {
+                    <div class="no-more-games">
+                        <p>Hai raggiunto la fine dei risultati</p>
+                    </div>
+                }
             }
         </div>
     </div>
