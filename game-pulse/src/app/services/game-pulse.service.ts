@@ -24,12 +24,12 @@ export class GamePulseService {
     return this.httpClient.get<InfoGioco>(urlcompleted);
   }
 
-  getTopRatedGames(page: number = 1) {
-    return this.httpClient.get(`${this.url}?key=${this.key2}&page=${page}&page_size=25&ordering=-rating`);
+  getTopRatedGames(page: number = 1, pageSize: number = 25) {
+    return this.httpClient.get(`${this.url}?key=${this.key2}&page=${page}&page_size=${pageSize}&ordering=-rating`);
   }
 
-  getGamesByGenre(genreId: string, page: number = 1) {
-    return this.httpClient.get(`${this.url}?key=${this.key2}&page=${page}&page_size=25&genres=${genreId}`);
+  getGamesByGenre(genreId: string, page: number = 1, pageSize: number = 25) {
+    return this.httpClient.get(`${this.url}?key=${this.key2}&page=${page}&page_size=${pageSize}&genres=${genreId}`);
   }
 }
 
