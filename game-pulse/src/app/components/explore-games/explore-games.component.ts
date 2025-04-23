@@ -26,6 +26,8 @@ export class ExploreGamesComponent implements OnInit {
   // Nuove proprietà per ottimizzazione
   private readonly PAGE_SIZE = 20; // Numero di giochi da caricare per volta
   private scrollThrottleTimeout: any = null;
+  // Costante per il genere azione
+  private readonly ACTION_GENRE_ID = '4';
   
   constructor(
     private GamePulseService: GamePulseService, 
@@ -35,7 +37,8 @@ export class ExploreGamesComponent implements OnInit {
   ) {}
   
   ngOnInit() {
-    this.loadTopRatedGames();
+    // Carica i giochi di azione immediatamente all'avvio dell'applicazione
+    this.loadGamesByGenre(this.ACTION_GENRE_ID);
   }
 
   @HostListener('window:scroll', ['$event'])
@@ -73,6 +76,7 @@ export class ExploreGamesComponent implements OnInit {
     this.currentPage = 1;
     this.games = [];
     this.visibleGames = [];
+    this.selectedGenre = null; // Resetta il genere selezionato quando si visualizzano i top rated
     this.GamePulseService.getTopRatedGames(this.currentPage, this.PAGE_SIZE).subscribe({
       next: (response: any) => {
         this.processGamesData(response.results);

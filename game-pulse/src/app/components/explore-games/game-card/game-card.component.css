@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(148, 110, 255, 0.2);
+  cursor: pointer; /* Aggiunto per cambiare il cursore in una mano quando si passa sopra */
 }
 
 .game-card:hover {
