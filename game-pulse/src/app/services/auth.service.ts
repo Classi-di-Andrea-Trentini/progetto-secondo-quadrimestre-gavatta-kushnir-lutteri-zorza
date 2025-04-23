@@ -27,10 +27,13 @@ export class AuthService {
         const userExists: boolean = await this.userExists(user.uid);
         if (!userExists) {
           const userData = new UserData(user.uid, user.displayName,user.email,user.photoURL);
-          await this.saveUserData(userData);
-          this._currentUser.set(userData);
-          //this._newUser.set(user);
-          //this.router.navigateByUrl('/registrazione');
+          /*          
+            Se vuoi skippare il register basta decomentare queste righe 
+            await this.saveUserData(userData);
+            this._currentUser.set(userData); */
+           console.log("user doesnt exist lets register")
+           this._newUser.set(user);
+           this.router.navigateByUrl('/register');
         }
         else {          
           const userData = await this.loadUserData(user.uid); 

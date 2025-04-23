@@ -19,17 +19,17 @@ export class RegisterComponent {
   authService: AuthService = inject(AuthService);
   newUser: Signal<User | null> = this.authService.newUser;
 
-  async registra() {
+  async register() {
     console.log("sto registrando")
-  /*   if(this.newUser()) {
-      const userData = new UserData( {
-        ...this.newUser(),
-        nome: 'Andrea',
-        cognome: 'Trentini',
-        note: 'Nuovo utente registrato'
-      });
+    if(this.newUser()) {
+      const userData = new UserData( 
+        this.newUser()?.uid ?? "",
+        this.username,
+        this.newUser()?.email ?? "",
+        this.newUser()?.photoURL ?? ""
+      );
       await this.authService.saveUserData(userData);      
-    } */
+    }
   } 
 
   async logout() {
@@ -44,7 +44,7 @@ export class RegisterComponent {
       console.log('Email:', this.email);
       console.log('Password:', this.password);
     }
-    this.registra()
+    this.register()
 
   }
 
