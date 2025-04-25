@@ -2,7 +2,6 @@
   <div class="header-container">
     <div class="logo">
       <img src="/logo.png" alt="Game Pulse Logo">
-      <h1>Game Pulse</h1>
     </div>
     
     <div class="search-container">
@@ -28,7 +27,7 @@
       <ul>
         <li><a [routerLink]="['/']">Home</a></li>
         <li><a href="#">Statistiche</a></li>
-        <li><a href="#">Categorie</a></li>
+        <li><a [routerLink]="['/category']" href="#">Categorie</a></li>
         <li><a href="#">Giochi</a></li>
         <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); $event.preventDefault()">AI</a></li>
       </ul>
@@ -53,7 +52,7 @@
       <ul>
         <li><a [routerLink]="['/']" (click)="toggleMobileMenu()">Home</a></li>
         <li><a href="#" (click)="toggleMobileMenu()">Statistiche</a></li>
-        <li><a href="#" (click)="toggleMobileMenu()">Categorie</a></li>
+        <li><a [routerLink]="['/category']" (click)="toggleMobileMenu()">Categorie</a></li>
         <li><a href="#" (click)="toggleMobileMenu()">Giochi</a></li>
         <li><a [routerLink]="['/login']" (click)="toggleMobileMenu()">Login</a></li>
         <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); toggleMobileMenu(); $event.preventDefault()">AI</a></li>

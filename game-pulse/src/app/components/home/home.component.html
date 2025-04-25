@@ -1,21 +1,62 @@
-<div id="carouselExample" class="carousel slide">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="..." class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="..." class="d-block w-100" alt="...">
-      </div>
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+  <h2 style="color: #8a2be2;margin: 0;font-size: 1.8rem;font-weight: 700; text-align: center; padding-bottom: 20px;">Giochi in evidenza</h2>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="/cs16.jpg" class="d-block w-50 mx-auto" alt="..." style="height: 50vh; object-fit: contain;"
+        [routerLink]="'/game/19301'">
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+    <div class="carousel-item">
+      <img src="/wukong.jpg" class="d-block w-50 mx-auto" alt="..." style="height: 50vh; object-fit: contain;"
+        [routerLink]="'/game/19301'">
+    </div>
+    <div class="carousel-item">
+      <img src="/Dota2.jpg" class="d-block w-50 mx-auto" alt="..." style="height: 50vh; object-fit: contain;"
+        [routerLink]="'/game/481913'">
+    </div>
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<h2 style="color: #8a2be2;margin: 0;font-size: 1.8rem;font-weight: 700; text-align: center; padding-top: 20px;">Categorie</h2>
+
+<div class="categorie">
+  <div class="game-card">
+    <div class="game-image">
+        <img src="/cs16.jpg">
+    </div>
+    <div class="game-details">
+        <h3>Sparatutto</h3>
+    </div>
+  </div>
+  <div class="game-card">
+    <div class="game-image">
+        <img src="/cs16.jpg">
+    </div>
+    <div class="game-details">
+        <h3>Sparatutto</h3>
+    </div>
+  </div>
+  <div class="game-card">
+    <div class="game-image">
+        <img src="/cs16.jpg">
+    </div>
+    <div class="game-details">
+        <h3>Sparatutto</h3>
+    </div>
+  </div>
+  <div class="game-card">
+    <div class="game-image">
+        <img src="/cs16.jpg">
+    </div>
+    <div class="game-details">
+        <h3>Sparatutto</h3>
+    </div>
+  </div>
+</div>
+

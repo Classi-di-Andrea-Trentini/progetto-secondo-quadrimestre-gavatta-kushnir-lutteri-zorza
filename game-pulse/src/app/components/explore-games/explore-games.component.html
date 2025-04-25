@@ -13,7 +13,7 @@
                 <div class="no-games-message">Nessun gioco trovato</div>
             } @else {
                 @for (game of games; track game.id) {
-                    <div class="game-card-container">
+                    <div class="game-card-container" [routerLink]="['/game', game.id]">
                         <app-game-card
                             [title]="game.title"
                             [genre]="game.genre"
