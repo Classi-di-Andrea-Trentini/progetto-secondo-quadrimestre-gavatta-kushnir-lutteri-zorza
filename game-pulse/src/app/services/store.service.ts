@@ -7,11 +7,13 @@ import { UserData } from '../classes/user-data';
 import { GiocoVenduto } from '../classes/gioco-venduto';
 import { addDoc, collection, deleteDoc, getDocs } from 'firebase/firestore';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StoreService {
+  private authService: AuthService = inject(AuthService);
   private firestore: Firestore = inject(Firestore);
   private _currentGame: WritableSignal<GiocoVenduto | null> = signal<GiocoVenduto | null>(null)
   currentGame: Signal<GiocoVenduto | null> = this._currentGame.asReadonly()
@@ -46,7 +48,6 @@ export class StoreService {
       const gamerefData  = collection(this.firestore, `store/${idGioco}/offers`);
       const gamerefDataDoc = (await getDocs(gamerefData));
       gamerefDataDoc.forEach(doc => {
-        console.log(doc.id, " => ", doc.data());
         giochiVenduti.push(doc.data() as GiocoVenduto);
       });
       return giochiVenduti;
@@ -70,12 +71,36 @@ export class StoreService {
 
   async addGameStore(id: string, costo: number): Promise<void>{
     const gameRef = collection(this.firestore, `store/${id}/offers/`);
-    const addgame = await addDoc(gameRef, {id: id, costo: costo});
+    const newDocRef = doc(gameRef); // Crea un riferimento al documento con un ID univoco
+    const uniqueId = newDocRef.id;
+    console.log("Tutto ok");
+    const gioco = new GiocoVenduto(id, costo,this.authService.currentUser()?.userNickname ?? "undefined" ,this.authService.currentUser()?.uid ?? "undefined", uniqueId);
+    await setDoc(newDocRef, {...gioco});    
+    const userDocRef = doc(this.firestore, `users/${this.authService.currentUser()?.uid ?? "undefined"}/vendita/${uniqueId}`);
+    await setDoc(userDocRef, {...gioco});
   }
+
+
+/*   async addGameStore(id: string, costo: number): Promise<void>{
+    const gameRef = collection(this.firestore, `store/${id}/offers/`);
+    const docRef = doc(this.firestore, `store/${id}/offers/placeholder`);
+    const gioco = new GiocoVenduto(id, costo, docRef);
+    const addgame = await addDoc(gameRef, {uid: id, costo: costo});
+  }
+ */
 
   async deleteGameStore(idGioco: string, idOfferta:string): Promise<void>{
     const gameRef = doc(this.firestore, `store/${idGioco}/offers/${idOfferta}`);
     const deletegame = await deleteDoc(gameRef);
     return deletegame;
   }
-} 
+
+
+  async buyGame(gioco: GiocoVenduto): Promise<void>{
+    const user : UserData = new UserData(this.authService.currentUser()?.uid ?? "undefined", this.authService.currentUser()?.userNickname ?? "undefined", this.authService.currentUser()?.email ?? "undefined", this.authService.currentUser()?.photoURL ?? "undefined");
+    user.money = (this.authService.currentUser()?.money ?? 0) - gioco.prezzo;
+    this.authService.saveUserData(user);
+    const userDocRef = doc(this.firestore, `users/${this.authService.currentUser()?.uid ?? "undefined"}/comprati/${gioco.idDoc}`);
+    await setDoc(userDocRef, {...gioco});
+  } 
+}

@@ -1,0 +1,32 @@
+<h2 style="padding-top: 100px;">Test</h2>
+<button (click) = "getGameStoreInfo()">Get info</button>
+<button (click) = "upload()">Upload Game</button>
+
+<h1 style="color: white;">{{id}}</h1>
+
+<h2 style="padding-top: 100px;">Tabella Giochi</h2>
+
+<table class="game-table">
+  <thead>
+    <tr>
+      <th>Descrizione</th>
+      <th>Autore</th>
+      <th>Data</th>
+      <th>Prezzo</th>
+      <th>Azione</th>
+    </tr>
+  </thead>
+  <tbody>
+  @for(game of listadiVendita(); track $index) {
+    <tr>
+      <td>{{ game.uid}} </td>
+      <td>{{ game.author}} </td>
+      <td>{{ game.data}} </td>
+      <td>{{ game.prezzo}} bitcoin</td>
+      <td>
+        <button (click)="compra(game)">compra</button>
+      </td>
+    </tr>
+  }
+  </tbody>
+</table>
