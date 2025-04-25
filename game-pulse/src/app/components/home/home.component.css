@@ -7,7 +7,11 @@
     padding-bottom: 1%;
     padding-left: 2%;
     padding-right: 2%;
-    background-color: var(--background-color);
+    background: radial-gradient(
+        circle at center, 
+        #6B2BAE,        
+        #1A1A1A          
+    );    
     justify-content: center;
     align-items: center;
 }
