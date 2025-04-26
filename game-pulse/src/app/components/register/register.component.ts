@@ -36,7 +36,8 @@ export class RegisterComponent implements OnInit {
         this.newUser()?.photoURL ?? ""
       );
     
-      await this.authService.saveUserData(userData);      
+      await this.authService.saveUserData(userData);  
+
     }
   } 
 
