@@ -49,7 +49,7 @@ export class HeroSectionComponent {
       description: 'Join our thriving community of passionate gamers. Share your experiences, find teammates, participate in discussions, and stay connected with like-minded players. Gaming is better together!',
       buttons: [
         { text: 'Join Now work in progress', url: '/community', type: 'primary' },
-        { text: 'Gaming Forums work in progress', url: '/forums', type: 'secondary' }
+        { text: 'Gaming Forums work in progress-', url: '/forums', type: 'secondary' }
       ]
     }
   ];

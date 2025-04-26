@@ -1,0 +1,89 @@
+/* Container for the search bar */
+.search-container {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.search-bar {
+  width: 50%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #8a2be2; /* Viola */
+  border-radius: 5px;
+  outline: none;
+  background-color: #d3d3d3; /* Grigio chiaro */
+  color: black; /* Nero */
+  transition: all 0.3s ease;
+}
+
+.search-bar::placeholder {
+  color: #8a2be2; /* Viola */
+  font-style: italic;
+}
+
+.search-bar:focus {
+  border-color: black; /* Nero */
+  box-shadow: 0 0 8px rgba(138, 43, 226, 0.5); /* Viola trasparente */
+  background-color: rgba(138, 43, 226, 0.1); /* Viola molto chiaro */
+  color: black; /* Nero */
+}
+  
+
+
+  /* Container for user cards */
+  .users-container {
+    display: flex;
+    flex-direction: column; /* Disposizione a righe */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+    justify-content: center;
+    align-items: center; /* Allinea i pulsanti verticalmente */
+  }
+  
+  .user-card {
+
+    justify-self: center;
+    background-color: rgba(138, 43, 226, 0.3);
+    color: black;
+    padding: 15px;
+    border: 1px solid #8a2be2;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Pagination buttons */
+
+  .pagination {
+    display: flex;
+    flex-direction: row; /* Disposizione a righe */
+    justify-content: center; /* Centra i pulsanti orizzontalmente */
+    align-items: center; /* Allinea i pulsanti verticalmente */
+    margin: 20px 0;
+    gap: 10px; /* Spaziatura tra i pulsanti */
+}
+
+.pagination button {
+  background-color: #8a2be2; /* Viola */
+  color: black; /* Nero */
+  border: none;
+  padding: 10px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.pagination button.active {
+  background-color: black; /* Nero */
+  color: #8a2be2; /* Viola */
+}
+
+.pagination button:hover {
+  background-color: rgba(138, 43, 226, 0.3); /* Viola trasparente */
+  color: black; /* Nero */
+}

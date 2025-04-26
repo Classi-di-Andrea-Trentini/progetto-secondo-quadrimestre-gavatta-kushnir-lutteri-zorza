@@ -7,6 +7,8 @@ import { AccountComponent } from './components/account/account.component';
 import { TestNegozioComponentPoteteancheEliminarloComponent } from './components/tabella per uploadare il gioco/test-negozio-component-poteteanche-eliminarlo.component';
 import { ExploreGamesComponent } from './components/explore-games/explore-games.component';
 import { HeroSectionComponent } from './components/hero-section/hero-section.component';
+import { CommunityComponent } from './components/community/community.component';
+import { CommunityAccountComponent } from './components/community-account/community-account.component';
 
 
 export const routes: Routes = [
@@ -17,6 +19,8 @@ export const routes: Routes = [
     { path: 'user', component: AccountComponent},
     { path: 'test', component: TestNegozioComponentPoteteancheEliminarloComponent },
     { path: 'category', component: ExploreGamesComponent},
-    { path: '', component: HeroSectionComponent}
-
+    { path: 'community', component: CommunityComponent},
+    { path: 'user/:id', component: CommunityAccountComponent},
+    { path: '', component: HeroSectionComponent},
+    { path: '**', redirectTo: '' }
 ];

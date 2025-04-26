@@ -1,0 +1,12 @@
+<div class="search-container">
+    <input type="text" placeholder="Search users..." class="search-bar" [formControl]="gameName">
+  </div>
+   <div class="users-container">
+    @for(user of users(); track $index){
+
+      <div class="user-card" [routerLink]="['/user', user.uid]">
+        <p>{{ user.userNickname }}</p>
+      </div>
+    }
+  </div>
+  

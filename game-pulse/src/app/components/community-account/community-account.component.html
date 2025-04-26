@@ -1,17 +1,18 @@
+<p>community-account works!</p>
 <div class="account">
     <div class="container">
         <div class="left-section">
             <div class="profile-container">
                 <div class="profile-image">
-                    <button class="arrow-button prev" (click)="changeImage(-1)">
+                    <button class="arrow-button prev">
                         <i class="fas fa-arrow-left"></i>
                     </button>
-                    <img [src]="profileImage" alt="Immagine profilo" id="profile-img">
-                    <button class="arrow-button next" (click)="changeImage(1)">
+                    <img [src]="profileImage" alt="Immagine profilo" id="profile-img" style="width: 100px; height: 100px;">
+                    <button class="arrow-button next">
                         <i class="fas fa-arrow-right"></i>
                     </button>
                 </div>
-                <h2 class="username">{{currentUser()?.userNickname}}</h2>
+                <h2 class="username">{{user()?.userNickname}}</h2>
             </div>
         </div>
         <div class="right-section">
