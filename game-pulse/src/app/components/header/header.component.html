@@ -27,9 +27,8 @@
       <ul>
         <li><a [routerLink]="['']">Start</a></li>
         <li><a [routerLink]="['/home']">Home</a></li>
-        <li><a [routerLink]="['/user']" href="#">Account</a></li>
         <li><a [routerLink]="['/category']" href="#">Categorie</a></li>
-        <li><a [routerLink]="['/community']" href="#">Cerca User</a></li>
+        <li><a [routerLink]="['/community']" href="#">Community</a></li>
 
         <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); $event.preventDefault()">AI</a></li>
       </ul>
@@ -44,6 +43,7 @@
     @else{
       <div class="auth-buttons">
         <button class="login-btn" (click)="logout()">Logout</button>
+        <button class="login-btn"  [routerLink]="['/user']" href="#">Account</button>
         <div class="login-btn">
           {{this.authService.currentUser()?.money}}
           <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon" style="width: 30px; height: 30px;">
