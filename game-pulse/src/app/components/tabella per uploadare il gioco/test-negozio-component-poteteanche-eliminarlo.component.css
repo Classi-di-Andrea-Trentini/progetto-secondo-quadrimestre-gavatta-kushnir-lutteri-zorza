@@ -1,3 +1,10 @@
+:host {
+  display: block;
+  background-color: black;
+  color: violet;
+  padding: 2%;
+  border-radius: 10px;
+}
 .game-table {
   width: 100%;
   border-collapse: collapse;
@@ -32,4 +39,130 @@ button {
 
 button:hover {
   background-color: #d4a1ff;
+}
+
+/* Stile per il popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Sfondo semi-trasparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Assicurati che il popup sia sopra gli altri elementi */
+}
+
+/* Stile per il popup */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Sfondo semi-trasparente nero */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Assicurati che il popup sia sopra gli altri elementi */
+}
+
+/* Contenuto del popup */
+.popup-content {
+  background: black; /* Sfondo nero */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 90%; /* Adattabile per schermi piccoli */
+  max-width: 500px; /* Larghezza massima */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Ombra per un effetto elevato */
+  color: #8a2be2; /* Testo viola */
+}
+
+/* Titolo del popup */
+.popup-content h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #8a2be2; /* Testo viola */
+}
+
+/* Textarea per la descrizione */
+.popup-content textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #8a2be2; /* Bordo viola */
+  border-radius: 5px;
+  font-size: 1rem;
+  resize: none; /* Disabilita il ridimensionamento */
+  color: #8a2be2; /* Testo viola */
+  background-color: black; /* Sfondo nero */
+}
+
+/* Contenitore per il prezzo */
+.price-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  background-color: black; /* Sfondo nero */
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #8a2be2; /* Bordo viola */
+}
+
+/* Input per il prezzo */
+.price-container input {
+  flex: 1; /* Occupa lo spazio disponibile */
+  padding: 10px;
+  border: 1px solid #8a2be2; /* Bordo viola */
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #8a2be2; /* Testo viola */
+  background-color: black; /* Sfondo nero */
+  margin-right: 10px; /* Spazio tra input e immagine */
+  text-align: right; /* Allinea il testo a sinistra */
+}
+
+/* Icona Bitcoin */
+.price-container .bitcoin-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* Pulsanti del popup */
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup-buttons button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: black; /* Testo nero */
+}
+
+/* Pulsante "Accetta" */
+.popup-buttons button:first-child {
+  background-color: #8a2be2; /* Viola */
+}
+
+.popup-buttons button:first-child:hover {
+  background-color: #a64dff; /* Viola chiaro */
+}
+
+/* Pulsante "Cancella" */
+.popup-buttons button:last-child {
+  background-color: #8a2be2; /* Viola */
+}
+
+.popup-buttons button:last-child:hover {
+  background-color: #a64dff; /* Viola chiaro */
 }

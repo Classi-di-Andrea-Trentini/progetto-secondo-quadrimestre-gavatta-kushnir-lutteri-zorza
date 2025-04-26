@@ -20,8 +20,9 @@ export class HeroSectionComponent {
       subtitle: 'Scopri i Migliori Videogiochi',
       description: 'Qui puoi trovare i giochi più votati dalla community, le ultime uscite e i titoli di tendenza. Naviga tra le nostre recensioni dettagliate, confronta valutazioni e trova facilmente il tuo prossimo gioco preferito. La nostra selezione curata ti aiuta a scoprire esperienze di gioco uniche per ogni piattaforma.',
       buttons: [
-        { text: 'Giochi Popolari', url: '/category', type: 'primary' },
-        { text: 'Nuove Uscite', url: '/news', type: 'secondary' }
+
+        { text: 'Latest News', url: '/home', type: 'primary' },
+        { text: 'Trending Games', url: '/category', type: 'secondary' }
       ]
     },
     {
@@ -34,8 +35,10 @@ export class HeroSectionComponent {
       subtitle: 'Opinioni di Esperti sulle Ultime Uscite',
       description: 'Analisi dettagliate e recensioni professionali dei giochi più recenti. Il nostro team di esperti testa e valuta ogni aspetto per aiutarti a fare scelte di gioco informate. Scopri cosa vale la pena giocare e cosa potresti voler evitare.',
       buttons: [
-        { text: 'Leggi Recensioni', url: '/reviews', type: 'primary' },
-        { text: 'I Più Votati', url: '/top-rated', type: 'secondary' }
+
+        { text: 'Account', url: '/user', type: 'primary' },
+        { text: 'Community work in progress', url: '/community', type: 'secondary' }
+
       ]
     },
     {
@@ -48,8 +51,9 @@ export class HeroSectionComponent {
       subtitle: 'Connettiti con Altri Giocatori',
       description: 'Unisciti alla nostra fiorente comunità di appassionati di videogiochi. Condividi le tue esperienze, trova compagni di squadra, partecipa alle discussioni e resta connesso con giocatori che la pensano come te. Giocare insieme è meglio!',
       buttons: [
-        { text: 'Unisciti Ora', url: '/community', type: 'primary' },
-        { text: 'Forum di Gioco', url: '/forums', type: 'secondary' }
+
+        { text: 'Join Now work in progress', url: '/community', type: 'primary' },
+        { text: 'Gaming Forums work in progress', url: '/forums', type: 'secondary' }
       ]
     }
   ];
