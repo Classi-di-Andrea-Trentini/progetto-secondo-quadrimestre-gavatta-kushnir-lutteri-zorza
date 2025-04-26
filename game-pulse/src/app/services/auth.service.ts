@@ -89,5 +89,8 @@ export class AuthService {
     await setDoc(userRef, {...user}, { merge: true });
   }
 
+  async updateCurrentUser(user: UserData): Promise<void>{
+    this._currentUser.set(user)
+  }
 
 }

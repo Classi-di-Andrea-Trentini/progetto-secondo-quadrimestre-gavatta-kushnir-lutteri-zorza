@@ -69,12 +69,12 @@ export class StoreService {
   }
 
 
-  async addGameStore(id: string, costo: number): Promise<void>{
+  async addGameStore(id: string, costo: number, descrizione:string): Promise<void>{
     const gameRef = collection(this.firestore, `store/${id}/offers/`);
     const newDocRef = doc(gameRef); // Crea un riferimento al documento con un ID univoco
     const uniqueId = newDocRef.id;
     console.log("Tutto ok");
-    const gioco = new GiocoVenduto(id, costo,this.authService.currentUser()?.userNickname ?? "undefined" ,this.authService.currentUser()?.uid ?? "undefined", uniqueId);
+    const gioco = new GiocoVenduto(id, costo,this.authService.currentUser()?.userNickname ?? "undefined" ,this.authService.currentUser()?.uid ?? "undefined", uniqueId,descrizione);
     await setDoc(newDocRef, {...gioco});    
     const userDocRef = doc(this.firestore, `users/${this.authService.currentUser()?.uid ?? "undefined"}/vendita/${uniqueId}`);
     await setDoc(userDocRef, {...gioco});
@@ -99,7 +99,8 @@ export class StoreService {
   async buyGame(gioco: GiocoVenduto): Promise<void>{
     const user : UserData = new UserData(this.authService.currentUser()?.uid ?? "undefined", this.authService.currentUser()?.userNickname ?? "undefined", this.authService.currentUser()?.email ?? "undefined", this.authService.currentUser()?.photoURL ?? "undefined");
     user.money = (this.authService.currentUser()?.money ?? 0) - gioco.prezzo;
-    this.authService.saveUserData(user);
+    console.log("Sto comprando", this.authService.currentUser()?.money ?? 0, "-", gioco.prezzo);
+    await this.authService.updateCurrentUser(user);
     const userDocRef = doc(this.firestore, `users/${this.authService.currentUser()?.uid ?? "undefined"}/comprati/${gioco.idDoc}`);
     await setDoc(userDocRef, {...gioco});
   } 
