@@ -20,7 +20,7 @@
          [ngStyle]="{'background-image': 'url(' + slide.backgroundImage + ')'}"
          id="sfondo">
       <div class="d-flex justify-content-start align-items-center vh-100">
-        <div class="hero-section">
+        <div class="hero-section" [ngClass]="{'position-left': i === 0, 'position-center': i === 1, 'position-right': i === 2}">
           <div class="section-content">
             <div class="hero-details">
               <h2 class="title">
