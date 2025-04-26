@@ -43,6 +43,8 @@
       <input [(ngModel)]="gamePrice" placeholder="Prezzo del gioco" />
       <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon">
     </div>
+    <input type="file" (change)="onFileSelected($event)">
+
     <div class="popup-buttons">
       <button (click)="accept()">Accetta</button>
       <button (click)="cancel()">Cancella</button>

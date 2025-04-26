@@ -69,10 +69,10 @@ export class StoreService {
   }
 
 
-  async addGameStore(id: string, costo: number, descrizione:string): Promise<void>{
+  async addGameStore(id: string, costo: number, descrizione:string, uniqueId2:string): Promise<void>{
     const gameRef = collection(this.firestore, `store/${id}/offers/`);
     const newDocRef = doc(gameRef); // Crea un riferimento al documento con un ID univoco
-    const uniqueId = newDocRef.id;
+    const uniqueId = uniqueId2;
     console.log("Tutto ok");
     const gioco = new GiocoVenduto(id, costo,this.authService.currentUser()?.userNickname ?? "undefined" ,this.authService.currentUser()?.uid ?? "undefined", uniqueId,descrizione);
     await setDoc(newDocRef, {...gioco});    
