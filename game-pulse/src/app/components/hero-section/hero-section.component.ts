@@ -37,7 +37,7 @@ export class HeroSectionComponent {
       buttons: [
 
         { text: 'Account', url: '/user', type: 'primary' },
-        { text: 'Community work in progress', url: '/community', type: 'secondary' }
+        { text: 'Community', url: '/community', type: 'secondary' }
 
       ]
     },
@@ -46,14 +46,14 @@ export class HeroSectionComponent {
       backgroundImage: '/herosection3.jpg',
       title: {
         first: 'Gaming',
-        second: 'Community'
+        second: 'New Releases'
       },
       subtitle: 'Connettiti con Altri Giocatori',
       description: 'Unisciti alla nostra fiorente comunità di appassionati di videogiochi. Condividi le tue esperienze, trova compagni di squadra, partecipa alle discussioni e resta connesso con giocatori che la pensano come te. Giocare insieme è meglio!',
       buttons: [
 
         { text: 'Join Now work in progress', url: '/community', type: 'primary' },
-        { text: 'Gaming Forums work in progress-', url: '/forums', type: 'secondary' }
+        { text: 'Gaming Forums work in progress', url: '/novita', type: 'secondary' }
       ]
     }
   ];

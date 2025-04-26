@@ -9,6 +9,7 @@ import { ExploreGamesComponent } from './components/explore-games/explore-games.
 import { HeroSectionComponent } from './components/hero-section/hero-section.component';
 import { CommunityComponent } from './components/community/community.component';
 import { CommunityAccountComponent } from './components/community-account/community-account.component';
+import { NovitaDelNegozioComponent } from './components/novita-del-negozio/novita-del-negozio.component';
 
 
 export const routes: Routes = [
@@ -21,6 +22,7 @@ export const routes: Routes = [
     { path: 'category', component: ExploreGamesComponent},
     { path: 'community', component: CommunityComponent},
     { path: 'user/:id', component: CommunityAccountComponent},
+    { path: 'novita', component: NovitaDelNegozioComponent},
     { path: '', component: HeroSectionComponent},
     { path: '**', redirectTo: '' }
 ];

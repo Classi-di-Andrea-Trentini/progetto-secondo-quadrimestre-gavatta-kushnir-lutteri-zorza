@@ -1,0 +1,23 @@
+<table class="game-table">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Autore</th>
+        <th>Descrizione</th>
+        <th>Prezzo</th>
+      </tr>
+    </thead>
+    <tbody>
+    @for(game of listadiVendita(); track $index) {
+      <tr [routerLink]="['/game', game.uid]">
+        <td>{{ data(game.data)}} </td>
+        <td>{{ game.author}} </td>
+        <td>{{ game.description}} </td>
+        <td>{{ game.prezzo}}           
+          <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon" style="width: 30px; height: 30px;">      
+        </td>
+      </tr>
+    }
+    </tbody>
+</table>
+  
