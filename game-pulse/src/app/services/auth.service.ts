@@ -87,6 +87,8 @@ export class AuthService {
     this.isLoggedInSignal.set(true);
     const userRef = doc(this.firestore, `users/${user.uid}`);
     await setDoc(userRef, {...user}, { merge: true });
+    this.router.navigateByUrl('/home');
+
   }
 
   async updateCurrentUser(user: UserData): Promise<void>{
