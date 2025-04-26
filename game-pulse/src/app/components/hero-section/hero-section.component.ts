@@ -20,8 +20,8 @@ export class HeroSectionComponent {
       subtitle: 'Your Ultimate Gaming Destination',
       description: 'Discover the best games, reviews, and industry news in one place. Stay updated with the latest gaming news, trends, and exclusive content. Get in-depth reviews, upcoming releases, and connect with a community of passionate gamers like you.',
       buttons: [
-        { text: 'Latest News', url: '/news', type: 'primary' },
-        { text: 'Trending Games', url: '/trending', type: 'secondary' }
+        { text: 'Latest News', url: '/home', type: 'primary' },
+        { text: 'Trending Games', url: '/category', type: 'secondary' }
       ]
     },
     {
@@ -34,8 +34,8 @@ export class HeroSectionComponent {
       subtitle: 'Expert Opinions on Latest Releases',
       description: 'Detailed analysis and professional reviews of the newest games. Our expert team tests and rates every aspect to help you make informed gaming choices. Find out what\'s worth playing and what you might want to skip.',
       buttons: [
-        { text: 'Read Reviews', url: '/reviews', type: 'primary' },
-        { text: 'Top Rated', url: '/top-rated', type: 'secondary' }
+        { text: 'Account', url: '/user', type: 'primary' },
+        { text: 'Community work in progress', url: '/community', type: 'secondary' }
       ]
     },
     {
@@ -48,8 +48,8 @@ export class HeroSectionComponent {
       subtitle: 'Connect With Fellow Gamers',
       description: 'Join our thriving community of passionate gamers. Share your experiences, find teammates, participate in discussions, and stay connected with like-minded players. Gaming is better together!',
       buttons: [
-        { text: 'Join Now', url: '/community', type: 'primary' },
-        { text: 'Gaming Forums', url: '/forums', type: 'secondary' }
+        { text: 'Join Now work in progress', url: '/community', type: 'primary' },
+        { text: 'Gaming Forums work in progress', url: '/forums', type: 'secondary' }
       ]
     }
   ];

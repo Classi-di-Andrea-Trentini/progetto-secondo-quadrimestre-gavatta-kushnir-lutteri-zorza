@@ -25,7 +25,8 @@
     
     <nav class="navigation">
       <ul>
-        <li><a [routerLink]="['/']">Home</a></li>
+        <li><a [routerLink]="['']">Start</a></li>
+        <li><a [routerLink]="['/home']">Home</a></li>
         <li><a [routerLink]="['/user']" href="#">Account</a></li>
         <li><a [routerLink]="['/category']" href="#">Categorie</a></li>
 
@@ -62,7 +63,7 @@
   <nav class="mobile-sidebar">
     <div class="sidebar-content">
       <ul>
-        <li><a [routerLink]="['/']" (click)="toggleMobileMenu()">Home</a></li>
+        <li><a [routerLink]="['/home']" (click)="toggleMobileMenu()">Home</a></li>
         <li><a [routerLink]="['/category']" (click)="toggleMobileMenu()">Categorie</a></li>
         <li><a [routerLink]="['/login']" (click)="toggleMobileMenu()">Login</a></li>
         <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); toggleMobileMenu(); $event.preventDefault()">AI</a></li>
