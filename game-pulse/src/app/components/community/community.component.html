@@ -1,12 +1,21 @@
 <div class="search-container">
-    <input type="text" placeholder="Search users..." class="search-bar" [formControl]="gameName">
-  </div>
-   <div class="users-container">
-    @for(user of users(); track $index){
-
-      <div class="user-card" [routerLink]="['/user', user.uid]">
-        <p>{{ user.userNickname }}</p>
+  <input type="text" placeholder="Search users..." class="search-bar" [formControl]="gameName">
+</div>
+<div class="users-container">
+  @for(user of users(); track $index){
+    <div class="user-card" [routerLink]="['/user', user.uid]">
+      <div class="user-image">
+        <img src="/herosection1.jpg" alt="Cover image">
       </div>
-    }
-  </div>
-  
+      <div class="profile-divider">
+        <div class="profile-picture">
+          <img src="/herosection2.jpg" alt="Profile picture">
+        </div>
+      </div>
+      <div class="user-details">
+        <h3 class="user-name">{{ user.userNickname }}</h3>
+        <p class="user-description">Gamer appassionato con una collezione di oltre 100 giochi. Fan di RPG e avventure.</p>
+      </div>
+    </div>
+  }
+</div>
