@@ -1,0 +1,154 @@
+#sfondo {
+    background-image: url("/herosection1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.hero-section {
+    padding-left: 10%;
+    max-width: 40%;
+    min-height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: -4vh; /* Spostamento verso l'alto */
+}
+
+.hero-details {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.title {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.title .game, .title .pulse {
+    display: block;
+    font-size: 5rem;
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    white-space: normal;
+}
+
+.description {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    font-weight: 300;
+    white-space: normal;
+    hyphens: auto;
+}
+
+.buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background-color: #6C63FF;
+    border: 2px solid #6C63FF;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframes per le animazioni */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px rgba(108, 99, 255, 0.7); }
+    50% { text-shadow: 0 0 20px rgba(108, 99, 255, 0.9), 0 0 30px rgba(108, 99, 255, 0.6); }
+    100% { text-shadow: 0 0 5px rgba(108, 99, 255, 0.7); }
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(-20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Applicazione delle animazioni */
+.title .game {
+    animation: fadeIn 1.2s ease forwards, glow 3s ease-in-out infinite;
+    opacity: 0;
+    animation-delay: 0.3s;
+}
+
+.title .pulse {
+    animation: fadeIn 1.2s ease forwards, glow 3s ease-in-out infinite;
+    opacity: 0;
+    animation-delay: 0.8s;
+}
+
+.subtitle {
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+    animation-delay: 1.3s;
+}
+
+.description {
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+    animation-delay: 1.8s;
+}
+
+.buttons {
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+    animation-delay: 2.3s;
+}
+
+.btn-primary, .btn-secondary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(30deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.btn-primary:hover:after {
+    transform: rotate(30deg) translate(10%, 10%);
+    opacity: 1;
+}
