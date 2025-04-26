@@ -1,21 +1,55 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<div id="sfondo" class="d-flex justify-content-start align-items-center vh-100">
-    <div class="hero-section">
-        <div class="section-content">
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+  <!-- Carousel indicators -->
+  <div class="carousel-indicators">
+    <button *ngFor="let slide of slides; let i = index" 
+            type="button" 
+            [attr.data-bs-target]="'#heroCarousel'" 
+            [attr.data-bs-slide-to]="i" 
+            [class.active]="i === activeSlide" 
+            [attr.aria-current]="i === activeSlide" 
+            [attr.aria-label]="'Slide ' + (i+1)"></button>
+  </div>
+  
+  <!-- Carousel slides -->
+  <div class="carousel-inner">
+    <div *ngFor="let slide of slides; let i = index" 
+         class="carousel-item" 
+         [class.active]="i === activeSlide"
+         [ngStyle]="{'background-image': 'url(' + slide.backgroundImage + ')'}"
+         id="sfondo">
+      <div class="d-flex justify-content-start align-items-center vh-100">
+        <div class="hero-section">
+          <div class="section-content">
             <div class="hero-details">
-                <h2 class="title">
-                    <span class="game">Game</span>
-                    <span class="pulse">Pulse</span>
-                </h2>
-                <h3 class="subtitle">Your Ultimate Gaming Destination</h3>
-                <p class="description">Discover the best games, reviews, and industry news in one place. Stay updated with the latest gaming news, trends, and exclusive content. Get in-depth reviews, upcoming releases, and connect with a community of passionate gamers like you.</p>
+              <h2 class="title">
+                <span class="game">{{slide.title.first}}</span>
+                <span class="pulse">{{slide.title.second}}</span>
+              </h2>
+              <h3 class="subtitle">{{slide.subtitle}}</h3>
+              <p class="description">{{slide.description}}</p>
 
-                <div class="buttons">
-                    <a class="btn btn-primary" href="/news">Latest News</a>
-                    <a class="btn btn-secondary" href="/trending">Trending Games</a>
-                </div>
+              <div class="buttons">
+                <a *ngFor="let button of slide.buttons" 
+                   class="btn" 
+                   [ngClass]="'btn-' + button.type"
+                   [href]="button.url">{{button.text}}</a>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+  
+  <!-- Carousel controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>

@@ -1,10 +1,41 @@
 #sfondo {
-    background-image: url("/herosection1.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
+.carousel-item {
+    height: 100vh;
+}
+
+.carousel-indicators {
+    z-index: 15;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+}
+
+.carousel-indicators button.active {
+    background-color: #6C63FF;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+}
+
+/* Resto dello stile esistente */
 .hero-section {
     padding-left: 10%;
     max-width: 40%;
@@ -151,4 +182,52 @@
 .btn-primary:hover:after {
     transform: rotate(30deg) translate(10%, 10%);
     opacity: 1;
+}
+
+/* Per garantire che le transizioni del carousel funzionino bene con le animazioni esistenti */
+.carousel-item.active .title .game {
+    animation: fadeIn 1.2s ease forwards, glow 3s ease-in-out infinite;
+    opacity: 0;
+    animation-delay: 0.3s;
+}
+
+.carousel-item.active .title .pulse {
+    animation: fadeIn 1.2s ease forwards, glow 3s ease-in-out infinite;
+    opacity: 0;
+    animation-delay: 0.8s;
+}
+
+.carousel-item.active .subtitle {
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+    animation-delay: 1.3s;
+}
+
+.carousel-item.active .description {
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+    animation-delay: 1.8s;
+}
+
+.carousel-item.active .buttons {
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+    animation-delay: 2.3s;
+}
+
+@media (max-width: 1200px) {
+    .hero-section {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        max-width: 80%;
+        padding-left: 5%;
+    }
+    
+    .title .game, .title .pulse {
+        font-size: 3.5rem;
+    }
 }
