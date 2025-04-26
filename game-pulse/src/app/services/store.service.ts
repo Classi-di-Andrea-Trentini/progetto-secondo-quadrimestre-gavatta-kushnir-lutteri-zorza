@@ -68,16 +68,32 @@ export class StoreService {
     } */
   }
 
-
+  async getStoreGames(): Promise<GiocoVenduto[] | null>{
+    try{
+      const giochiVenduti: GiocoVenduto[] = [];
+      const gamerefData  = collection(this.firestore, `giochiVenduti/`);
+      const gamerefDataDoc = (await getDocs(gamerefData));
+      gamerefDataDoc.forEach(doc => {
+        giochiVenduti.push(doc.data() as GiocoVenduto);
+      });
+      return giochiVenduti;
+    }
+    catch(error){
+      console.log("Errore nel recupero dei giochi venduti:", error);
+      return null;
+    }
+  }
   async addGameStore(id: string, costo: number, descrizione:string, uniqueId2:string): Promise<void>{
-    const gameRef = collection(this.firestore, `store/${id}/offers/`);
-    const newDocRef = doc(gameRef); // Crea un riferimento al documento con un ID univoco
-    const uniqueId = uniqueId2;
+  
+    const gameRef = doc(this.firestore, `store/${id}/offers/${uniqueId2}`);
     console.log("Tutto ok");
-    const gioco = new GiocoVenduto(id, costo,this.authService.currentUser()?.userNickname ?? "undefined" ,this.authService.currentUser()?.uid ?? "undefined", uniqueId,descrizione);
-    await setDoc(newDocRef, {...gioco});    
-    const userDocRef = doc(this.firestore, `users/${this.authService.currentUser()?.uid ?? "undefined"}/vendita/${uniqueId}`);
+    const gioco = new GiocoVenduto(id, costo,this.authService.currentUser()?.userNickname ?? "undefined" ,this.authService.currentUser()?.uid ?? "undefined", uniqueId2,descrizione);
+    await setDoc(gameRef, {...gioco});    
+    const userDocRef = doc(this.firestore, `users/${this.authService.currentUser()?.uid ?? "undefined"}/vendita/${uniqueId2}`);
     await setDoc(userDocRef, {...gioco});
+    const userDocRef2 = doc(this.firestore, `giochiVenduti/${uniqueId2}`);
+    console.log("Gioco venduto", uniqueId2);
+    await setDoc(userDocRef2, {...gioco});
   }
 
 

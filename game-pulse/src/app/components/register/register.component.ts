@@ -27,7 +27,6 @@ export class RegisterComponent implements OnInit {
   }
 
   async register() {
-
     console.log("sto registrando")
     if(this.newUser()) {
       const userData = new UserData( 
