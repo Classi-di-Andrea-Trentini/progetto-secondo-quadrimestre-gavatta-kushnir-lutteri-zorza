@@ -19,6 +19,8 @@ export class TestNegozioComponentPoteteancheEliminarloComponent implements OnIni
 
   activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   @Input() id: number | undefined = undefined;
+  @Input() img: string | undefined = "cs16.jpg";
+  @Input() title: string | undefined = "cs16.jpg";
 
   selectedFile: File | null = null;
   uploadProgress: number = 0;
@@ -49,7 +51,7 @@ export class TestNegozioComponentPoteteancheEliminarloComponent implements OnIni
     this.uid = this.id?.toString() || "0";
     this.uploadLargeFile(this.uploadId ?? "0");
     console.log("caricamento in corso ", this.uid.toString(), this.gamePrice);
-    await this.storeService.addGameStore(this.uid.toString(), this.gamePrice, this.gameDescription, this.uploadId ?? "0");
+    await this.storeService.addGameStore(this.uid.toString(), this.gamePrice, this.gameDescription, this.uploadId ?? "0", this.img?? "cs16.jpg", this.title ?? "Nessun titolo");
     this.getGameStoreInfo();
 
   }
