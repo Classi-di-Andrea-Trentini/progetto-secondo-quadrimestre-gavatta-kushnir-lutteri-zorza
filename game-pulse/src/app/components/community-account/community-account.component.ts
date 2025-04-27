@@ -19,18 +19,14 @@ export class CommunityAccountComponent {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((parametriNellaURL) => {
       let id: string = parametriNellaURL['id'];
+    
       this.getUserData.searchUserByID(id).then((dati) => {
+        console.log("dati:", dati);
         this.user.set(dati);
+        console.log("dati:", this.user()?.avatarImg);
       });
     });
   }
   
-  profileImages: string[] = [
-    'profilouomo.png',  // Prima immagine
-    'profilodonna.png'   // Seconda immagine
-  ];
-  // Indice dell'immagine attuale
-  currentImageIndex: number = 0;
-  // Immagine attualmente visualizzata
-  profileImage: string = this.profileImages[this.currentImageIndex];
+
 }

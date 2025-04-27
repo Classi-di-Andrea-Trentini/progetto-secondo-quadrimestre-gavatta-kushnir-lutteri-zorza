@@ -92,9 +92,10 @@ export class AuthService {
     for (let i = 1; i <= 100; i++) {
       const fakeUser = user;
       fakeUser.userNickname = `${this.generateRandomWord()}+${i}`;
-      const userRef = doc(this.firestore, `users/${user.uid}+${i}`);
       fakeUser.avatarImg = `https://avatar.iran.liara.run/public/`;
       fakeUser.backgroundImage = this.generateRandomBackground();
+      fakeUser.uid = `${user.uid}+${i}`;
+      const userRef = doc(this.firestore, `users/${user.uid}+${i}`);
       await setDoc(userRef, {...user}, { merge: true });
       console.log(`Utente fittizio ${i} salvato.`);
     } 

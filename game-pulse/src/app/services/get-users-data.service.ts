@@ -54,7 +54,10 @@ export class GetUsersDataService {
   } */
 
   async searchUserByID(id: string): Promise<UserData> {
-    const userDoc = doc(this.firestore, 'users', id);
+    console.log("id:", id);
+    const userDoc = doc(this.firestore, 'users/', id);
+    console.log("userDoc:", userDoc);
+    console.log((await getDoc(userDoc)).data() as UserData);
     return (await getDoc(userDoc)).data() as UserData;
   }
 
