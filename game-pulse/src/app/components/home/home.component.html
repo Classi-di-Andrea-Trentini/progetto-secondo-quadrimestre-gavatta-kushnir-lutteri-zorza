@@ -25,37 +25,94 @@
 </div>
 <h2 style="color: #8a2be2;margin: 0;font-size: 1.8rem;font-weight: 700; text-align: center; padding-top: 20px;">Categorie</h2>
 
-<div class="categorie">
-  <div class="game-card">
+<div class="categorie" >
+  <div class="game-card" (click)="goToCategory('Sport')" >
     <div class="game-image">
         <img src="/cs16.jpg">
     </div>
     <div class="game-details">
-        <h3>Sparatutto</h3>
+        <h3>Sport</h3>
     </div>
   </div>
-  <div class="game-card">
+  <div class="game-card " (click)="goToCategory('RPG')" >
     <div class="game-image">
         <img src="/cs16.jpg">
     </div>
     <div class="game-details">
-        <h3>Sparatutto</h3>
+        <h3>RPG</h3>
     </div>
   </div>
-  <div class="game-card">
+  <div class="game-card" (click)="goToCategory('FPS')" >
     <div class="game-image">
         <img src="/cs16.jpg">
     </div>
     <div class="game-details">
-        <h3>Sparatutto</h3>
+        <h3>FPS</h3>
     </div>
   </div>
-  <div class="game-card">
+  <div class="game-card" (click)="goToCategory('Puzzle')">
     <div class="game-image">
         <img src="/cs16.jpg">
     </div>
     <div class="game-details">
-        <h3>Sparatutto</h3>
+        <h3>Puzzle</h3>
+    </div>
+  </div>
+</div>
+
+<h2 style="color: #8a2be2;margin: 0;font-size: 1.8rem;font-weight: 700; text-align: center; padding-top: 20px;">NewOffers</h2>
+
+<div class="categorie" [routerLink]="'/game/' + (listadiVendita()?.[0]?.uid || '')">
+  <div class="game-card">
+    <div class="game-image">
+        <img src="{{imgGioco()[0]}}">
+    </div>
+    <div class="game-details">
+        <h3>
+          {{listadiVendita()?.[0]?.title || 'Titolo non disponibile' }}
+        </h3>
+        <p style="color: white;">
+          {{listadiVendita()?.[0]?.description || '' }}
+        </p>
+    </div>
+  </div>
+  <div class="game-card"  [routerLink]="'/game/' + (listadiVendita()?.[1]?.uid || '')">
+    <div class="game-image">
+        <img src="{{imgGioco()[1]}}">
+    </div>
+    <div class="game-details">
+        <h3>
+          {{listadiVendita()?.[1]?.title || 'Titolo non disponibile' }}
+        </h3>
+        <p style="color: white;">
+          {{listadiVendita()?.[1]?.description || '' }}
+        </p>
+    </div>
+  </div>
+  <div class="game-card" [routerLink]="'/game/' + (listadiVendita()?.[2]?.uid || '')">
+    <div class="game-image">
+        <img src="{{imgGioco()[2]}}">
+    </div>
+    <div class="game-details">
+        <h3>
+          {{listadiVendita()?.[2]?.title || 'Titolo non disponibile' }}
+        </h3>
+        <p style="color: white;">
+          {{listadiVendita()?.[2]?.description || '' }}
+        </p>
+    </div>
+  </div>
+  <div class="game-card" [routerLink]="'/game/' + (listadiVendita()?.[3]?.uid || '')">
+    <div class="game-image">
+        <img src="{{imgGioco()[3]}}">
+    </div>
+    <div class="game-details">
+        <h3>
+          {{listadiVendita()?.[3]?.title || 'Titolo non disponibile' }}
+        </h3>
+        <p style="color: white;">
+          {{listadiVendita()?.[3]?.description || '' }}
+        </p>
     </div>
   </div>
 </div>

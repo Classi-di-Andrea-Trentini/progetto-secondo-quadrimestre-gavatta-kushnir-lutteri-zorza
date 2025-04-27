@@ -1,6 +1,7 @@
 <table class="game-table">
     <thead>
       <tr>
+        <th>Title</th>
         <th>Data</th>
         <th>Autore</th>
         <th>Descrizione</th>
@@ -10,6 +11,7 @@
     <tbody>
     @for(game of listadiVendita(); track $index) {
       <tr [routerLink]="['/game', game.uid]">
+        <td>{{ game.title }} </td>
         <td>{{ data(game.data)}} </td>
         <td>{{ game.author}} </td>
         <td>{{ game.description}} </td>

@@ -10,6 +10,10 @@ export class UserData {
     email: null | string;
     photoURL: null | string;
     money: number;
+    descrizione: string;
+    backgroundImage: string;
+    avatarImg: string;
+    dataCreazione: Date;
 
     constructor(uid: string, userNickname: null | string,email: null | string, photoURL: null | string) {       
         this.uid = uid;
@@ -18,6 +22,10 @@ export class UserData {
         this.email = email;
         this.photoURL = photoURL;
         this.money = 0;
+        this.descrizione = "";
+        this.backgroundImage = "/image.png";
+        this.dataCreazione = new Date();
+        this.avatarImg = "/prifodonna.png"
     }
 
     
