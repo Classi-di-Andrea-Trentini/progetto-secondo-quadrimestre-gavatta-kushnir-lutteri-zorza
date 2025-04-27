@@ -5,6 +5,7 @@ import { GameCardComponent } from './game-card/game-card.component';
 import { GamePulseService } from '../../services/game-pulse.service';
 import { ItadService } from '../../services/itad.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { EventServiceService } from '../../services/event-service.service';
 
 @Component({
   selector: 'app-explore-games',
@@ -34,7 +35,7 @@ export class ExploreGamesComponent implements OnInit {
     private GamePulseService: GamePulseService, 
     private itadService: ItadService,
     private cdr: ChangeDetectorRef,
-    private ngZone: NgZone
+    private ngZone: NgZone,
   ) {}
   
   ngOnInit() {

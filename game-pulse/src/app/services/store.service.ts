@@ -83,16 +83,16 @@ export class StoreService {
       return null;
     }
   }
-  async addGameStore(id: string, costo: number, descrizione:string, uniqueId2:string): Promise<void>{
+  async addGameStore(id: string, costo: number, descrizione:string, uniqueId2:string,img: string, title:string): Promise<void>{
   
     const gameRef = doc(this.firestore, `store/${id}/offers/${uniqueId2}`);
     console.log("Tutto ok");
-    const gioco = new GiocoVenduto(id, costo,this.authService.currentUser()?.userNickname ?? "undefined" ,this.authService.currentUser()?.uid ?? "undefined", uniqueId2,descrizione);
+    const gioco = new GiocoVenduto(id, costo,this.authService.currentUser()?.userNickname ?? "undefined" ,this.authService.currentUser()?.uid ?? "undefined", uniqueId2,descrizione, img,title);
+    console.log("Gioco vendutoRRR", id);
     await setDoc(gameRef, {...gioco});    
     const userDocRef = doc(this.firestore, `users/${this.authService.currentUser()?.uid ?? "undefined"}/vendita/${uniqueId2}`);
     await setDoc(userDocRef, {...gioco});
     const userDocRef2 = doc(this.firestore, `giochiVenduti/${uniqueId2}`);
-    console.log("Gioco venduto", uniqueId2);
     await setDoc(userDocRef2, {...gioco});
   }
 
