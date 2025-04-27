@@ -80,7 +80,6 @@ export class BarraLateraleGeneriComponent{
     console.log(`Genere selezionato: ${genere}`);
     this.eventService.setGenere(genere); // Aggiorna il valore nel servizio
     this.genereSelezionato.emit(this.mappaGeneri[genere]); // Emette l'ID inglese del genere selezionato
-    this.genereSelezionato.emit(this.mappaGeneri[genere]); // Emette l'ID inglese del genere selezionato
 
   }
 
