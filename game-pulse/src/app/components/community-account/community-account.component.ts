@@ -19,8 +19,9 @@ export class CommunityAccountComponent {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((parametriNellaURL) => {
       let id: string = parametriNellaURL['id'];
+      console.log("id:", id);
       this.getUserData.searchUserByID(id).then((dati) => {
-        this.user.set(dati);
+        this.user.set(dati as UserData);
       });
     });
   }

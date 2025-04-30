@@ -1,4 +1,5 @@
 <p>community-account works!</p>
+<img src="/background/base10.jpg" alt="Placeholder Image">
 <div class="account">
     <div class="container">
         <div class="left-section">
@@ -7,7 +8,7 @@
                     <button class="arrow-button prev">
                         <i class="fas fa-arrow-left"></i>
                     </button>
-                    <img [src]="profileImage" alt="Immagine profilo" id="profile-img" style="width: 100px; height: 100px;">
+                    <img [src]="user()?.avatarImg" alt="Immagine profilo" id="profile-img" style="width: 100px; height: 100px;">
                     <button class="arrow-button next">
                         <i class="fas fa-arrow-right"></i>
                     </button>
