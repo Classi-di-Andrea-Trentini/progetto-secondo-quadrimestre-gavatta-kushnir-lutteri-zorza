@@ -1,3 +1,14 @@
-<div class="container">
-  <div id="parallelogram"></div>
+<div class="page-container">
+  <app-prima-page id="prima-page"></app-prima-page>
+  <button class="nav-button" (click)="scrollToElement('seconda-page')">next <span>>></span></button>
+</div>
+
+<div class="page-container">
+  <app-seconda-page id="seconda-page"></app-seconda-page>
+  <button class="nav-button" (click)="scrollToElement('terza-page')">next <span>>></span></button>
+</div>
+
+<div class="page-container">
+  <app-terza-page id="terza-page"></app-terza-page>
+  <button class="nav-button" (click)="scrollToElement('prima-page')">next <span>>></span></button>
 </div>

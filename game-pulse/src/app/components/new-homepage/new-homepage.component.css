@@ -1,85 +1,65 @@
 :host {
-    display: block;
-    width: 100%;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    overflow-x: hidden; /* Impedisce lo scrolling orizzontale */
+  display: block;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  --scroll-timeline-duration: 2000ms;
 }
 
-.container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-x: hidden; /* Impedisce lo scrolling orizzontale */
+.page-container {
+  position: relative;
+  height: 140vh; /* Aumentato a 140vh per avere più spazio */
+  width: 100%;
+  scroll-snap-align: start;
+  overflow: hidden; /* Assicura che gli elementi figli non escano dal container */
 }
 
-#parallelogram {
-    width: 70%; /* Ridotto per compensare la maggiore inclinazione */
-    height: 100%;
-    background: white;
-    /* Skew più pronunciato */
-    -webkit-transform: skew(15deg); 
-    -moz-transform: skew(15deg); 
-    -o-transform: skew(15deg);
-    transform: skew(15deg);
-    margin: 0 auto; /* Centra il parallelogramma */
+app-prima-page,
+app-seconda-page,
+app-terza-page {
+  display: block;
+  height: 140vh; /* Aumentato per corrispondere al contenitore */
+  width: 100%;
+  /* Assicurati che le immagini di sfondo siano proporzionalmente scalate */
+  background-size: cover;
+  background-position: center;
 }
 
-/* Schermi molto grandi - aumenta le dimensioni */
-@media screen and (min-width: 1440px) {
-    #parallelogram {
-        width: 80%;
-        transform: skew(14deg);
-        -webkit-transform: skew(14deg);
-        -moz-transform: skew(14deg);
-        -o-transform: skew(14deg);
-    }
+.nav-button {
+  position: fixed; /* Cambiato da absolute a fixed per mantenere posizione durante lo scroll */
+  bottom: 50px;
+  right: 50px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  z-index: 100; /* Aumentato z-index per assicurarsi che sia sempre visibile */
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
 }
 
-/* Schermi extra large */
-@media screen and (min-width: 1920px) {
-    #parallelogram {
-        width: 80%;
-        transform: skew(12deg);
-        -webkit-transform: skew(12deg);
-        -moz-transform: skew(12deg);
-        -o-transform: skew(12deg);
-    }
+.nav-button:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 0 8px rgba(255,255,255,0.5);
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 992px) {
-    #parallelogram {
-        width: 65%;
-        transform: skew(12deg);
-        -webkit-transform: skew(12deg);
-        -moz-transform: skew(12deg);
-        -o-transform: skew(12deg);
-    }
+.nav-button span {
+  margin-left: 5px;
+  font-weight: bold;
 }
 
-@media screen and (max-width: 768px) {
-    #parallelogram {
-        width: 60%;
-        transform: skew(10deg);
-        -webkit-transform: skew(10deg);
-        -moz-transform: skew(10deg);
-        -o-transform: skew(10deg);
-    }
+/* Opzionale: nascondere la scrollbar ma mantenere la funzionalità */
+:host::-webkit-scrollbar {
+  display: none;
 }
 
-
-
-@media screen and (max-width: 600px) {
-    .container {
-        background-color: #f5f5f5;
-    }
-    
-    #parallelogram {
-        display: none;
-    }
+:host {
+  -ms-overflow-style: none;  /* Per Internet Explorer e Edge */
+  scrollbar-width: none;     /* Per Firefox */
 }

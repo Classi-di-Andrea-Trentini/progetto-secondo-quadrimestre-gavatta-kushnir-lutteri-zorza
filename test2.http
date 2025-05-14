@@ -56,3 +56,6 @@ POST https://api.isthereanydeal.com/games/prices/v3?key=19d7f277f840b70d1cdac01b
 [
     "018d937f-060f-705e-b364-8c5bba4d62f6"
 ]
+
+###
+GET https://avatar.iran.liara.run/public/boy
