@@ -1,0 +1,43 @@
+<div class="account">
+    <div class="container">
+        <div class="left-section">
+            <div class="profile-container">
+                <div class="profile-image">
+                    <button class="arrow-button prev" (click)="changeImage(-1)">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <img [src]="profileImage" alt="Immagine profilo" id="profile-img">
+                    <button class="arrow-button next" (click)="changeImage(1)">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                <h2 class="username">{{currentUser()?.userNickname}}</h2>
+            </div>
+        </div>
+        <div class="right-section">
+            <div class="account-description">
+                <h3>Descrizione Account</h3>
+                <p>Appassionato di tecnologia, videogiochi e viaggi. Sempre alla ricerca di nuove esperienze e pronto a esplorare il mondo con curiosità e passione. Nel tempo libero mi piace leggere, ascoltare musica e migliorare le mie competenze professionali. Se vuoi scambiare opinioni su argomenti tech o scoprire nuovi giochi, sono sempre disponibile per una chiacchierata! </p>
+            </div>
+            <div class="games-table">
+                <h3>Giochi in Vendita</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Gioco</th>
+                            <th>Prezzo</th>
+                            <th>Data di Pubblicazione</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>game.name</td>
+                            <td>game.price</td>
+                            <td>game.releaseDate</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

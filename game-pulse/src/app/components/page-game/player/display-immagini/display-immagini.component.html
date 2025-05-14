@@ -1,14 +1,20 @@
 <div class="container p-4">
-    <div class="row">
-        <!-- Ogni colonna contiene un'immagine -->
-        <div class="col-4"> <!-- Occupa 4 colonne su 12 -->
-            <img src="/image.png" class="img-fluid" alt="Immagine 1">
-        </div>
-        <div class="col-4">
-            <img src="/image.png" class="img-fluid" alt="Immagine 2">
-        </div>
-        <div class="col-4">
-            <img src="/image.png" class="img-fluid" alt="Immagine 3">
-        </div>
+    <div class="row" *ngIf="hasScreenshots(); else noImages">
+        <!-- Utilizziamo ngFor per iterare sugli screenshot disponibili -->
+        @for (screenshot of infoGioco?.screenshots; track screenshot) {
+            <div class="col-4 mb-3">
+                <img [src]="screenshot.image" class="img-fluid rounded" [alt]="infoGioco?.name + ' screenshot'">
+            </div>
+        }
     </div>
+    
+    <!-- Template alternativo quando non ci sono immagini -->
+    <ng-template #noImages>
+        <div class="alert alert-info text-center">
+            <p>Nessuna immagine disponibile per questo gioco.</p>
+            @if (infoGioco?.background_image) {
+                <img [src]="infoGioco?.background_image" class="img-fluid" [alt]="infoGioco?.name + ' background image'">
+            }
+        </div>
+    </ng-template>
 </div>

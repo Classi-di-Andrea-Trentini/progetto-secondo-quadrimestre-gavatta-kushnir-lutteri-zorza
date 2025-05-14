@@ -53,6 +53,7 @@ export interface InfoGioco {
     esrb_rating: EsrbRating
     clip: any
     description_raw: string
+    screenshots?: Screenshot[]
   }
   
   export interface Rating {
@@ -162,3 +163,10 @@ export interface InfoGioco {
     slug: string
   }
   
+  export interface Screenshot {
+    id: number
+    image: string
+    width: number
+    height: number
+    is_deleted: boolean
+  }

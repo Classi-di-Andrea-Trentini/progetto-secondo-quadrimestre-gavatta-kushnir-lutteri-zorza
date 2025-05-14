@@ -87,11 +87,11 @@
 }  */
 
 
-.custom-bg {
+ .custom-bg {
     background: radial-gradient(
-        circle at center, /* Il gradiente parte dal centro */
-        #6B2BAE,         /* Colore viola intenso al centro (#6B2BAE) */
-        #1A1A1A          /* Colore simile al nero all'esterno (#1A1A1A) */
+        circle at center, 
+        #6B2BAE,        
+        #1A1A1A          
     );
     min-height: 140vh
-}
+} 

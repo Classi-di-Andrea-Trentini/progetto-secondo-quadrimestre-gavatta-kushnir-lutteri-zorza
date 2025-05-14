@@ -1,35 +1,45 @@
-import { Component, inject, Signal } from '@angular/core';
+import { Component, inject, OnInit, Signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { User } from 'firebase/auth';
 import { UserData } from '../../classes/user-data';
-
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-register',
-  imports: [FormsModule],
+  imports: [FormsModule, RouterLink, RouterLinkActive],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   username: string = '';
   email: string = '';
   password: string = '';
   showPassword: boolean = false;
   authService: AuthService = inject(AuthService);
   newUser: Signal<User | null> = this.authService.newUser;
+  router: Router = inject(Router)
 
-  async registra() {
-    if(this.newUser()) {
-      const userData = new UserData( {
-        ...this.newUser(),
-        nome: 'Andrea',
-        cognome: 'Trentini',
-        note: 'Nuovo utente registrato'
-      });
-      await this.authService.saveUserData(userData);      
+  ngOnInit() {
+    if(this.authService._isLoggedIn() == true) {
+      this.router.navigateByUrl('');
     }
   }
+
+  async register() {
+    console.log("sto registrando")
+    if(this.newUser()) {
+      const userData = new UserData( 
+        this.newUser()?.uid ?? "",
+        this.username,
+        this.newUser()?.email ?? "",
+        this.newUser()?.photoURL ?? ""
+      );
+    
+      await this.authService.saveUserData(userData);  
+
+    }
+  } 
 
   async logout() {
     await this.authService.logout();
@@ -43,6 +53,8 @@ export class RegisterComponent {
       console.log('Email:', this.email);
       console.log('Password:', this.password);
     }
+    this.register()
+
   }
 
   annulla(): void {

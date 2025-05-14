@@ -10,4 +10,9 @@ import { CommonModule } from '@angular/common';
 })
 export class HashtagComponent {
   @Input() infoGioco: InfoGioco | null = null;
+  
+
+  get hashtags(): string[] {
+    return this.infoGioco?.genres?.map(tag => tag.name) || [];
+  }
 }

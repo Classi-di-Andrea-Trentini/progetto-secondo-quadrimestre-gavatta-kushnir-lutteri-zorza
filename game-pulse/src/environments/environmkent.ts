@@ -1,4 +1,9 @@
-export const environment = {
+
+/* 
+  Bho sta roba penso sia inutile 
+*/
+
+/* export const environment = {
     production: false,
     firebaseConfig: {
         apiKey: "AIzaSyADzHxhmORKdoFbm2lZHy_27D7oxHJ5xvE",
@@ -11,3 +16,4 @@ export const environment = {
 };
 
 
+ */

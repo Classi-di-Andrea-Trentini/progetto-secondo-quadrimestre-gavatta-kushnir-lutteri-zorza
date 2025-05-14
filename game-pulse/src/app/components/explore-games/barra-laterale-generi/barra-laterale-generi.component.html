@@ -1,0 +1,10 @@
+<div class="generi-container">
+  <h2 class="generi-titolo">Generi</h2>
+  <ul class="generi-lista">
+    @for (genere of generi; track genere) {
+      <li class="genere-item" (click)="onGenereClick(genere)">
+        <a class="genere-link">{{genere}}</a>
+      </li>
+    }
+  </ul>
+</div>

@@ -1,7 +1,7 @@
 import { User } from "firebase/auth";
 
 export interface IUserData extends User {
-    nome: string;
-    cognome: string;
-    note: string;
+    uid: string
+    games: string[]
+    // Add more properties as needed
 }

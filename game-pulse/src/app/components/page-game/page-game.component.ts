@@ -9,12 +9,21 @@ import { BuyComponent } from './buy/buy.component';
 import { HashtagComponent } from './hashtag/hashtag.component';
 import { ValutazioniComponent } from './valutazioni/valutazioni.component';
 import { PrezziComponent } from './buy/prezzi/prezzi.component';
-
+import { TestNegozioComponentPoteteancheEliminarloComponent } from '../tabella per uploadare il gioco/test-negozio-component-poteteanche-eliminarlo.component';
 
 @Component({
   selector: 'app-page-game',
   standalone: true,
-  imports: [HashtagComponent, ValutazioniComponent, DescrizioneComponent, BuyComponent, PlayerComponent],
+  imports: [
+    CommonModule,
+    PlayerComponent,
+    DescrizioneComponent,
+    BuyComponent,
+    PrezziComponent,
+    HashtagComponent, 
+    ValutazioniComponent,
+    TestNegozioComponentPoteteancheEliminarloComponent
+  ],
   templateUrl: './page-game.component.html',
   styleUrl: './page-game.component.css'
 })
@@ -22,7 +31,6 @@ export class PageGameComponent implements OnInit {
   private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   private GamePulseService: GamePulseService = inject(GamePulseService);
   infoGioco: WritableSignal<InfoGioco | null> = signal<InfoGioco | null>(null);
-  
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((parametriNellaURL) => {
       let id: string = parametriNellaURL['id'];
