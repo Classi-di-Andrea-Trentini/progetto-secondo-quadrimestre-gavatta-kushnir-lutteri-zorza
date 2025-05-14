@@ -1,10 +1,15 @@
-<!--  --><div class="prezzi-container">
-  <h5 class="text-white mb-3">Confronta prezzi</h5>
+<!-- Oppure integrato nel componente prezzi -->
+<div class="prezzi-container">
+  <div class="d-flex justify-content-between align-items-center">
+    <h5 class="text-white mb-3">Confronta prezzi</h5>
+    <app-cart-button></app-cart-button>
+  </div>
+  
   <div class="store-list">
     <div class="store-item" *ngFor="let store of stores">
       <span class="store-name">{{store.name}}</span>
       <span class="price">{{store.price}}</span>
-      <a [href]="store.storeUrl" target="_blank" class="btn btn-sm btn-primary">Acquista</a>
+      <a [href]="store.storeUrl" target="_blank" class="btn btn-sm btn-primary">Info</a>
     </div>
   </div>
 </div>
