@@ -76,6 +76,9 @@
 
 <!-- AI Sidebar -->
 <div class="ai-sidebar" [class.open]="sidebarOpen">
+  <button class="ai-close-btn" (click)="toggleAiSidebar()" aria-label="Chiudi sidebar">
+    &times;
+  </button>
   <div class="container mt-5 d-flex flex-column justify-content-between h-100">
     <div>
       <div class="intro-message">
