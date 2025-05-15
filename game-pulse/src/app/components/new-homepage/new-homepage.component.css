@@ -9,7 +9,7 @@
 
 .page-container {
   position: relative;
-  height: 140vh; /* Aumentato a 140vh per avere più spazio */
+  height: 100vh; /* Aumentato a 140vh per avere più spazio */
   width: 100%;
   scroll-snap-align: start;
   overflow: hidden; /* Assicura che gli elementi figli non escano dal container */
