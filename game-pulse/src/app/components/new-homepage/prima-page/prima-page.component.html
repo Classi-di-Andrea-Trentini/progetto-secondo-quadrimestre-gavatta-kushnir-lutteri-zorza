@@ -1,6 +1,20 @@
 <div class="page-container">
-  <div class="background-placeholder"></div>
-  <div class="black-rectangle"></div>
-  <div class="rettangolo-nero">
-     <!-- Contenuto esistente del rettangolo -->
+  <div class="background-placeholder" [ngStyle]="{'background-image': 'url(' + images[currentBackgroundIndex] + ')', 'opacity': activeBackground === 'first' ? 1 : 0}"></div>
+  <div class="background-placeholder" [ngStyle]="{'background-image': 'url(' + images[nextBackgroundIndex] + ')', 'opacity': activeBackground === 'second' ? 1 : 0}"></div>
+  <div class="black-rectangle">
+    <div class="simple-carousel">
+      <img [src]="images[currentIndex]" alt="Game Image" class="carousel-image">
+      
+      <div class="carousel-controls">
+        <button class="carousel-btn prev" [class.disabled]="isTransitioning" (click)="prevSlide()">◀</button>
+        <div class="carousel-dots">
+          <span *ngFor="let dot of images; let i = index" 
+                [class.active]="i === currentIndex"
+                [class.disabled]="isTransitioning"
+                (click)="goToSlide(i)">●</span>
+        </div>
+        <button class="carousel-btn next" [class.disabled]="isTransitioning" (click)="userNextSlide()">▶</button>
+      </div>
+    </div>
+  </div>
      
