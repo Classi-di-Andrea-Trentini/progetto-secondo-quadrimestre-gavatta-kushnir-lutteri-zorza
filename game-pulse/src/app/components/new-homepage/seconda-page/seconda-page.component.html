@@ -1,5 +1,21 @@
 <div class="page-container">
   <div class="background-placeholder"></div>
-  <div class="rectangle"></div>
+  <div class="rectangle">
+    <div class="content-container">
+      <h2 class="section-title">Esplora per Genere</h2>
+      <div class="cards-grid">
+        <div class="game-card" *ngFor="let category of gameCategories" [class.fade-animation]="isChanging">
+          <div class="game-image">
+            <img [src]="category.image" [alt]="category.title">
+          </div>
+          <div class="game-details">
+            <h3>{{ category.title }}</h3>
+            <p class="game-genre">{{ category.genre }}</p>
+            <p class="game-description">{{ category.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
