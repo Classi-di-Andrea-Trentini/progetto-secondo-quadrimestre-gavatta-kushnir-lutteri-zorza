@@ -1,0 +1,45 @@
+<div class="account">
+    <div class="container">
+      <div class="left-section">
+        <div class="profile-container">
+          <div class="profile-image">
+            <img *ngIf="currentUser()?.photoURL; else defaultImg" [src]="currentUser()?.photoURL" alt="Profilo" />
+            <ng-template #defaultImg>
+              <img src="assets/default-profile.png" alt="Profilo default" />
+            </ng-template>
+          </div>
+  
+          <h2 class="username">
+            {{ currentUser()?.userNickname || 'Nessun utente' }}
+          </h2>
+  
+          <button class="logout-button" (click)="logout()" *ngIf="currentUser()">Disconnetti</button>
+        </div>
+      </div>
+  
+      <div class="right-section">
+        <div class="account-description">
+          <h3>Descrizione Account</h3>
+          <p>
+            Appassionato di tecnologia, videogiochi e viaggi. Sempre alla ricerca di nuove esperienze e pronto a esplorare il mondo con curiosità e passione. Nel tempo libero mi piace leggere, ascoltare musica e migliorare le mie competenze professionali. Se vuoi scambiare opinioni su argomenti tech o scoprire nuovi giochi, sono sempre disponibile per una chiacchierata!
+          </p>
+        </div>
+  
+        <div class="account-details" *ngIf="currentUser(); else noData">
+          <h3>Dettagli Account</h3>
+          <p><strong>UID:</strong> {{ currentUser()?.uid }}</p>
+          <p><strong>Email:</strong> {{ currentUser()?.email || 'Non disponibile' }}</p>
+          <p><strong>Nickname:</strong> {{ currentUser()?.userNickname || 'Non impostato' }}</p>
+          <p><strong>Saldo:</strong> {{ currentUser()?.money | currency:'EUR' }}</p>
+        </div>
+  
+        <ng-template #noData>
+          <div class="account-details">
+            <h3>Dati non disponibili</h3>
+            <p>Effettua il login per visualizzare i dettagli del tuo account.</p>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  

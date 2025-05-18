@@ -133,3 +133,28 @@ p {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
+.account-details {
+    margin-top: 30px;
+}
+
+.account-details p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+
+.logout-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c0392b;
+}

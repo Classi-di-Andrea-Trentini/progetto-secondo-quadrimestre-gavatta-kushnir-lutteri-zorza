@@ -12,6 +12,7 @@ import { AccountComponent } from './components/account/account.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ExploreGamesComponent } from './components/explore-games/explore-games.component';
 import { HeaderComponent } from './components/header/header.component';
+import { AccountUtenteComponent } from './components/account-utente/account-utente.component';
 import { HeroSectionComponent } from './components/hero-section/hero-section.component';
 import { CommunityComponent } from './components/community/community.component';
 import { CommunityAccountComponent } from './components/community-account/community-account.component';
