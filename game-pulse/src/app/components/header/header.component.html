@@ -29,7 +29,8 @@
         <li><a [routerLink]="['/home']">Home</a></li>
         <li><a [routerLink]="['/category']" href="#">Categorie</a></li>
         <li><a [routerLink]="['/community']" href="#">Community</a></li>
-        <li><a [routerLink]="['/novita']" href="#">NewOffers</a></li>
+        <li><a [routerLink]="['/novita']" href="#">Nuove Offerte</a></li>
+        <li><a [routerLink]="['/']" href="#">Carrello</a></li>
         <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); $event.preventDefault()">AI</a></li>
       </ul>
     </nav>
@@ -76,6 +77,9 @@
 
 <!-- AI Sidebar -->
 <div class="ai-sidebar" [class.open]="sidebarOpen">
+  <button class="ai-close-btn" (click)="toggleAiSidebar()" aria-label="Chiudi sidebar">
+    &times;
+  </button>
   <div class="container mt-5 d-flex flex-column justify-content-between h-100">
     <div>
       <div class="intro-message">

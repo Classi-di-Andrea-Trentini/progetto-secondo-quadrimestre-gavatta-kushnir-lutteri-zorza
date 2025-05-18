@@ -9,7 +9,7 @@ import { IAIResponse } from '../interfaces/i-airesponse';
 export class OpenaiService {
 
   httpClient: HttpClient = inject(HttpClient);
-  apiKey: string = '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';
+  apiKey: string = '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';
   openAIURL: string = 'https://openrouter.ai/api/v1/chat/completions';
   constructor() { }
 
