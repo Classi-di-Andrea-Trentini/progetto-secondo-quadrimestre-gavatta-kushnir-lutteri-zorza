@@ -1,0 +1,65 @@
+:host {
+  display: block;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  --scroll-timeline-duration: 2000ms;
+}
+
+.page-container {
+  position: relative;
+  height: 100vh; /* Aumentato a 140vh per avere più spazio */
+  width: 100%;
+  scroll-snap-align: start;
+  overflow: hidden; /* Assicura che gli elementi figli non escano dal container */
+}
+
+app-prima-page,
+app-seconda-page,
+app-terza-page {
+  display: block;
+  height: 140vh; /* Aumentato per corrispondere al contenitore */
+  width: 100%;
+  /* Assicurati che le immagini di sfondo siano proporzionalmente scalate */
+  background-size: cover;
+  background-position: center;
+}
+
+.nav-button {
+  position: fixed; /* Cambiato da absolute a fixed per mantenere posizione durante lo scroll */
+  bottom: 50px;
+  right: 50px;
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  z-index: 100; /* Aumentato z-index per assicurarsi che sia sempre visibile */
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.nav-button:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 0 8px rgba(255,255,255,0.5);
+}
+
+.nav-button span {
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+/* Opzionale: nascondere la scrollbar ma mantenere la funzionalità */
+:host::-webkit-scrollbar {
+  display: none;
+}
+
+:host {
+  -ms-overflow-style: none;  /* Per Internet Explorer e Edge */
+  scrollbar-width: none;     /* Per Firefox */
+}
