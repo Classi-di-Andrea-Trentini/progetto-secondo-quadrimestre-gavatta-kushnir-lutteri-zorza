@@ -4,7 +4,7 @@
     <div class="content-container">
       <h2 class="section-title">Esplora per Genere</h2>
       <div class="cards-grid">
-        <div class="game-card" *ngFor="let category of gameCategories" [class.fade-animation]="isChanging">
+        <div class="game-card" *ngFor="let category of gameCategories" [class.fade-animation]="isChanging" (click)="goToCategory(category)">
           <div class="game-image">
             <img [src]="category.image" [alt]="category.title">
           </div>
