@@ -1,45 +1,78 @@
-<p>community-account works!</p>
-<img src="/background/base10.jpg" alt="Placeholder Image">
-<div class="account">
-    <div class="container">
-        <div class="left-section">
-            <div class="profile-container">
-                <div class="profile-image">
-                    <button class="arrow-button prev">
-                        <i class="fas fa-arrow-left"></i>
-                    </button>
-                    <img [src]="user()?.avatarImg" alt="Immagine profilo" id="profile-img" style="width: 100px; height: 100px;">
-                    <button class="arrow-button next">
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                </div>
-                <h2 class="username">{{user()?.userNickname}}</h2>
-            </div>
+<div class="account" [style.background]="'url(' + user()?.backgroundImage + ') no-repeat center center/cover'">
+  <div class="container">
+    <div class="left-section">
+      <div class="profile-container">
+        <div class="profile-image">
+          <img [src]="user()?.avatarImg" alt="Profilo" />
+          <ng-template #defaultImg>
+            <img src="assets/default-profile.png" alt="Profilo default" />
+          </ng-template>
         </div>
-        <div class="right-section">
-            <div class="account-description">
-                <h3>Descrizione Account</h3>
-                <p>Appassionato di tecnologia, videogiochi e viaggi. Sempre alla ricerca di nuove esperienze e pronto a esplorare il mondo con curiosità e passione. Nel tempo libero mi piace leggere, ascoltare musica e migliorare le mie competenze professionali. Se vuoi scambiare opinioni su argomenti tech o scoprire nuovi giochi, sono sempre disponibile per una chiacchierata! </p>
-            </div>
-            <div class="games-table">
-                <h3>Giochi in Vendita</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Gioco</th>
-                            <th>Prezzo</th>
-                            <th>Data di Pubblicazione</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>game.name</td>
-                            <td>game.price</td>
-                            <td>game.releaseDate</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+
+        <h2 class="username">
+          {{ user()?.userNickname || 'Nessun utente' }}
+        </h2>
+      </div>
     </div>
+
+    <div class="right-section">
+      <div class="account-description">
+        <h3>Descrizione Account</h3>
+        <p>
+          Appassionato di tecnologia, videogiochi e viaggi. Sempre alla ricerca di nuove esperienze e pronto a esplorare
+          il mondo con curiosità e passione. Nel tempo libero mi piace leggere, ascoltare musica e migliorare le mie
+          competenze professionali. Se vuoi scambiare opinioni su argomenti tech o scoprire nuovi giochi, sono sempre
+          disponibile per una chiacchierata!
+        </p>
+      </div>
+
+      <div class="account-details">
+        <h3>Dettagli Account</h3>
+        <p><strong>UID:</strong> {{ user()?.uid }}</p>
+        <p><strong>Email:</strong> {{ user()?.email || 'Non disponibile' }}</p>
+        <p><strong>Nickname:</strong> {{ user()?.userNickname || 'Non impostato' }}</p>
+        <p><strong>Saldo:</strong> {{ user()?.money }}</p>
+      </div>
+      <div class="games-table">
+        <h3>Vendo</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Descrizione</th>
+              <th>Prezzo</th>
+              <th>Compra</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(game of listadiVendita(); track $index) {
+            <tr>
+              <td>{{ data(game.data)}} </td>
+              <td>{{ game.description}} </td>
+              <td>{{ game.prezzo}}
+                <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon" style="width: 30px; height: 30px;">
+              </td>
+              <td>
+                <button class="cart-btn" (click)="compra(game)" title="Aggiungi al carrello">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <circle cx="9" cy="21" r="1.5" fill="#fff" />
+                    <circle cx="18" cy="21" r="1.5" fill="#fff" />
+                    <path d="M2 2h2l3.6 7.59a1 1 0 0 0 .92.61H19a1 1 0 0 1 .98 1.2l-1.2 6A1 1 0 0 1 17.8 18H7"
+                      stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+      <ng-template #noData>
+        <div class="account-details">
+          <h3>Dati non disponibili</h3>
+          <p>Effettua il login per visualizzare i dettagli del tuo account.</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
 </div>

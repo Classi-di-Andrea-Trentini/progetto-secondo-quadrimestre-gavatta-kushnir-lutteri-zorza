@@ -10,6 +10,7 @@ import { HeroSectionComponent } from './components/hero-section/hero-section.com
 import { CommunityComponent } from './components/community/community.component';
 import { CommunityAccountComponent } from './components/community-account/community-account.component';
 import { NovitaDelNegozioComponent } from './components/novita-del-negozio/novita-del-negozio.component';
+import { AccountUtenteComponent } from './components/account-utente/account-utente.component';
 
 
 export const routes: Routes = [
@@ -17,7 +18,7 @@ export const routes: Routes = [
     { path: 'game/:id', component: PageGameComponent},
     { path: 'login', component: LoginComponent},
     { path: 'register', component: RegisterComponent},
-    { path: 'user', component: AccountComponent},
+    { path: 'user', component: AccountUtenteComponent},
     { path: 'test', component: TestNegozioComponentPoteteancheEliminarloComponent },
     { path: 'category', component: ExploreGamesComponent},
     { path: 'community', component: CommunityComponent},

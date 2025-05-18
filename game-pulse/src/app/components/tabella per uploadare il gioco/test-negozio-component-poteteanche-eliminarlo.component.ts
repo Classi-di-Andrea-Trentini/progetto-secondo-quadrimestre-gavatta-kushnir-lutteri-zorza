@@ -51,7 +51,7 @@ export class TestNegozioComponentPoteteancheEliminarloComponent implements OnIni
     this.uid = this.id?.toString() || "0";
     this.uploadLargeFile(this.uploadId ?? "0");
     console.log("caricamento in corso ", this.uid.toString(), this.gamePrice);
-    await this.storeService.addGameStore(this.uid.toString(), this.gamePrice, this.gameDescription, this.uploadId ?? "0", this.img?? "cs16.jpg", this.title ?? "Nessun titolo");
+    await this.storeService.addGameStore(this.uid.toString(), this.gamePrice, this.gameDescription, this.uploadId ?? "0", this.img ?? "cs16.jpg", this.title ?? "Nessun titolo");
     this.getGameStoreInfo();
 
   }
