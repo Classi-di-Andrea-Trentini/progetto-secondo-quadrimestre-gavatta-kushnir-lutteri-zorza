@@ -1,5 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { EventServiceService } from '../../../services/event-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-seconda-page',
@@ -93,6 +95,10 @@ export class SecondaPageComponent implements OnInit, OnDestroy {
   
   // Riferimento all'intervallo per poterlo cancellare quando il componente viene distrutto
   private intervalId: any;
+  
+  // Servizi iniettati
+  private eventService: EventServiceService = inject(EventServiceService);
+  private router: Router = inject(Router);
 
   ngOnInit(): void {
     // Inizializza le categorie all'avvio del componente
@@ -144,5 +150,13 @@ export class SecondaPageComponent implements OnInit, OnDestroy {
         this.isChanging = false;
       }, 50);
     }, 300); // Tempo di animazione del fade out
+  }
+  
+  // Funzione per gestire il click su una categoria
+  goToCategory(category: any): void {
+    // Trasforma il titolo della categoria in un formato che corrisponda ai generi nell'explore-games
+    // e imposta il genere nel service
+    this.eventService.setGenere(category.title);
+    // Il servizio EventService navigherà automaticamente alla rotta '/category'
   }
 }
