@@ -13,13 +13,18 @@ import { FooterComponent } from './components/footer/footer.component';
 import { ExploreGamesComponent } from './components/explore-games/explore-games.component';
 import { HeaderComponent } from './components/header/header.component';
 import { AccountUtenteComponent } from './components/account-utente/account-utente.component';
+import { HeroSectionComponent } from './components/hero-section/hero-section.component';
+import { CommunityComponent } from './components/community/community.component';
+import { CommunityAccountComponent } from './components/community-account/community-account.component';
+import { NovitaDelNegozioComponent } from './components/novita-del-negozio/novita-del-negozio.component';
+import { NewHomepageComponent } from './components/new-homepage/new-homepage.component';
 
 
 
 @Component({
   selector: 'app-root',
 
-  imports: [MenuComponent, LoginComponent, RegisterComponent, MatSlideToggleModule,RouterOutlet,HomeComponent,AccountComponent,FooterComponent, ExploreGamesComponent, HeaderComponent,AccountUtenteComponent],
+  imports: [MenuComponent,NovitaDelNegozioComponent,CommunityAccountComponent,CommunityComponent, ExploreGamesComponent, LoginComponent, RegisterComponent, MatSlideToggleModule, RouterOutlet, HomeComponent, AccountComponent, FooterComponent, HeaderComponent, HeroSectionComponent, NewHomepageComponent],
 
 
   templateUrl: './app.component.html',

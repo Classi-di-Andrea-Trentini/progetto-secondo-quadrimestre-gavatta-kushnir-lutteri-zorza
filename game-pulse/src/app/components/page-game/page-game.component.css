@@ -87,11 +87,7 @@
 }  */
 
 
- .custom-bg {
-    background: radial-gradient(
-        circle at center, 
-        #6B2BAE,        
-        #1A1A1A          
-    );
-    min-height: 140vh
-} 
+.custom-bg {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #1e1e1e 0%, #363636 100%);
+}

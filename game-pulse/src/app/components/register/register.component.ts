@@ -1,23 +1,30 @@
-import { Component, inject, Signal } from '@angular/core';
+import { Component, inject, OnInit, Signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { User } from 'firebase/auth';
 import { UserData } from '../../classes/user-data';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 @Component({
   selector: 'app-register',
   imports: [FormsModule, RouterLink, RouterLinkActive],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   username: string = '';
   email: string = '';
   password: string = '';
   showPassword: boolean = false;
   authService: AuthService = inject(AuthService);
   newUser: Signal<User | null> = this.authService.newUser;
+  router: Router = inject(Router)
+
+  ngOnInit() {
+    if(this.authService._isLoggedIn() == true) {
+      this.router.navigateByUrl('');
+    }
+  }
 
   async register() {
     console.log("sto registrando")
@@ -28,7 +35,9 @@ export class RegisterComponent {
         this.newUser()?.email ?? "",
         this.newUser()?.photoURL ?? ""
       );
-      await this.authService.saveUserData(userData);      
+    
+      await this.authService.saveUserData(userData);  
+
     }
   } 
 

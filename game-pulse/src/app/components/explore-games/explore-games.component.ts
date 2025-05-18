@@ -4,11 +4,13 @@ import { BarraLateraleGeneriComponent } from './barra-laterale-generi/barra-late
 import { GameCardComponent } from './game-card/game-card.component';
 import { GamePulseService } from '../../services/game-pulse.service';
 import { ItadService } from '../../services/itad.service';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { EventServiceService } from '../../services/event-service.service';
 
 @Component({
   selector: 'app-explore-games',
   standalone: true,
-  imports: [CommonModule, BarraLateraleGeneriComponent, GameCardComponent],
+  imports: [CommonModule, BarraLateraleGeneriComponent, GameCardComponent,RouterLink, RouterLinkActive],
   templateUrl: './explore-games.component.html',
   styleUrl: './explore-games.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -33,7 +35,7 @@ export class ExploreGamesComponent implements OnInit {
     private GamePulseService: GamePulseService, 
     private itadService: ItadService,
     private cdr: ChangeDetectorRef,
-    private ngZone: NgZone
+    private ngZone: NgZone,
   ) {}
   
   ngOnInit() {

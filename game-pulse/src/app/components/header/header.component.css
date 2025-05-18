@@ -506,3 +506,34 @@
     display: none;
   }
 }
+
+
+.ai-close-btn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 10;
+    background: #8a2be2;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.3rem;      /* più piccola */
+    font-weight: 700;
+    line-height: 1;         /* per evitare spaziature verticali extra */
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+    box-shadow: 0 2px 8px rgba(138,43,226,0.08);
+    padding: 0;
+}
+
+.ai-close-btn:hover {
+    background: #5f00ff;
+    box-shadow: 0 4px 16px rgba(138,43,226,0.18);
+    transform: scale(1.07);
+}

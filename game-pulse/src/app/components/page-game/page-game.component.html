@@ -27,18 +27,10 @@
             <div class="mt-4">
                 <h1 class="game-title text-white">{{infoGioco()?.name}}</h1>
             </div>
-            <!-- Colonna Sinistra -->
+                      <!-- Colonna Sinistra -->
             <div class="col-md-7">
                 <!-- Nome Gioco -->
-
-
-                <!-- Frame (placeholder) -->
-                <!-- <div class="mb-4 border p-3 rounded">
-                     <app-player></app-player>
-                    <div class="placeholder-content" style="height: 200px">
-                       
-                    </div>
-                </div> -->
+                <!-- ...existing code... -->
                 <div class="player-container container-fluid">
                     <app-player></app-player>
                 </div>
@@ -48,32 +40,22 @@
                     <app-buy></app-buy>
                 </div>
 
+                <!-- Valutazioni SPOSTATE QUI -->
+                <div class="mb-4">
+                    <app-valutazioni [infoGioco]="infoGioco()"></app-valutazioni>
+                </div>
             </div>
 
             <!-- Colonna Destra -->
             <div class="col-md-5">
                 <app-descrizione [infoGioco]="infoGioco()"></app-descrizione>
-              
-                
-
-                <!-- Valutazioni -->
-                <div class="mb-4">
-                    <app-valutazioni [infoGioco]="infoGioco()"></app-valutazioni>
-                </div>
-
+                <!-- Valutazioni RIMOSSE DA QUI -->
                 <!-- hashtag -->
                 <app-hashtag [infoGioco]="infoGioco()"></app-hashtag>
-
-                  <!-- Altri giochi -->
-                  <div class="mb-4">
-                    <h4>Altri giochi</h4>
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action">Gioco Correlato 1</a>
-                        <a href="#" class="list-group-item list-group-item-action">Gioco Correlato 2</a>
-                        <a href="#" class="list-group-item list-group-item-action">Gioco Correlato 3</a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 </div>
+
+<app-test-negozio-component-poteteanche-eliminarlo [id]="infoGioco()?.id" [img]="infoGioco()?.background_image" [title]="infoGioco()?.name"></app-test-negozio-component-poteteanche-eliminarlo>
+

@@ -7,11 +7,13 @@ import { UserData } from '../classes/user-data';
 import { GiocoVenduto } from '../classes/gioco-venduto';
 import { addDoc, collection, deleteDoc, getDocs } from 'firebase/firestore';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StoreService {
+  private authService: AuthService = inject(AuthService);
   private firestore: Firestore = inject(Firestore);
   private _currentGame: WritableSignal<GiocoVenduto | null> = signal<GiocoVenduto | null>(null)
   currentGame: Signal<GiocoVenduto | null> = this._currentGame.asReadonly()
@@ -46,7 +48,6 @@ export class StoreService {
       const gamerefData  = collection(this.firestore, `store/${idGioco}/offers`);
       const gamerefDataDoc = (await getDocs(gamerefData));
       gamerefDataDoc.forEach(doc => {
-        console.log(doc.id, " => ", doc.data());
         giochiVenduti.push(doc.data() as GiocoVenduto);
       });
       return giochiVenduti;
@@ -67,15 +68,56 @@ export class StoreService {
     } */
   }
 
-
-  async addGameStore(id: string, costo: number): Promise<void>{
-    const gameRef = collection(this.firestore, `store/${id}/offers/`);
-    const addgame = await addDoc(gameRef, {id: id, costo: costo});
+  async getStoreGames(): Promise<GiocoVenduto[] | null>{
+    try{
+      const giochiVenduti: GiocoVenduto[] = [];
+      const gamerefData  = collection(this.firestore, `giochiVenduti/`);
+      const gamerefDataDoc = (await getDocs(gamerefData));
+      gamerefDataDoc.forEach(doc => {
+        giochiVenduti.push(doc.data() as GiocoVenduto);
+      });
+      return giochiVenduti;
+    }
+    catch(error){
+      console.log("Errore nel recupero dei giochi venduti:", error);
+      return null;
+    }
   }
+  async addGameStore(id: string, costo: number, descrizione:string, uniqueId2:string,img: string, title:string): Promise<void>{
+  
+    const gameRef = doc(this.firestore, `store/${id}/offers/${uniqueId2}`);
+    console.log("Tutto ok");
+    const gioco = new GiocoVenduto(id, costo,this.authService.currentUser()?.userNickname ?? "undefined" ,this.authService.currentUser()?.uid ?? "undefined", uniqueId2,descrizione, img,title);
+    console.log("Gioco vendutoRRR", id);
+    await setDoc(gameRef, {...gioco});    
+    const userDocRef = doc(this.firestore, `users/${this.authService.currentUser()?.uid ?? "undefined"}/vendita/${uniqueId2}`);
+    await setDoc(userDocRef, {...gioco});
+    const userDocRef2 = doc(this.firestore, `giochiVenduti/${uniqueId2}`);
+    await setDoc(userDocRef2, {...gioco});
+  }
+
+
+/*   async addGameStore(id: string, costo: number): Promise<void>{
+    const gameRef = collection(this.firestore, `store/${id}/offers/`);
+    const docRef = doc(this.firestore, `store/${id}/offers/placeholder`);
+    const gioco = new GiocoVenduto(id, costo, docRef);
+    const addgame = await addDoc(gameRef, {uid: id, costo: costo});
+  }
+ */
 
   async deleteGameStore(idGioco: string, idOfferta:string): Promise<void>{
     const gameRef = doc(this.firestore, `store/${idGioco}/offers/${idOfferta}`);
     const deletegame = await deleteDoc(gameRef);
     return deletegame;
   }
-} 
+
+
+  async buyGame(gioco: GiocoVenduto): Promise<void>{
+    const user : UserData = new UserData(this.authService.currentUser()?.uid ?? "undefined", this.authService.currentUser()?.userNickname ?? "undefined", this.authService.currentUser()?.email ?? "undefined", this.authService.currentUser()?.photoURL ?? "undefined");
+    user.money = (this.authService.currentUser()?.money ?? 0) - gioco.prezzo;
+    console.log("Sto comprando", this.authService.currentUser()?.money ?? 0, "-", gioco.prezzo);
+    await this.authService.updateCurrentUser(user);
+    const userDocRef = doc(this.firestore, `users/${this.authService.currentUser()?.uid ?? "undefined"}/comprati/${gioco.idDoc}`);
+    await setDoc(userDocRef, {...gioco});
+  } 
+}

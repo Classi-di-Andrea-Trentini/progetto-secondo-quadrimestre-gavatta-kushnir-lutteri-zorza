@@ -2,7 +2,6 @@
   <div class="header-container">
     <div class="logo">
       <img src="/logo.png" alt="Game Pulse Logo">
-      <h1>Game Pulse</h1>
     </div>
     
     <div class="search-container">
@@ -26,18 +25,33 @@
     
     <nav class="navigation">
       <ul>
-        <li><a [routerLink]="['/']">Home</a></li>
-        <li><a href="#">Statistiche</a></li>
-        <li><a href="#">Categorie</a></li>
-        <li><a href="#">Giochi</a></li>
+        <li><a [routerLink]="['']">Start</a></li>
+        <li><a [routerLink]="['/home']">Home</a></li>
+        <li><a [routerLink]="['/category']" href="#">Categorie</a></li>
+        <li><a [routerLink]="['/community']" href="#">Community</a></li>
+        <li><a [routerLink]="['/novita']" href="#">Nuove Offerte</a></li>
+        <li><a [routerLink]="['/']" href="#">Carrello</a></li>
         <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); $event.preventDefault()">AI</a></li>
       </ul>
     </nav>
     
+    @if(this.authService._isLoggedIn() == false){
     <div class="auth-buttons">
       <button class="login-btn" [routerLink]="['/login']">Login</button>
-      <button class="register-btn">Register</button>
+
     </div>
+    }
+    @else{
+      <div class="auth-buttons">
+        <button class="login-btn" (click)="logout()">Logout</button>
+        <button class="login-btn"  [routerLink]="['/user']" href="#">Account</button>
+        <div class="login-btn">
+          {{this.authService.currentUser()?.money}}
+          <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon" style="width: 30px; height: 30px;">
+        </div>
+       
+      </div>
+    }
 
     <button class="mobile-menu-toggle" (click)="toggleMobileMenu()">
       <span></span>
@@ -51,10 +65,8 @@
   <nav class="mobile-sidebar">
     <div class="sidebar-content">
       <ul>
-        <li><a [routerLink]="['/']" (click)="toggleMobileMenu()">Home</a></li>
-        <li><a href="#" (click)="toggleMobileMenu()">Statistiche</a></li>
-        <li><a href="#" (click)="toggleMobileMenu()">Categorie</a></li>
-        <li><a href="#" (click)="toggleMobileMenu()">Giochi</a></li>
+        <li><a [routerLink]="['/home']" (click)="toggleMobileMenu()">Home</a></li>
+        <li><a [routerLink]="['/category']" (click)="toggleMobileMenu()">Categorie</a></li>
         <li><a [routerLink]="['/login']" (click)="toggleMobileMenu()">Login</a></li>
         <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); toggleMobileMenu(); $event.preventDefault()">AI</a></li>
       </ul>
@@ -65,6 +77,9 @@
 
 <!-- AI Sidebar -->
 <div class="ai-sidebar" [class.open]="sidebarOpen">
+  <button class="ai-close-btn" (click)="toggleAiSidebar()" aria-label="Chiudi sidebar">
+    &times;
+  </button>
   <div class="container mt-5 d-flex flex-column justify-content-between h-100">
     <div>
       <div class="intro-message">

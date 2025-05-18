@@ -1,6 +1,6 @@
 import { IAIResponse } from '../../interfaces/i-airesponse';
 import { OpenaiService } from '../../services/openai.service';
-import { Component, HostListener, inject, OnInit, signal, WritableSignal } from '@angular/core';
+import { Component, effect, HostListener, inject, OnInit, signal, WritableSignal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { GamePulseService } from '../../services/game-pulse.service';
@@ -8,6 +8,8 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, of, switchMap } from 'rxjs';
 import { SearchGames } from '../../classes/search-games';
 import { CommonModule } from '@angular/common';
+import { AuthService } from '../../services/auth.service';
+import { UserData } from '../../classes/user-data';
 
 @Component({
   selector: 'app-header',
@@ -18,23 +20,30 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
   // Game search properties
+  gamePulseService: GamePulseService = inject(GamePulseService);
+  authService:AuthService = inject(AuthService);
+  openaiService: OpenaiService = inject(OpenaiService);
+
+
   menuOpen : WritableSignal<boolean> = signal<boolean>(true);
-  gameListOpen = true;
-  gameName: FormControl = new FormControl('');
   gameList: WritableSignal<SearchGames | null> = signal<SearchGames | null>(null);
-  private gamePulseService: GamePulseService = inject(GamePulseService);
-
-  // UI properties
-  sidebarOpen: boolean = false;
-  sidebarNonAi: boolean = false;
-
   // AI-related properties
   aiResponse: WritableSignal<IAIResponse | null> = signal(null);
   viewSpinner: WritableSignal<boolean> = signal<boolean>(false);
-  openaiService: OpenaiService = inject(OpenaiService);
-  queryText: string = '';
+  gameName: FormControl = new FormControl('');
+  
+  gameListOpen = true;
+  sidebarOpen: boolean = false;
+  sidebarNonAi: boolean = false;
   isLoading: boolean = false;
+  queryText: string = '';
+  
 
+
+  logout() {
+    console.log("Logout");
+    this.authService.logout()
+  }
   // UI methods
   onGameClick(){
     this.menuOpen.set(false);

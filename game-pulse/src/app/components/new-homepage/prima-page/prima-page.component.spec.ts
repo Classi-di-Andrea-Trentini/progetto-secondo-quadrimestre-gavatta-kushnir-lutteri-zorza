@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AltriGiochiComponent } from './altri-giochi.component';
+import { PrimaPageComponent } from './prima-page.component';
 
-describe('AltriGiochiComponent', () => {
-  let component: AltriGiochiComponent;
-  let fixture: ComponentFixture<AltriGiochiComponent>;
+describe('PrimaPageComponent', () => {
+  let component: PrimaPageComponent;
+  let fixture: ComponentFixture<PrimaPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AltriGiochiComponent]
+      imports: [PrimaPageComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AltriGiochiComponent);
+    fixture = TestBed.createComponent(PrimaPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

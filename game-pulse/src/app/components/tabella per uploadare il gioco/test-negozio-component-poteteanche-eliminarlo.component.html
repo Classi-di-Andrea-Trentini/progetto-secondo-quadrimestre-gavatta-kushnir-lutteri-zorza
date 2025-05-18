@@ -1,0 +1,54 @@
+<h2 style="padding-top: 100px;">Test</h2>
+<button (click) = "getGameStoreInfo()">Get info</button>
+<button (click) = "togglePopup()">Upload Game</button>
+
+<h1 style="color: white;">{{id}}</h1>
+
+<h2 style="padding-top: 100px;">Tabella Giochi</h2>
+
+<table class="game-table">
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Autore</th>
+      <th>Descrizione</th>
+      <th>Prezzo</th>
+      <th>Azione</th>
+    </tr>
+  </thead>
+  <tbody>
+  @for(game of listadiVendita(); track $index) {
+    <tr>
+      <td>{{ data(game.data)}} </td>
+      <td>{{ game.author}} </td>
+      <td>{{ game.description}} </td>
+      <td>{{ game.prezzo}}           
+        <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon" style="width: 30px; height: 30px;">      
+      </td>
+      <td>
+        <button (click)="compra(game)">compra</button>
+      </td>
+    </tr>
+  }
+  </tbody>
+</table>
+
+
+@if(isPopupVisible){
+<div class="popup">
+  <div class="popup-content">
+    <h2>Inserisci la descrizione</h2>
+    <textarea [(ngModel)]="gameDescription" placeholder="Descrizione del gioco"></textarea>
+    <div class="price-container">
+      <input [(ngModel)]="gamePrice" placeholder="Prezzo del gioco" />
+      <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon">
+    </div>
+    <input type="file" (change)="onFileSelected($event)">
+
+    <div class="popup-buttons">
+      <button (click)="accept()">Accetta</button>
+      <button (click)="cancel()">Cancella</button>
+    </div>
+  </div>
+</div>
+}
