@@ -23,8 +23,9 @@ def upload_chunk():
     chunk = request.files.get('chunk')
     chunk_number = int(request.form.get('chunkNumber'))
     total_chunks = int(request.form.get('totalChunks'))
-    filename = request.form.get('filename')
-    upload_id = request.form.get('uploadId') or str(uuid4())
+    filename = request.form.get('uploadId')
+    print(request.form.get('uploadId'))
+    upload_id = request.form.get('uploadId')
 
     if not chunk:
         return jsonify({'error': 'Nessun chunk ricevuto'}), 400
@@ -53,10 +54,10 @@ def upload_chunk():
 
 @app.route('/download/<filename>', methods=['GET'])
 def download_file(filename):
-    filepath = os.path.join(app.config['FINAL_UPLOAD_FOLDER'], filename)
+    filepath = os.path.join(app.config['FINAL_UPLOAD_FOLDER'], filename + ".zip") 
     if os.path.exists(filepath) and os.path.isfile(filepath):
         try:
-            return send_from_directory(app.config['FINAL_UPLOAD_FOLDER'], filename, as_attachment=True)
+            return send_from_directory(app.config['FINAL_UPLOAD_FOLDER'], filename + ".zip", as_attachment=True)
         except Exception as e:
             return jsonify({'error': f'Errore durante l\'invio del file: {str(e)}'}), 500
     else:

@@ -5,6 +5,7 @@ import { UserData } from '../../classes/user-data';
 import { StoreService } from '../../services/store.service';
 import { GiocoVenduto } from '../../classes/gioco-venduto';
 import { Data } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-account-utente',
@@ -20,11 +21,15 @@ export class AccountUtenteComponent{
   storeService: StoreService = inject(StoreService)
   listadiVendita: WritableSignal<GiocoVenduto[] | null> = signal<GiocoVenduto[] | null>(null);
 
+
+  private apiUrl = 'http://127.0.0.1:4200'; // Assicurati che l'IP e la porta siano corretti
+  fileNameToDownload: string = 'il_tuo_file.txt'; // Sostituisci con il nome del file che vuoi scaricare
+  downloadMessage: string = '';
 ngOnInit(): void {
   this.getStoreGameUser()
   }
 
-  constructor() { 
+  constructor(private http: HttpClient) { 
     effect(() => {
       const user = this.authService.currentUser();  // questo dovrebbe restituire i dati anche dopo un nuovo login
       this.getStoreGameUser()
@@ -71,4 +76,38 @@ ngOnInit(): void {
       }
   
     }
-}
+
+  // Metodo per avviare il download del file
+  onDownloadClick(gioco: GiocoVenduto): void {
+    // Puoi aggiungere una validazione se fileName è vuoto o nullo
+    const fileName: string = gioco.idDoc;
+
+    this.downloadMessage = `Inizio download di '${fileName}'...`;
+    const url = `${this.apiUrl}/download/${fileName}`;
+
+    this.http.get(url, { responseType: 'blob' }).subscribe({
+      next: (blob: Blob) => {
+        this.triggerDownload(blob, fileName); // Passa fileName anche qui
+        this.downloadMessage = `File '${fileName}' scaricato con successo!`;
+      },
+      error: (err) => {
+        console.error(`Errore durante il download di '${fileName}':`, err);
+        this.downloadMessage = `Errore durante il download del file '${fileName}': ${err.message || 'Errore sconosciuto'}`;
+      }
+    });
+  }
+
+  // Funzione helper per avviare il download nel browser
+  private triggerDownload(blob: Blob, filename: string): void {
+    const a = document.createElement('a');
+    const objectUrl = URL.createObjectURL(blob);
+    a.href = objectUrl;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(objectUrl); // Libera la memoria allocata per l'URL temporaneo
+  }
+
+
+  }

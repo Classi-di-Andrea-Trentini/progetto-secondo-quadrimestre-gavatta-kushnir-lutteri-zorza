@@ -91,8 +91,9 @@ export class AuthService {
     const id= user.uid;
     for (let i = 1; i <= 100; i++) {
       const fakeUser = user;
+      fakeUser.descrizione = this.generateRandomGameDescription()
       fakeUser.userNickname = `${this.generateRandomWord()}+${i}`;
-      fakeUser.avatarImg = `https://avatar.iran.liara.run/public/`;
+      fakeUser.avatarImg = `https://avatar.iran.liara.run/public/${i}`;
       fakeUser.backgroundImage = this.generateRandomBackground();
       fakeUser.uid = `${id}+${i}`;
       const userRef = doc(this.firestore, `users/${id}+${i}`);
@@ -113,6 +114,34 @@ private generateRandomWord(): string {
   const randomIndex = Math.floor(Math.random() * words.length);
   return words[randomIndex];
 } 
+
+
+private generateRandomGameDescription(): string {
+  const descriptions = [
+    'Appassionato di RPG e avventure epiche.',
+    'Collezionista di giochi indie e platform.',
+    'Esperto di sparatutto e giochi d’azione.',
+    'Amante delle strategie e dei giochi gestionali.',
+    'Fan dei giochi sportivi e delle simulazioni.',
+    'Sempre alla ricerca di nuove sfide multiplayer.',
+    'Adoro esplorare mondi open world.',
+    'Competitivo nei giochi di carte e puzzle.',
+    'Seguace delle saghe fantasy più famose.',
+    'Giocatore nostalgico di retro games.',
+    'Costruttore di città e imperi virtuali.',
+    'Cacciatore di trofei e completista.',
+    'Streamer di gameplay e recensioni.',
+    'Appassionato di storie coinvolgenti.',
+    'Fanatico di speedrun e record.',
+    'Maestro nei giochi di combattimento.',
+    'Amico fedele nelle co-op online.',
+    'Esploratore di dungeon e misteri.',
+    'Creatore di mod e contenuti personalizzati.',
+    'Sempre aggiornato sulle ultime uscite.'
+  ];
+  const randomIndex = Math.floor(Math.random() * descriptions.length);
+  return descriptions[randomIndex];
+}
 
 private generateRandomBackground(): string {
   const words = [
