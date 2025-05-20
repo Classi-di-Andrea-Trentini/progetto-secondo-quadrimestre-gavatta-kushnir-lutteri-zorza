@@ -1,78 +1,117 @@
 <header class="header">
-  <div class="header-container">
-    <div class="logo">
-      <img src="/logo.png" alt="Game Pulse Logo">
-    </div>
-    
-    <div class="search-container">
-      <input type="text" class="search-input" placeholder="Cerca giochi..." [formControl]="gameName" (click)="onSearchClick()">
+  <div class="header-container container-fluid">
+    <div class="row w-100 align-items-center">
+      <!-- Logo -->
+      <div class="col-auto d-flex justify-content-start">
+        <div class="logo">
+          <img src="/logo.png" alt="Game Pulse Logo">
+        </div>
+      </div>
       
-      @if(gameList() && menuOpen()){
-      <div class="results-dropdown">
-        <div class="list-group">     
-          @for(game of gameList()?.results; track $index){
-            <a [routerLink]="['game/',game.id]" class="list-group-item list-group-item-action" (click)="onGameClick()">
-              <div> 
-                <img [src]="game.background_image" class="game-img">
-                <p>{{game.name}}</p>
-              </div>
-            </a>
+      <!-- Search -->
+      <div class="col d-flex justify-content-center">
+        <div class="search-container">
+          <input type="text" class="search-input" placeholder="Cerca giochi..." [formControl]="gameName" (click)="onSearchClick()">
+          
+          @if(gameList() && menuOpen()){
+          <div class="results-dropdown">
+            <div class="list-group">     
+              @for(game of gameList()?.results; track $index){
+                <a [routerLink]="['game/',game.id]" class="list-group-item list-group-item-action" (click)="onGameClick()">
+                  <div> 
+                    <img [src]="game.background_image" class="game-img">
+                    <p>{{game.name}}</p>
+                  </div>
+                </a>
+              }
+            </div>
+          </div>
           }
         </div>
       </div>
-      }
-    </div>
-    
-    <nav class="navigation">
-      <ul>
-        <li><a [routerLink]="['']">Start</a></li>
-        <li><a [routerLink]="['/home']">Home</a></li>
-        <li><a [routerLink]="['/category']" href="#">Categorie</a></li>
-        <li><a [routerLink]="['/community']" href="#">Community</a></li>
-        <li><a [routerLink]="['/novita']" href="#">Nuove Offerte</a></li>
-        <li><a [routerLink]="['/']" href="#">Carrello</a></li>
-        <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); $event.preventDefault()">AI</a></li>
-      </ul>
-    </nav>
-    
-    @if(this.authService._isLoggedIn() == false){
-    <div class="auth-buttons">
-      <button class="login-btn" [routerLink]="['/login']">Login</button>
-
-    </div>
-    }
-    @else{
-      <div class="auth-buttons">
-        <button class="login-btn" (click)="logout()">Logout</button>
-        <button class="login-btn"  [routerLink]="['/user']" href="#">Account</button>
-        <div class="login-btn">
-          {{this.authService.currentUser()?.money}}
-          <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon" style="width: 30px; height: 30px;">
-        </div>
-       
+      
+      <!-- Navigation for Desktop -->
+      <div class="col-auto d-none d-lg-block">
+        <nav class="navigation">
+          <ul class="nav-menu">
+            <li><a [routerLink]="['']">Start</a></li>
+            <li><a [routerLink]="['/home']">Home</a></li>
+            <li><a [routerLink]="['/category']">Categorie</a></li>
+            <li><a [routerLink]="['/community']">Community</a></li>
+            <li><a [routerLink]="['/novita']">Nuove Offerte</a></li>
+            <li><a [routerLink]="['/']">Carrello</a></li>
+            <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); $event.preventDefault()">AI</a></li>
+          </ul>
+        </nav>
       </div>
-    }
-
-    <button class="mobile-menu-toggle" (click)="toggleMobileMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      
+      <!-- Auth Buttons for Desktop -->
+      <div class="col-auto d-none d-lg-block">
+        @if(this.authService._isLoggedIn() == false){
+        <div class="auth-buttons">
+          <button class="login-btn" [routerLink]="['/login']">Login</button>
+        </div>
+        }
+        @else{
+          <div class="auth-buttons">
+            <button class="login-btn" (click)="logout()">Logout</button>
+            <button class="login-btn" [routerLink]="['/user']">Account</button>
+            <div class="login-btn">
+              {{this.authService.currentUser()?.money}}
+              <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon" style="width: 30px; height: 30px;">
+            </div>
+          </div>
+        }
+      </div>
+      
+      <!-- Mobile Menu Toggle -->
+      <div class="col-auto d-lg-none">
+        <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
   </div>
 
-  <!-- Mobile Menu Sidebar -->
-  @if(sidebarNonAi){
-  <nav class="mobile-sidebar">
+  <!-- Mobile Menu Offcanvas -->
+  <div class="mobile-menu-overlay" [class.active]="sidebarNonAi" (click)="toggleMobileMenu()"></div>
+  
+  <nav class="mobile-sidebar" [class.active]="sidebarNonAi">
     <div class="sidebar-content">
-      <ul>
+      <div class="sidebar-header">
+        <button class="close-menu" (click)="toggleMobileMenu()">&times;</button>
+      </div>
+      
+      <ul class="sidebar-nav">
+        <li><a [routerLink]="['']" (click)="toggleMobileMenu()">Start</a></li>
         <li><a [routerLink]="['/home']" (click)="toggleMobileMenu()">Home</a></li>
         <li><a [routerLink]="['/category']" (click)="toggleMobileMenu()">Categorie</a></li>
-        <li><a [routerLink]="['/login']" (click)="toggleMobileMenu()">Login</a></li>
+        <li><a [routerLink]="['/community']" (click)="toggleMobileMenu()">Community</a></li>
+        <li><a [routerLink]="['/novita']" (click)="toggleMobileMenu()">Nuove Offerte</a></li>
+        <li><a [routerLink]="['/']" (click)="toggleMobileMenu()">Carrello</a></li>
         <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); toggleMobileMenu(); $event.preventDefault()">AI</a></li>
       </ul>
+      
+      <!-- Auth Buttons for Mobile -->
+      <div class="sidebar-auth">
+        @if(this.authService._isLoggedIn() == false){
+          <button class="login-btn w-100 mb-2" [routerLink]="['/login']" (click)="toggleMobileMenu()">Login</button>
+        }
+        @else{
+          <div class="d-flex flex-column">
+            <button class="login-btn w-100 mb-2" (click)="logout(); toggleMobileMenu()">Logout</button>
+            <button class="login-btn w-100 mb-2" [routerLink]="['/user']" (click)="toggleMobileMenu()">Account</button>
+            <div class="login-btn w-100 d-flex justify-content-center align-items-center">
+              {{this.authService.currentUser()?.money}}
+              <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon ms-2" style="width: 24px; height: 24px;">
+            </div>
+          </div>
+        }
+      </div>
     </div>
   </nav>
-  }
 </header>
 
 <!-- AI Sidebar -->
