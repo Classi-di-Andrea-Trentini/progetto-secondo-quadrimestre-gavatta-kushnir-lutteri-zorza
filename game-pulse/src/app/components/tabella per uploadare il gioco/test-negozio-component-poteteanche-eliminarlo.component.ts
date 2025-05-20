@@ -28,7 +28,7 @@ export class TestNegozioComponentPoteteancheEliminarloComponent implements OnIni
   isUploading: boolean = false;
   chunkSize: number = 2 * 1024 * 1024; // 2MB (deve corrispondere al backend)
   uploadId: string | null = null;
-  downloadUrl = 'http://192.168.1.104:4200/download/';
+  downloadUrl = 'http://localhost:4200/download/';
   fileList: string[] = ['large_document.pdf', 'large_image.jpg', 'The Dark Queen of Mortholme.zip']; // Sostituisci con la tua lista dinamica
   private http = inject(HttpClient); // Usa inject per ottenere HttpClient
   uid: string = "uid del gioco";
@@ -51,7 +51,7 @@ export class TestNegozioComponentPoteteancheEliminarloComponent implements OnIni
     this.uid = this.id?.toString() || "0";
     this.uploadLargeFile(this.uploadId ?? "0");
     console.log("caricamento in corso ", this.uid.toString(), this.gamePrice);
-    await this.storeService.addGameStore(this.uid.toString(), this.gamePrice, this.gameDescription, this.uploadId ?? "0", this.img?? "cs16.jpg", this.title ?? "Nessun titolo");
+    await this.storeService.addGameStore(this.uid.toString(), this.gamePrice, this.gameDescription, this.uploadId ?? "0", this.img ?? "cs16.jpg", this.title ?? "Nessun titolo");
     this.getGameStoreInfo();
 
   }
@@ -141,7 +141,7 @@ export class TestNegozioComponentPoteteancheEliminarloComponent implements OnIni
 
       try {
         const response = await this.http.post<{ message: string; error?: string; uploadId?: string }>(
-          'http://192.168.1.104:4200/upload_chunk', // Usa l'IP corretto qui
+          'http://localhost:4200/upload_chunk', // Usa l'IP corretto qui
           formData,
           { reportProgress: false, observe: 'body' }
         ).toPromise();

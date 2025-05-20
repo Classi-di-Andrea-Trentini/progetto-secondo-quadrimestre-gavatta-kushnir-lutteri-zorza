@@ -32,6 +32,40 @@
           <p><strong>Nickname:</strong> {{ currentUser()?.userNickname || 'Non impostato' }}</p>
           <p><strong>Saldo:</strong> {{ currentUser()?.money | currency:'EUR' }}</p>
         </div>
+
+
+        <div class="games-table">
+        <h3>Vendo</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Descrizione</th>
+              <th>Prezzo</th>
+              <th>Compra</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(game of listadiVendita(); track $index) {
+            <tr>
+              <td>{{ data(game.data)}} </td>
+              <td>{{ game.description}} </td>
+              <td>{{ game.prezzo}}
+                <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon" style="width: 30px; height: 30px;">
+              </td>
+              <td>
+                <button class="cart-btn" (click)="download(game)" title="Scarica">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 3v12m0 0l-4-4m4 4l4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="4" y="17" width="16" height="4" rx="2" fill="#fff" fill-opacity="0.2"/>
+                  </svg>
+                </button>
+              </td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
   
         <ng-template #noData>
           <div class="account-details">

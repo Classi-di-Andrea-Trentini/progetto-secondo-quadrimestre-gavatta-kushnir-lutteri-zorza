@@ -57,6 +57,47 @@ export class StoreService {
       console.log("Errore nel recupero dei giochi venduti:", error);
       return null;
     }
+
+  }
+
+
+    async getMyGames(idUser:string): Promise<GiocoVenduto[] | null>{
+    try{
+      const giochiVenduti: GiocoVenduto[] = [];
+      const gamerefData  = collection(this.firestore, `users/${idUser}/comprati`);
+      console.log( `users/${idUser}/comprati`)
+      const gamerefDataDoc = (await getDocs(gamerefData));
+      gamerefDataDoc.forEach(doc => {
+        giochiVenduti.push(doc.data() as GiocoVenduto);
+      });
+      return giochiVenduti;
+      
+    }
+    catch(error){
+      console.log("Errore nel recupero dei giochi venduti:", error);
+      return null;
+    }
+
+  }
+
+
+
+  async getStoreGameUser(idUser:string): Promise<GiocoVenduto[] | null>{
+    try{
+      const giochiVenduti: GiocoVenduto[] = [];
+      const gamerefData  = collection(this.firestore, `users/${idUser}/vendita`);
+      const gamerefDataDoc = (await getDocs(gamerefData));
+      gamerefDataDoc.forEach(doc => {
+        giochiVenduti.push(doc.data() as GiocoVenduto);
+
+      });
+      return giochiVenduti;
+      
+    }
+    catch(error){
+      console.log("Errore nel recupero dei giochi venduti:", error);
+      return null;
+    }
 /*     try {
       const gamesCollectionRef = collection(this.firestore, 'gamesVenduti');
       const gamesSnapshot = await getDocs(gamesCollectionRef);
@@ -83,6 +124,9 @@ export class StoreService {
       return null;
     }
   }
+
+
+
   async addGameStore(id: string, costo: number, descrizione:string, uniqueId2:string,img: string, title:string): Promise<void>{
   
     const gameRef = doc(this.firestore, `store/${id}/offers/${uniqueId2}`);
