@@ -32,8 +32,7 @@ export class CommunityAccountComponent {
   }
   
   profileImages: string[] = [
-    'profilouomo.png',  // Prima immagine
-    'profilodonna.png'   // Seconda immagine
+    'https://avatar.iran.liara.run/public/19',  // Prima immagine
   ];
   // Indice dell'immagine attuale
   currentImageIndex: number = 0;

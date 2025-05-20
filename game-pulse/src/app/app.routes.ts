@@ -13,6 +13,7 @@ import { NovitaDelNegozioComponent } from './components/novita-del-negozio/novit
 import { AccountUtenteComponent } from './components/account-utente/account-utente.component';
 
 import { NewHomepageComponent } from './components/new-homepage/new-homepage.component';
+import { CarelloComponent } from './components/carello/carello.component';
 
 
 
@@ -27,6 +28,7 @@ export const routes: Routes = [
     { path: 'community', component: CommunityComponent},
     { path: 'user/:id', component: CommunityAccountComponent},
     { path: 'novita', component: NovitaDelNegozioComponent},
+    { path: 'carello', component: CarelloComponent},
     { path: '', component: HeroSectionComponent},
     { path: '**', redirectTo: '' }
 ];

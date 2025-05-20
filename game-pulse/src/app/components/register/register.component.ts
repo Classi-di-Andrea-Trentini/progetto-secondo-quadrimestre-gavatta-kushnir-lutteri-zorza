@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
         this.newUser()?.uid ?? "",
         this.username,
         this.newUser()?.email ?? "",
-        this.newUser()?.photoURL ?? ""
+        this.newUser()?.photoURL ?? "",
       );
     
       await this.authService.saveUserData(userData);  
