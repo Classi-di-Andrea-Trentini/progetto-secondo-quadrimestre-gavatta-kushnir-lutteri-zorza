@@ -86,8 +86,6 @@ export class BarraLateraleGeneriComponent{
   private onGenereChange(genere: string): void {
     console.log(`Reagisco al cambiamento del genere: ${genere}`);
     this.genereSelezionato.emit(this.mappaGeneri[genere]); // Emette l'ID inglese del genere selezionato
-    this.genereSelezionato.emit(this.mappaGeneri[genere]); // Emette l'ID inglese del genere selezionato
-
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, HostListener, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, OnInit } from '@angular/core';
+import { Component, HostListener, ChangeDetectionStrategy, ChangeDetectorRef, NgZone, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BarraLateraleGeneriComponent } from './barra-laterale-generi/barra-laterale-generi.component';
 import { GameCardComponent } from './game-card/game-card.component';
@@ -6,6 +6,7 @@ import { GamePulseService } from '../../services/game-pulse.service';
 import { ItadService } from '../../services/itad.service';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { EventServiceService } from '../../services/event-service.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-explore-games',
@@ -15,7 +16,7 @@ import { EventServiceService } from '../../services/event-service.service';
   styleUrl: './explore-games.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ExploreGamesComponent implements OnInit {
+export class ExploreGamesComponent implements OnInit, OnDestroy {
   games: any[] = [];
   visibleGames: any[] = []; // Solo i giochi attualmente visibili
   isLoading = true;
@@ -36,11 +37,53 @@ export class ExploreGamesComponent implements OnInit {
     private itadService: ItadService,
     private cdr: ChangeDetectorRef,
     private ngZone: NgZone,
+    private eventService: EventServiceService
   ) {}
+  
+  // Sottoscrizione agli eventi del service
+  private subscription: Subscription | null = null;
   
   ngOnInit() {
     // Carica i giochi di azione immediatamente all'avvio dell'applicazione
     this.loadGamesByGenre(this.ACTION_GENRE_ID);
+    
+    // Sottoscrizione agli eventi del service per reagire ai cambiamenti di genere
+    // quando una card viene cliccata nella seconda-page
+    this.subscription = this.eventService.genere$.subscribe(genere => {
+      const mappaGeneri: {[key: string]: string} = {
+        'Azione': 'action',
+        'Avventura': 'adventure',
+        'RPG': 'role-playing-games-rpg',
+        'Strategia': 'strategy',
+        'Simulazione': 'simulation',
+        'Sport': 'sports',
+        'Corsa': 'racing',
+        'Puzzle': 'puzzle',
+        'Platform': 'platformer',
+        'FPS': 'shooter',
+        'Survival Horror': 'survival',
+        'MMORPG': 'massively-multiplayer',
+        'Picchiaduro': 'fighting',
+        'Gestionale': 'board-games',
+        'Open World': 'open-world',
+        'Stealth': 'stealth',
+        'Rogue-like': 'indie',
+        'Tower Defense': 'tower-defense',
+        'Visual Novel': 'card'
+      };
+      
+      const genreId = mappaGeneri[genere];
+      if (genreId) {
+        this.loadGamesByGenre(genreId);
+      }
+    });
+  }
+  
+  ngOnDestroy() {
+    // Pulizia della sottoscrizione quando il componente viene distrutto
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   @HostListener('window:scroll', ['$event'])

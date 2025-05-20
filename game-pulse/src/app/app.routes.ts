@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { PageGameComponent } from './components/page-game/page-game.component';
-import { HomeComponent } from './components/home/home.component';
+
 import { RegisterComponent } from './components/register/register.component';
 import { AccountComponent } from './components/account/account.component';
 import { TestNegozioComponentPoteteancheEliminarloComponent } from './components/tabella per uploadare il gioco/test-negozio-component-poteteanche-eliminarlo.component';
@@ -12,9 +12,12 @@ import { CommunityAccountComponent } from './components/community-account/commun
 import { NovitaDelNegozioComponent } from './components/novita-del-negozio/novita-del-negozio.component';
 import { AccountUtenteComponent } from './components/account-utente/account-utente.component';
 
+import { NewHomepageComponent } from './components/new-homepage/new-homepage.component';
+
+
 
 export const routes: Routes = [
-    { path: 'home', component: HomeComponent },
+    { path: 'home', component: NewHomepageComponent },
     { path: 'game/:id', component: PageGameComponent},
     { path: 'login', component: LoginComponent},
     { path: 'register', component: RegisterComponent},

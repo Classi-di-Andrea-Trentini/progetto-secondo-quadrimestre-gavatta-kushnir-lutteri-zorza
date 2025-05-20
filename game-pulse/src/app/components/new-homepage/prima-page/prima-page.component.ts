@@ -12,9 +12,7 @@ export class PrimaPageComponent implements OnInit, OnDestroy {
   images: string[] = [
     '/herosection1.jpg',
     '/herosection2.jpg',
-    '/herosection3.jpg',
-    '/cs16.jpg',
-    '/Dota2.jpg'
+    '/herosection3.jpg'
   ];
   
   currentIndex: number = 0;
