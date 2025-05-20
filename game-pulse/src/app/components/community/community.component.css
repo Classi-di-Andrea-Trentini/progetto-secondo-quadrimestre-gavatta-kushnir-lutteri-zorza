@@ -123,6 +123,8 @@
   line-height: 1.5;
 }
 
+
+
 /* Responsive design */
 @media (max-width: 1200px) {
   .user-card {

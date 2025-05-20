@@ -16,25 +16,15 @@
     </div>
 
     <div class="right-section">
-      <div class="account-description">
-        <h3>Descrizione Account</h3>
-        <p>
-          Appassionato di tecnologia, videogiochi e viaggi. Sempre alla ricerca di nuove esperienze e pronto a esplorare
-          il mondo con curiosità e passione. Nel tempo libero mi piace leggere, ascoltare musica e migliorare le mie
-          competenze professionali. Se vuoi scambiare opinioni su argomenti tech o scoprire nuovi giochi, sono sempre
-          disponibile per una chiacchierata!
-        </p>
-      </div>
 
       <div class="account-details">
         <h3>Dettagli Account</h3>
         <p><strong>UID:</strong> {{ user()?.uid }}</p>
         <p><strong>Email:</strong> {{ user()?.email || 'Non disponibile' }}</p>
         <p><strong>Nickname:</strong> {{ user()?.userNickname || 'Non impostato' }}</p>
-        <p><strong>Saldo:</strong> {{ user()?.money }}</p>
       </div>
       <div class="games-table">
-        <h3>Vendo</h3>
+        <h3 style="font-weight: bold;">Vendo</h3>
         <table>
           <thead>
             <tr>

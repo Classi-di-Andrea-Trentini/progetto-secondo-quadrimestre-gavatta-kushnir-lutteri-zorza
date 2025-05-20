@@ -18,12 +18,6 @@
       </div>
   
       <div class="right-section">
-        <div class="account-description">
-          <h3>Descrizione Account</h3>
-          <p>
-            Appassionato di tecnologia, videogiochi e viaggi. Sempre alla ricerca di nuove esperienze e pronto a esplorare il mondo con curiosità e passione. Nel tempo libero mi piace leggere, ascoltare musica e migliorare le mie competenze professionali. Se vuoi scambiare opinioni su argomenti tech o scoprire nuovi giochi, sono sempre disponibile per una chiacchierata!
-          </p>
-        </div>
   
         <div class="account-details" *ngIf="currentUser(); else noData">
           <h3>Dettagli Account</h3>
@@ -35,14 +29,14 @@
 
 
         <div class="games-table">
-        <h3>Vendo</h3>
+        <h3 style="font-weight: bold;">I miei acquisti</h3>
         <table>
           <thead>
             <tr>
               <th>Data</th>
               <th>Descrizione</th>
               <th>Prezzo</th>
-              <th>Compra</th>
+              <th>Scarica</th>
             </tr>
           </thead>
           <tbody>
@@ -54,7 +48,7 @@
                 <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon" style="width: 30px; height: 30px;">
               </td>
               <td>
-                <button class="cart-btn" (click)="download(game)" title="Scarica">
+                <button class="cart-btn" (click)="onDownloadClick(game)" title="Scarica">
                   <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
                     <path d="M12 3v12m0 0l-4-4m4 4l4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <rect x="4" y="17" width="16" height="4" rx="2" fill="#fff" fill-opacity="0.2"/>
