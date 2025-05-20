@@ -39,7 +39,6 @@
             <li><a [routerLink]="['/category']">Categorie</a></li>
             <li><a [routerLink]="['/community']">Community</a></li>
             <li><a [routerLink]="['/novita']">Nuove Offerte</a></li>
-            <li><a [routerLink]="['/']">Carrello</a></li>
             <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); $event.preventDefault()">AI</a></li>
           </ul>
         </nav>
@@ -56,7 +55,7 @@
           <div class="auth-buttons">
             <button class="login-btn" (click)="logout()">Logout</button>
             <button class="login-btn" [routerLink]="['/user']">Account</button>
-            <div class="login-btn">
+            <div class="login-btn" [routerLink]="['/carello']">
               {{this.authService.currentUser()?.money}}
               <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon" style="width: 30px; height: 30px;">
             </div>
@@ -90,7 +89,6 @@
         <li><a [routerLink]="['/category']" (click)="toggleMobileMenu()">Categorie</a></li>
         <li><a [routerLink]="['/community']" (click)="toggleMobileMenu()">Community</a></li>
         <li><a [routerLink]="['/novita']" (click)="toggleMobileMenu()">Nuove Offerte</a></li>
-        <li><a [routerLink]="['/']" (click)="toggleMobileMenu()">Carrello</a></li>
         <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); toggleMobileMenu(); $event.preventDefault()">AI</a></li>
       </ul>
       
@@ -103,7 +101,7 @@
           <div class="d-flex flex-column">
             <button class="login-btn w-100 mb-2" (click)="logout(); toggleMobileMenu()">Logout</button>
             <button class="login-btn w-100 mb-2" [routerLink]="['/user']" (click)="toggleMobileMenu()">Account</button>
-            <div class="login-btn w-100 d-flex justify-content-center align-items-center">
+            <div class="login-btn w-100 d-flex justify-content-center align-items-center"  [routerLink]="['/carello']">
               {{this.authService.currentUser()?.money}}
               <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon ms-2" style="width: 24px; height: 24px;">
             </div>

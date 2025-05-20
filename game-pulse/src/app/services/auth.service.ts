@@ -84,6 +84,7 @@ export class AuthService {
   }
 
   async saveUserData(user: UserData): Promise<void> {
+    user.avatarImg = "https://avatar.iran.liara.run/public/19"
     this.isLoggedInSignal.set(true);
     const userRef = doc(this.firestore, `users/${user.uid}`);
     await setDoc(userRef, {...user}, { merge: true });
