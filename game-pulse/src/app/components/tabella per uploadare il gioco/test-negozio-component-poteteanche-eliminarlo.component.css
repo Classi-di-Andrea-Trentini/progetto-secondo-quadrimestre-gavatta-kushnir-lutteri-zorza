@@ -1,168 +1,153 @@
-:host {
-  display: block;
-  background-color: black;
-  color: violet;
-  padding: 2%;
-  border-radius: 10px;
-}
-.game-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: black;
-  color: violet;
-  margin-top: 20px;
+body {
+  background: #18132a;
+  font-family: 'Segoe UI', Arial, sans-serif;
+
 }
 
-.game-table th,
-.game-table td {
-  border: 1px solid violet;
-  padding: 10px;
-  text-align: left;
-}
-
-.game-table th {
-  background-color: #2c2c2c;
-  color: violet;
-}
-
-.game-table td {
-  background-color: black;
+h1, h2 {
+  color: #aa80ff;
+  text-align: center;
+  margin-bottom: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 button {
-  background-color: violet;
-  color: black;
+  background: #8a2be2;
+  color: #fff;
   border: none;
-  padding: 5px 10px;
+  border-radius: 5px;
+  padding: 9px 20px;
+  margin: 8px 6px;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
 }
 
 button:hover {
-  background-color: #d4a1ff;
+  background: #aa80ff;
+  transform: translateY(-1px) scale(1.03);
 }
 
-/* Stile per il popup */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); /* Sfondo semi-trasparente */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; /* Assicurati che il popup sia sopra gli altri elementi */
-}
-
-/* Stile per il popup */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9); /* Sfondo semi-trasparente nero */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; /* Assicurati che il popup sia sopra gli altri elementi */
-}
-
-/* Contenuto del popup */
-.popup-content {
-  background: black; /* Sfondo nero */
-  padding: 20px;
+.game-table {
+  width: 95%;
+  margin: 32px auto 0 auto;
+  border-collapse: collapse;
   border-radius: 10px;
+  overflow: hidden;
+}
+
+.game-table th, .game-table td {
+  padding: 12px 8px;
   text-align: center;
-  width: 90%; /* Adattabile per schermi piccoli */
-  max-width: 500px; /* Larghezza massima */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Ombra per un effetto elevato */
-  color: #8a2be2; /* Testo viola */
 }
 
-/* Titolo del popup */
-.popup-content h2 {
-  margin-bottom: 20px;
-  font-size: 1.5rem;
-  color: #8a2be2; /* Testo viola */
-}
-
-/* Textarea per la descrizione */
-.popup-content textarea {
-  width: 100%;
-  height: 100px;
-  margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #8a2be2; /* Bordo viola */
-  border-radius: 5px;
+.game-table th {
+  background: #23203a;
+  color: #aa80ff;
   font-size: 1rem;
-  resize: none; /* Disabilita il ridimensionamento */
-  color: #8a2be2; /* Testo viola */
-  background-color: black; /* Sfondo nero */
+  font-weight: 500;
+  border-bottom: 1px solid #8a2be2;
+  letter-spacing: 0.5px;
 }
 
-/* Contenitore per il prezzo */
+.game-table td {
+  color: #f5f5f5;
+  background: #1e1e1e;
+  border-bottom: 1px solid #23203a;
+}
+
+.game-table tr:last-child td {
+  border-bottom: none;
+}
+
+.bitcoin-icon {
+  vertical-align: middle;
+  margin-left: 4px;
+  width: 40px;
+  height: 40px;
+}
+
+.popup {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(34, 18, 51, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.popup-content {
+  background: #23203a;
+  border-radius: 10px;
+  padding: 24px 16px 16px 16px;
+  min-width: 260px;
+  max-width: 92vw;
+  color: #f5f5f5;
+  text-align: center;
+  border: 1px solid #8a2be2;
+}
+
+.popup-content h2 {
+  color: #aa80ff;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+textarea, input[type="text"], input[type="file"], input[type="number"] {
+  width: 90%;
+  padding: 10px 18px;
+  margin: 10px 0 16px 0;
+  border: 1px solid #8a2be2;
+  border-radius: 22px; /* più arrotondato */
+  background: #1e1e1e;
+  color: #f5f5f5;
+  font-size: 1rem;
+  transition: border 0.2s;
+  box-sizing: border-box;
+}
+
+textarea:focus, input:focus {
+  border-color: #aa80ff;
+  outline: none;
+}
+
 .price-container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
-  background-color: black; /* Sfondo nero */
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #8a2be2; /* Bordo viola */
+  gap: 6px;
+  justify-content: center;
 }
 
-/* Input per il prezzo */
-.price-container input {
-  flex: 1; /* Occupa lo spazio disponibile */
-  padding: 10px;
-  border: 1px solid #8a2be2; /* Bordo viola */
-  border-radius: 5px;
-  font-size: 1rem;
-  color: #8a2be2; /* Testo viola */
-  background-color: black; /* Sfondo nero */
-  margin-right: 10px; /* Spazio tra input e immagine */
-  text-align: right; /* Allinea il testo a sinistra */
-}
-
-/* Icona Bitcoin */
-.price-container .bitcoin-icon {
-  width: 30px;
-  height: 30px;
-}
-
-/* Pulsanti del popup */
 .popup-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.popup-buttons button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  color: black; /* Testo nero */
+.actions-container {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 32px 0 10px 0;
 }
 
-/* Pulsante "Accetta" */
-.popup-buttons button:first-child {
-  background-color: #8a2be2; /* Viola */
+.upload-btn-container {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0 10px 0;
 }
 
-.popup-buttons button:first-child:hover {
-  background-color: #a64dff; /* Viola chiaro */
-}
-
-/* Pulsante "Cancella" */
-.popup-buttons button:last-child {
-  background-color: #8a2be2; /* Viola */
-}
-
-.popup-buttons button:last-child:hover {
-  background-color: #a64dff; /* Viola chiaro */
+@media (max-width: 700px) {
+  .game-table, .popup-content {
+    width: 99vw;
+    min-width: unset;
+    padding: 6px;
+  }
+  .game-table th, .game-table td {
+    padding: 6px 2px;
+    font-size: 0.95rem;
+  }
 }
