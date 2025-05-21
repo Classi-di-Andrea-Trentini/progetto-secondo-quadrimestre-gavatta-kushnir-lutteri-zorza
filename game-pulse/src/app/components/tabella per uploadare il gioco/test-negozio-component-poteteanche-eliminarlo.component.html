@@ -1,3 +1,9 @@
+
+
+<div *ngIf="!isLoggedIn" class="alert alert-warning">
+  Devi essere registrato e loggato per accedere a questa sezione.
+</div>
+<div *ngIf="isLoggedIn">
 <h2>Tabella Giochi</h2>
 
 <div class="upload-btn-container">
@@ -48,3 +54,5 @@
   </div>
 </div>
 }
+
+</div>
