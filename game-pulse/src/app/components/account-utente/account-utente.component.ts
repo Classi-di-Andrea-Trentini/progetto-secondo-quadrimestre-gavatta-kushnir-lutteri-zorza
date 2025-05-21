@@ -4,7 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { UserData } from '../../classes/user-data';
 import { StoreService } from '../../services/store.service';
 import { GiocoVenduto } from '../../classes/gioco-venduto';
-import { Data } from '@angular/router';
+import { Data, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -26,10 +26,14 @@ export class AccountUtenteComponent{
   fileNameToDownload: string = 'il_tuo_file.txt'; // Sostituisci con il nome del file che vuoi scaricare
   downloadMessage: string = '';
 ngOnInit(): void {
+      if (!this.authService.currentUser()) {
+      this.router.navigate(['/login']); // reindirizza al login se non loggato
+      return;
+    }
   this.getStoreGameUser()
   }
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient,private router: Router) { 
     effect(() => {
       const user = this.authService.currentUser();  // questo dovrebbe restituire i dati anche dopo un nuovo login
       this.getStoreGameUser()
@@ -38,7 +42,9 @@ ngOnInit(): void {
         this.currentUser.set(user);
       } else {
         console.log('Utente non loggato');
+        
         this.currentUser.set(null); // importante anche per l'effetto reactive
+        this.router.navigate(['/login']); // reindirizza al login
       }
     });
   }

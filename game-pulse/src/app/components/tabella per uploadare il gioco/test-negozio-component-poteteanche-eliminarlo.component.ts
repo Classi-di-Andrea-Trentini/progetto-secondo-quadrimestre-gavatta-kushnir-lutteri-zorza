@@ -8,10 +8,11 @@ import { timestamp } from 'rxjs';
 import { Timestamp } from 'firebase/firestore';
 import { HttpClient } from '@angular/common/http';
 import { v4 as uuidv4 } from 'uuid';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-test-negozio-component-poteteanche-eliminarlo',
-  imports: [FormsModule],
+  imports: [FormsModule,CommonModule],
   templateUrl: './test-negozio-component-poteteanche-eliminarlo.component.html',
   styleUrl: './test-negozio-component-poteteanche-eliminarlo.component.css'
 })
@@ -46,6 +47,10 @@ export class TestNegozioComponentPoteteancheEliminarloComponent implements OnIni
     console.log(this.listadiVendita())
 
   }
+
+  get isLoggedIn(): boolean {
+  return this.authService.currentUser() !== null;
+}
 
   async upload() {
     this.togglePopup()
@@ -93,6 +98,10 @@ export class TestNegozioComponentPoteteancheEliminarloComponent implements OnIni
   }
 
   accept(): void {
+      if (!this.selectedFile) {
+    this.uploadMessage = "Inserisci un file in formato zip prima di continuare.";
+    return;
+    }
     console.log('Descrizione accettata:', this.gameDescription);
     this.upload();
     // Qui puoi aggiungere la logica per salvare la descrizione

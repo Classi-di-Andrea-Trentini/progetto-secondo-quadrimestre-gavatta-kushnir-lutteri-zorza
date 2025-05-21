@@ -58,7 +58,13 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleAiSidebar() {
-    this.sidebarOpen = !this.sidebarOpen;
+
+    if(this.authService._isLoggedIn() == true){
+      this.sidebarOpen = !this.sidebarOpen;
+    }
+    else{
+      this.sidebarOpen = false
+    }
   }
 
   // AI methods
