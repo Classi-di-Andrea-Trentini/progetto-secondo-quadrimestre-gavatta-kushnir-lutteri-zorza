@@ -8,6 +8,7 @@ import { GiocoVenduto } from '../classes/gioco-venduto';
 import { addDoc, collection, deleteDoc, getDocs } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/signals';
 
 @Injectable({
   providedIn: 'root'
@@ -157,11 +158,19 @@ export class StoreService {
 
 
   async buyGame(gioco: GiocoVenduto): Promise<void>{
-    const user : UserData = new UserData(this.authService.currentUser()?.uid ?? "undefined", this.authService.currentUser()?.userNickname ?? "undefined", this.authService.currentUser()?.email ?? "undefined", this.authService.currentUser()?.photoURL ?? "undefined");
-    user.money = (this.authService.currentUser()?.money ?? 0) - gioco.prezzo;
-    console.log("Sto comprando", this.authService.currentUser()?.money ?? 0, "-", gioco.prezzo);
-    await this.authService.updateCurrentUser(user);
-    const userDocRef = doc(this.firestore, `users/${this.authService.currentUser()?.uid ?? "undefined"}/comprati/${gioco.idDoc}`);
-    await setDoc(userDocRef, {...gioco});
+
+/* 
+    utente.money = (this.currentUser()?.money ?? 0) + soldi;  
+      this.currentUser.set(utente);
+      console.log(this.currentUser()?.money);
+      this.authService.saveUserData(this.currentUser()!); */
+    const user = this.authService.currentUser() ?? null
+    if(user != null){
+      user.money = (this.authService.currentUser()?.money ?? 0) - gioco.prezzo;
+      console.log("Sto comprando", this.authService.currentUser()?.money ?? 0, "-", gioco.prezzo);
+      this.authService.saveUserData(user);
+      const userDocRef = doc(this.firestore, `users/${this.authService.currentUser()?.uid ?? "undefined"}/comprati/${gioco.idDoc}`);
+      await setDoc(userDocRef, {...gioco});
+    }
   } 
 }

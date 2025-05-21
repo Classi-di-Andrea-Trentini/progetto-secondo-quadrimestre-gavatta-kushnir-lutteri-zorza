@@ -46,7 +46,7 @@ export class CarelloComponent {
         soldi = 10000
       }
       utente.money = (this.currentUser()?.money ?? 0) + soldi;  
-     this.currentUser.set(utente);
+      this.currentUser.set(utente);
       console.log(this.currentUser()?.money);
       this.authService.saveUserData(this.currentUser()!);
     }

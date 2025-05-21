@@ -90,7 +90,7 @@ export class AuthService {
     await setDoc(userRef, {...user}, { merge: true });
     this.router.navigateByUrl('/home');
     const id= user.uid;
-    for (let i = 1; i <= 100; i++) {
+/*     for (let i = 1; i <= 100; i++) {
       const fakeUser = user;
       fakeUser.descrizione = this.generateRandomGameDescription()
       fakeUser.userNickname = `${this.generateRandomWord()}+${i}`;
@@ -100,7 +100,7 @@ export class AuthService {
       const userRef = doc(this.firestore, `users/${id}+${i}`);
       await setDoc(userRef, {...fakeUser}, { merge: true });
       console.log(`Utente fittizio ${i} salvato.`);
-    } 
+    }  */
   }
 
 
