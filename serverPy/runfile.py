@@ -23,7 +23,7 @@ def upload_chunk():
     chunk = request.files.get('chunk')
     chunk_number = int(request.form.get('chunkNumber'))
     total_chunks = int(request.form.get('totalChunks'))
-    filename = request.form.get('uploadId')
+    filename = request.form.get('uploadId')  + '.zip'
     print(request.form.get('uploadId'))
     upload_id = request.form.get('uploadId')
 
