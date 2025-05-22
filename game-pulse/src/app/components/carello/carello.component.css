@@ -143,3 +143,78 @@ body, :host {
     padding: 1.2rem 0.5rem;
   }
 }
+
+/* --- Stile tabella carrello --- */
+.cart-table-container {
+  margin: 2rem auto 1.5rem auto;
+  max-width: 800px;
+  background: rgba(26, 18, 34, 0.95);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 #8a2be2a8, 0 1.5px 8px 0 #1a1a1a;
+  padding: 1.5rem 2rem 2rem 2rem;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: transparent;
+  color: #ede7f6;
+  font-size: 1.08rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px 0 #8a2be2a8;
+  margin-bottom: 0;
+}
+
+.cart-table th {
+  background: linear-gradient(90deg, #8a2be2 60%, #6a1b9a 100%);
+  color: #fff;
+  font-weight: 700;
+  padding: 0.85rem 0.5rem;
+  border: none;
+  font-size: 1.13rem;
+  letter-spacing: 1px;
+}
+
+.cart-table td {
+  background: rgba(34, 18, 51, 0.85);
+  color: #ede7f6;
+  padding: 0.7rem 0.5rem;
+  border-bottom: 1.5px solid #8a2be2;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cart-table tr:last-child td {
+  border-bottom: none;
+}
+
+.cart-table tr:hover td {
+  background: #8a2be2cc;
+  color: #fff;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cart-table th:first-child, .cart-table td:first-child {
+  border-top-left-radius: 12px;
+}
+.cart-table th:last-child, .cart-table td:last-child {
+  border-top-right-radius: 12px;
+}
+
+.cart-table-empty {
+  color: #b39ddb;
+  font-style: italic;
+  background: none;
+}
+
+@media (max-width: 700px) {
+  .cart-table-container {
+    padding: 0.7rem 0.2rem 1.2rem 0.2rem;
+  }
+  .cart-table th, .cart-table td {
+    font-size: 0.98rem;
+    padding: 0.5rem 0.2rem;
+  }
+}

@@ -39,7 +39,7 @@
             <li><a [routerLink]="['/category']">Categorie</a></li>
             <li><a [routerLink]="['/community']">Community</a></li>
             <li><a [routerLink]="authService._isLoggedIn() ? ['/novita'] : null">Nuove Offerte</a></li>
-            <li><a [routerLink]="['/carrello']">Carrello</a></li>
+            <li><a [routerLink]="['/carello']">Carrello</a></li>
             <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); $event.preventDefault()">AI</a></li>
           </ul>
         </nav>
@@ -56,7 +56,7 @@
           <div class="auth-buttons">
             <button class="login-btn" (click)="logout()">Logout</button>
             <button class="login-btn" [routerLink]="['/user']">Account</button>
-            <div class="login-btn" [routerLink]="['/carello']">
+            <div class="login-btn">
               {{this.authService.currentUser()?.money}}
               <img src="/coin.png" alt="Bitcoin" class="bitcoin-icon" style="width: 30px; height: 30px;">
             </div>

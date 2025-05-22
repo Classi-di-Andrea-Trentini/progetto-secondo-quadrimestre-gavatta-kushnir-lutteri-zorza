@@ -1,3 +1,26 @@
+<div class="cart-table-container">
+  <h2 style="color:#8a2be2; text-align:center; margin-bottom:1.2rem; letter-spacing:1px;">I tuoi giochi nel carrello</h2>
+  <table class="cart-table" style="text-align:center;">
+    <thead>
+      <tr>
+        <th style="text-align:center;">Nome Gioco</th>
+        <th style="text-align:center;">Quantità</th>
+        <th style="text-align:center;">Prezzo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems">
+        <td style="text-align:center;">{{item.name || item.nome}}</td>
+        <td style="text-align:center;">{{item.quantita || 1}}</td>
+        <td style="text-align:center;">{{item.price || item.prezzo}} €</td>
+      </tr>
+      <tr *ngIf="!cartItems || cartItems.length === 0">
+        <td colspan="3" class="cart-table-empty" style="text-align:center;">Il carrello è vuoto.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <div class="bundle-container">
   <div class="bundle-card bundle-5">
     <h2>Bundle Piccolo</h2>
