@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../services/cart.service';  // Corretto il percorso
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-cart-button',
@@ -10,15 +10,23 @@ import { CartService } from '../services/cart.service';  // Corretto il percorso
   styleUrls: ['./cart-button.component.css']
 })
 export class CartButtonComponent {
-  
+  @Input() game: any; // Accetta i dati del gioco come input
+  @Input() quantita: number = 1;
+
   constructor(private cartService: CartService) {}
-  
+
   addToCart() {
-    // Qui puoi definire l'oggetto da aggiungere al carrello
-    const item = { 
+    // Usa i dati reali del gioco se forniti, altrimenti fallback
+    const item = this.game ? {
+      id: this.game.id,
+      name: this.game.name || this.game.nome,
+      quantita: this.quantita,
+      prezzo: this.game.price || this.game.prezzo,
+    } : {
       id: Math.random().toString(36).substr(2, 9),
       name: 'Prodotto',
-      price: 19.99
+      quantita: this.quantita,
+      prezzo: 19.99
     };
     
     const itemCount = this.cartService.addToCart(item);

@@ -1,4 +1,4 @@
-import { Component, effect, inject, signal, WritableSignal } from '@angular/core';
+import { Component, effect, inject, signal, WritableSignal, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { UserData } from '../../classes/user-data';
 import { HttpClient } from '@angular/common/http';
@@ -11,7 +11,7 @@ import { CartService } from '../page-game/buy/prezzi/services/cart.service';
   templateUrl: './carello.component.html',
   styleUrl: './carello.component.css'
 })
-export class CarelloComponent {
+export class CarelloComponent implements OnInit {
   private authService: AuthService = inject(AuthService);
   currentUser: WritableSignal<UserData | null> = signal<UserData | null>(null);
   private router = inject(Router);
@@ -19,10 +19,6 @@ export class CarelloComponent {
   cartItems: any[] = [];
 
   constructor(private http: HttpClient) {
-    // Sottoscrizione al carrello (sempre aggiornata)
-    this.cartService.cartItems$.subscribe((items: any[]) => {
-      this.cartItems = items;
-    });
     // Effetto solo per utente
     effect(() => {
       const user = this.authService.currentUser();
@@ -31,6 +27,13 @@ export class CarelloComponent {
       } else {
         this.currentUser.set(null);
       }
+    });
+  }
+
+  ngOnInit() {
+    // Sottoscrizione al carrello (sempre aggiornata)
+    this.cartService.cartItems$.subscribe((items: any[]) => {
+      this.cartItems = items;
     });
   }
 
