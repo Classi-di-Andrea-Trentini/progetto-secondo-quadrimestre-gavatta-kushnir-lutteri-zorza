@@ -39,6 +39,7 @@
             <li><a [routerLink]="['/category']">Categorie</a></li>
             <li><a [routerLink]="['/community']">Community</a></li>
             <li><a [routerLink]="authService._isLoggedIn() ? ['/novita'] : null">Nuove Offerte</a></li>
+            <li><a [routerLink]="['/carrello']">Carrello</a></li>
             <li><a href="#" class="ai-link" (click)="toggleAiSidebar(); $event.preventDefault()">AI</a></li>
           </ul>
         </nav>
