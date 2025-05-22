@@ -19,13 +19,14 @@ import { CommunityAccountComponent } from './components/community-account/commun
 import { NovitaDelNegozioComponent } from './components/novita-del-negozio/novita-del-negozio.component';
 import { NewHomepageComponent } from './components/new-homepage/new-homepage.component';
 import { CarelloComponent } from './components/carello/carello.component';
+import { PageGameComponent } from './components/page-game/page-game.component';
 
 
 
 @Component({
   selector: 'app-root',
 
-  imports: [MenuComponent,CarelloComponent,NovitaDelNegozioComponent,CommunityAccountComponent,CommunityComponent, ExploreGamesComponent, LoginComponent, RegisterComponent, MatSlideToggleModule, RouterOutlet, HomeComponent, AccountComponent, FooterComponent, HeaderComponent, HeroSectionComponent, NewHomepageComponent],
+  imports: [MenuComponent,CarelloComponent,NovitaDelNegozioComponent,CommunityAccountComponent,CommunityComponent, ExploreGamesComponent, LoginComponent, RegisterComponent, MatSlideToggleModule, RouterOutlet, HomeComponent, AccountComponent, FooterComponent, HeaderComponent, HeroSectionComponent, NewHomepageComponent, PageGameComponent],
 
 
   templateUrl: './app.component.html',

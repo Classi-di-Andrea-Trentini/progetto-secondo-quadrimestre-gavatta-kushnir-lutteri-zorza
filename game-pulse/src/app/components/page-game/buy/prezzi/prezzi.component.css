@@ -64,6 +64,12 @@ h5 {
   transform: translateX(3px);
 }
 
+.store-item.selected {
+  background-color: #f3e8ff !important; /* viola molto chiaro */
+  color: #4b0082;
+  border: 2px solid #b39ddb;
+}
+
 .store-name {
   color: white;
   font-weight: 500;

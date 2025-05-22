@@ -12,6 +12,7 @@ import { CartService } from '../services/cart.service';
 export class CartButtonComponent {
   @Input() game: any; // Accetta i dati del gioco come input
   @Input() quantita: number = 1;
+  @Input() disabled: boolean = false;
 
   constructor(private cartService: CartService) {}
 
@@ -29,7 +30,6 @@ export class CartButtonComponent {
       prezzo: 19.99
     };
     
-    const itemCount = this.cartService.addToCart(item);
-    alert(`Prodotto aggiunto al carrello! (${itemCount} articoli nel carrello)`);
+    this.cartService.addToCart(item);
   }
 }
