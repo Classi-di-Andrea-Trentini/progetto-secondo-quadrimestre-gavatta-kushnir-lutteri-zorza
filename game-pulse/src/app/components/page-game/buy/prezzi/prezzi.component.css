@@ -71,7 +71,7 @@ h5 {
 
 .store-item:active, .btn-primary:active, .btn-cart:active {
   background-color: rgba(224, 224, 224, 0.6) !important; /* grigio chiaro più trasparente quando premuto */
-  color: #4b0082;
+  color: #000000;
 }
 
 .store-name {
