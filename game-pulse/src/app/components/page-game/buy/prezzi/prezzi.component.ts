@@ -21,6 +21,10 @@ export class PrezziComponent {
 
   // Se vuoi cambiare il gioco selezionato quando l'utente clicca su uno store:
   selectGame(store: any) {
-    this.selectedGame = store;
+    if (this.selectedGame === store) {
+      this.selectedGame = null; // Deseleziona se già selezionato
+    } else {
+      this.selectedGame = store;
+    }
   }
 }
