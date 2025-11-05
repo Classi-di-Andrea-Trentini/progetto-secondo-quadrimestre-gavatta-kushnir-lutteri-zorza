@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="imagecontainer justify-content-center p-4">
+        <img [src]="infoGioco?.background_image"  alt="Dota 2 Cover" class="game-image">
+    </div>
+    <div class="aboutcontainer imagecontainer justify-content-center m-2 text-center">
+        <div class="game-description text-white" [innerHTML]="infoGioco?.description">{{infoGioco?.description}}</div>
+    </div>
+</div>

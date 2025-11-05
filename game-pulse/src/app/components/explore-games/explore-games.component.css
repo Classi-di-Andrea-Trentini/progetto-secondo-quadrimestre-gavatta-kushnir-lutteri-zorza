@@ -1,0 +1,148 @@
+body {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.explore-container {
+  padding: 20px;
+  max-width: 1600px; /* Aumentato da 1200px a 1400px per avere più spazio */
+  margin: 0 auto;
+  min-height: calc(100vh - 40px); /* Altezza minima che considera il padding */
+  background-color: transparent; /* Rimuoviamo lo sfondo dal container per evitare tagli */
+  color: #e0e0e0;
+}
+
+h1 {
+  margin-bottom: 20px;
+  color: #f5f5f5;
+  font-size: 2rem;
+}
+
+.explore-content {
+  display: flex;
+  gap: 25px; /* Aumentato da 20px a 25px per dare più spazio tra barra laterale e griglia */
+  min-height: calc(100vh - 100px); /* Altezza minima per coprire la viewport */
+}
+
+app-barra-laterale-generi {
+  flex: 0 0 220px; /* Ridotto leggermente da 250px a 220px per dare più spazio alla grid */
+}
+
+.games-grid {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px; /* Aumentato da 15px a 22px per dare più spazio tra le card */
+  justify-content: flex-start;
+}
+
+.game-card-container {
+  flex: 1 0 calc(25% - 22px); /* Adattato al nuovo gap */
+  max-width: calc(25% - 22px);
+  min-height: 400px; /* Aggiunta altezza minima per card più grandi */
+}
+
+.loading-message, .error-message, .no-games-message {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-size: 1.2rem;
+}
+
+.loading-message {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #b0b0b0;
+}
+
+.error-message {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #ff6666;
+}
+
+.no-games-message {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #b0b0b0;
+}
+
+.loading-more {
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #9370DB;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+.no-more-games {
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  margin: 20px 0;
+  color: #b0b0b0;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .game-card-container {
+    flex: 1 0 calc(33.33% - 22px);
+    max-width: calc(33.33% - 22px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .game-card-container {
+    flex: 1 0 calc(50% - 22px);
+    max-width: calc(50% - 22px);
+  }
+}
+
+@media (max-width: 900px) {
+  .game-card-container {
+    flex: 1 0 calc(50% - 15px);
+    max-width: calc(50% - 15px);
+  }
+}
+
+@media (max-width: 768px) {
+  .explore-content {
+    flex-direction: column;
+  }
+  
+  app-barra-laterale-generi {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .game-card-container {
+    flex: 1 0 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .game-card-container {
+    flex: 1 0 100%;
+    max-width: 100%;
+  }
+}

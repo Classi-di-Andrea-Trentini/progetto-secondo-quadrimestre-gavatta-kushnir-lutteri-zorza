@@ -1,0 +1,61 @@
+<!-- <div id="sfondo" class="game-container">
+    <div class="left-section">
+        <h1 class="game-title">{{infoGioco()?.name}}</h1>
+        <div class="game-description" [innerHTML]="infoGioco()?.description">{{infoGioco()?.description}}</div>
+        </div>
+        <div>
+            @for(store of infoGioco()?.stores; track $index){
+                <a [href]="'https://' + store.store.domain" target="_blank">
+                    {{store.store.name}}     |
+                </a>
+            }
+        </div>
+    </div>
+    
+    <div class="right-section">
+        <img [src]="infoGioco()?.background_image"  alt="Dota 2 Cover" class="game-image">
+        <div class="rating-stars">★★★★★ {{infoGioco()?.rating}}</div>
+    </div>
+
+
+<app-player></app-player>
+ -->
+<div class="custom-bg">
+
+    <div class="container py-4">
+        <div class="row g-4">
+            <div class="mt-4">
+                <h1 class="game-title text-white">{{infoGioco()?.name}}</h1>
+            </div>
+                      <!-- Colonna Sinistra -->
+            <div class="col-md-7">
+                <!-- Nome Gioco -->
+                <!-- ...existing code... -->
+                <div class="player-container container-fluid">
+                    <app-player></app-player>
+                </div>
+                
+                <!-- Da qualche parte nella tua pagina, ad esempio dopo il video player -->
+                <div class="mb-4">
+                    <app-buy></app-buy>
+                </div>
+
+                <!-- Valutazioni SPOSTATE QUI -->
+                <div class="mb-4">
+                    <app-valutazioni [infoGioco]="infoGioco()"></app-valutazioni>
+                </div>
+            </div>
+
+            <!-- Colonna Destra -->
+            <div class="col-md-5">
+                <app-descrizione [infoGioco]="infoGioco()"></app-descrizione>
+                <!-- Valutazioni RIMOSSE DA QUI -->
+                <!-- hashtag -->
+                <app-hashtag [infoGioco]="infoGioco()"></app-hashtag>
+            </div>
+        </div>
+    </div>
+    <app-test-negozio-component-poteteanche-eliminarlo [id]="infoGioco()?.id" [img]="infoGioco()?.background_image" [title]="infoGioco()?.name"></app-test-negozio-component-poteteanche-eliminarlo>
+</div>
+
+

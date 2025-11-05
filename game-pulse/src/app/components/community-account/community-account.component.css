@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.account {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.left-section {
+    width: 30%;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.right-section {
+    width: 70%;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.profile-container {
+    margin-bottom: 30px;
+}
+
+.profile-image {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.profile-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+}
+
+/* Pulsanti freccia per cambiare immagine */
+.arrow-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow-button.prev {
+    left: -30px;  /* Freccia sinistra */
+}
+
+.arrow-button.next {
+    right: -30px;  /* Freccia destra */
+}
+
+.arrow-button i {
+    color: white;
+}
+
+.arrow-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Aggiungi font awesome per le frecce */
+.arrow-button i {
+    font-size: 24px;
+}
+
+.username {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.account-description h3,
+.games-table h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.games-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.games-table th,
+.games-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.games-table th {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.games-table td {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.account-details {
+    margin-top: 30px;
+}
+
+.account-details p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+
+.logout-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+    background-color: #c0392b;
+}
+
+.cart-btn {
+    background: linear-gradient(135deg, #8e44ad 60%, #6c3483 100%);
+    border: none;
+    border-radius: 50%;
+    padding: 12px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(142, 68, 173, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    outline: none;
+}
+.cart-btn:hover, .cart-btn:focus {
+    background: linear-gradient(135deg, #6c3483 60%, #8e44ad 100%);
+    transform: scale(1.08);
+    box-shadow: 0 4px 16px rgba(142, 68, 173, 0.28);
+}
+.cart-btn svg {
+    display: block;
+}

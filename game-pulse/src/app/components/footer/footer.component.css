@@ -1,0 +1,66 @@
+.footer-container {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.footer-section {
+  width: 30%;
+}
+
+.footer-section h3 {
+  margin-bottom: 10px;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Gradiente per Instagram */
+.footer-section ul li a.instagram:hover {
+  background: linear-gradient(45deg, #833AB4, #FD1D1D, #FDCB82); /* Gradiente di Instagram */
+  -webkit-background-clip: text; /* Applicare il gradiente solo al testo */
+  color: transparent; /* Rendere trasparente il colore di base per far vedere il gradiente */
+}
+
+/* Gradiente per Facebook */
+.footer-section ul li a.facebook:hover {
+  background: linear-gradient(45deg, #3b5998, #8b9dc3); /* Gradiente di Facebook */
+  -webkit-background-clip: text; /* Applicare il gradiente solo al testo */
+  color: transparent; /* Rendere trasparente il colore di base per far vedere il gradiente */
+}
+
+/* Gradiente per Twitter */
+.footer-section ul li a.twitter:hover {
+  background: linear-gradient(45deg, #1DA1F2, #00acee); /* Gradiente di Twitter */
+  -webkit-background-clip: text; /* Applicare il gradiente solo al testo */
+  color: transparent; /* Rendere trasparente il colore di base per far vedere il gradiente */
+}
+
+.footer-bottom {
+  font-size: 12px;
+  margin-top: 20px;
+}

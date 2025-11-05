@@ -1,0 +1,160 @@
+.page-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.rectangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 63%;  /* Occupa il 63% della larghezza, lasciando il resto vuoto a destra */
+  height: 100vh;
+  background-color: #121212;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/herosection2.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px);
+  z-index: 1;
+}
+
+.content-container {
+  width: 90%;
+  max-width: 1000px;
+  padding: 2rem;
+  margin-top: -5rem; /* Spostamento verso l'alto */
+}
+
+.section-title {
+  color: #f5f5f5;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 5px rgba(170, 128, 255, 0.5);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 100%;
+}
+
+.game-card {
+  height: 100%;
+  min-height: 280px;
+  box-shadow: 0 4px 8px rgba(255,255,255,0.1), 0 0 5px rgba(170, 128, 255, 0.4);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #1e1e1e;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(148, 110, 255, 0.2);
+  cursor: pointer;
+  animation: fadeIn 0.7s ease-in-out;
+}
+
+.game-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(255,255,255,0.2), 0 0 15px rgba(170, 128, 255, 0.5);
+}
+
+.game-image {
+  height: 140px;
+  position: relative;
+  overflow: hidden;
+  background-color: #333;
+  background-image: linear-gradient(45deg, #2d2a3a, #444);
+  width: 100%;
+}
+
+.game-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-image img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 5px rgba(170, 128, 255, 0.4));
+}
+
+.game-details {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animazione di fade in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animazione quando cambiano le categorie */
+.fade-animation {
+  animation: categoryChange 0.7s ease-in-out;
+}
+
+@keyframes categoryChange {
+  0% {
+    opacity: 0;
+    transform: scale(0.94) translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.game-details h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.4rem;
+  color: #f5f5f5;
+  text-shadow: 0 0 2px rgba(170, 128, 255, 0.3);
+}
+
+.game-genre {
+  color: #b0b0b0;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.game-description {
+  color: #e0e0e0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .rectangle {
+    width: 100%;
+  }
+}

@@ -1,0 +1,278 @@
+#sfondo {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.carousel-item {
+    height: 100vh;
+}
+
+.carousel-indicators {
+    z-index: 15;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+}
+
+.carousel-indicators button.active {
+    background-color: #6C63FF;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 10%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.5));
+}
+
+/* Posizionamento delle slide */
+.position-left {
+    padding-left: 10%;
+    max-width: 40%;
+    margin-right: auto;
+    margin-top: -4vh;
+}
+
+.position-center {
+    padding-left: 0;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: -4vh;
+}
+
+.position-right {
+    padding-left: 0;
+    padding-right: 10%;
+    max-width: 40%;
+    margin-left: auto;
+    margin-right: 0;
+    text-align: left;  /* Modificato da "right" a "left" */
+    margin-top: -4vh;
+}
+
+/* Adatta i pulsanti quando sono centrati o a destra */
+.position-center .buttons {
+    justify-content: center;
+}
+
+.position-right .buttons {
+    justify-content: flex-start;  /* Modificato da "flex-end" a "flex-start" */
+}
+
+/* Modifica della classe hero-section originale per usarla come base */
+.hero-section {
+    min-height: 65vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-details {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.title {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+    line-height: 1;
+}
+
+.title .game, .title .pulse {
+    display: block;
+    font-size: 5rem;
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    white-space: normal;
+}
+
+.description {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    font-weight: 300;
+    white-space: normal;
+    hyphens: auto;
+}
+
+.buttons {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background-color: #6C63FF;
+    border: 2px solid #6C63FF;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Keyframes per le animazioni */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px rgba(108, 99, 255, 0.7); }
+    50% { text-shadow: 0 0 20px rgba(108, 99, 255, 0.9), 0 0 30px rgba(108, 99, 255, 0.6); }
+    100% { text-shadow: 0 0 5px rgba(108, 99, 255, 0.7); }
+}
+
+@keyframes slideIn {
+    0% { transform: translateX(-20px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Applicazione delle animazioni */
+.title .game {
+    animation: fadeIn 1.2s ease forwards, glow 3s ease-in-out infinite;
+    opacity: 0;
+    animation-delay: 0.3s;
+}
+
+.title .pulse {
+    animation: fadeIn 1.2s ease forwards, glow 3s ease-in-out infinite;
+    opacity: 0;
+    animation-delay: 0.8s;
+}
+
+.subtitle {
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+    animation-delay: 1.3s;
+}
+
+.description {
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+    animation-delay: 1.8s;
+}
+
+.buttons {
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+    animation-delay: 2.3s;
+}
+
+.btn-primary, .btn-secondary {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary:after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(30deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+.btn-primary:hover:after {
+    transform: rotate(30deg) translate(10%, 10%);
+    opacity: 1;
+}
+
+/* Per garantire che le transizioni del carousel funzionino bene con le animazioni esistenti */
+.carousel-item.active .title .game {
+    animation: fadeIn 1.2s ease forwards, glow 3s ease-in-out infinite;
+    opacity: 0;
+    animation-delay: 0.3s;
+}
+
+.carousel-item.active .title .pulse {
+    animation: fadeIn 1.2s ease forwards, glow 3s ease-in-out infinite;
+    opacity: 0;
+    animation-delay: 0.8s;
+}
+
+.carousel-item.active .subtitle {
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+    animation-delay: 1.3s;
+}
+
+.carousel-item.active .description {
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+    animation-delay: 1.8s;
+}
+
+.carousel-item.active .buttons {
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+    animation-delay: 2.3s;
+}
+
+@media (max-width: 1200px) {
+    .position-left,
+    .position-center,
+    .position-right {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 768px) {
+    .position-left,
+    .position-center, 
+    .position-right {
+        max-width: 80%;
+        padding-left: 5%;
+        padding-right: 5%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    
+    .buttons {
+        justify-content: center;
+    }
+    
+    .title .game, .title .pulse {
+        font-size: 3.5rem;
+    }
+}
